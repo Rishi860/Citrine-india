@@ -4,10 +4,7 @@ body {
     color: #fff;
 }
 
-
-
 /* Announcemnt-Section */
-
 #Announcement {
     background-color: #3a3a3a;
     text-align: center;
@@ -15,10 +12,7 @@ body {
     padding-bottom: .5%;
 }
 
-
-
 /* Navigation-Section */
-
 #Navigation {
     text-align: center;
     background-color: #fff;
@@ -50,8 +44,6 @@ body {
 .nav-item:hover {
     text-decoration: underline;
 }
-
-
 
 /* Testimonial-Section */
 
