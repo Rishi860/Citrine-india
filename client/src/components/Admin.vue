@@ -9,11 +9,10 @@
         <slot>No slot content defined</slot> 
       </v-col>
       <v-col
-        cols="4"  
+        cols="2"  
       >
         <v-navigation-drawer
           v-model="drawer"
-          absolute
           permanent
           right
           :mini-variant.sync="mini"
@@ -22,11 +21,11 @@
             <v-divider></v-divider>
             <v-list-item two-line>
               <v-list-item-avatar>
-                <img src="https://randomuser.me/api/portraits/women/81.jpg">
+                <img v-bind:src="$store.state.user.imageUrl">
               </v-list-item-avatar>
 
               <v-list-item-content>
-                <v-list-item-title>Jane Smith</v-list-item-title>
+                <v-list-item-title>{{$store.state.user.name}}</v-list-item-title>
                 <v-list-item-subtitle>Logged In</v-list-item-subtitle>
               </v-list-item-content>
               <v-btn
