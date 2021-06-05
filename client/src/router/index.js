@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import SignUp from '../views/SignUp.vue'
 import Login from '../views/Login.vue'
+import ShopNow from '../views/shopnow.vue'
 import admin from "./admin"
 
 
@@ -23,6 +24,11 @@ Vue.use(VueRouter)
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/shopnow',
+    name: 'shopnow',
+    component : ShopNow
   },
   ...admin
 //   {
