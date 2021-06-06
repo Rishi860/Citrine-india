@@ -30,7 +30,11 @@ Vue.use(VueRouter)
   {
     path: '/shopnow',
     name: 'shopnow',
+<<<<<<< HEAD
     component : ShopNow
+=======
+    component : ShopNow,
+>>>>>>> 8892f70daf48cc7725c1c89945f8e30301ab8692
   },
   {
     path: '/terms',
