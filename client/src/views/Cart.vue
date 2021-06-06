@@ -16,7 +16,7 @@
           <td>{{ item.name }}</td>
           <td>{{ item.price }}</td>
           <v-container>
-            <input type="number" v-model="item.price">
+            <input type="number" v-model="item.cart.count">
           </v-container>
         </tr>
       </tbody>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import CatalogServices from '../services/catalogServices'
 export default {
   data () {
       return {
@@ -64,7 +65,10 @@ export default {
         ],
       }
     },
-
+    async mounted(){
+        const id =  this.$store.state.user._id;
+        this.products = await CatalogServices.cart(id);
+    },
     methods :{
       changequant(operator , pos){
         console.log(pos);

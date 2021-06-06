@@ -6,8 +6,7 @@ export default{
       "Content-Type": "multipart/form-data"
     }})
   },
-  login (credentials) {
-    return Api().post('login', credentials)
+  cart (id) {
+    return Api().get(`cart/${id}`)
   }
 }
-  
