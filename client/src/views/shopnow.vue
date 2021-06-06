@@ -61,6 +61,7 @@
                           color="black"
                           class="white--text"
                           block
+                          @click = "navigateTo({name:'gotocart'})"
                           >
                           Buy Now
                         </v-btn></div></div>
@@ -154,6 +155,10 @@ export default {
           x = x+1;
           field.value = x;
         }
+      },
+
+      navigateTo(route){
+        this.$router.push(route);
       }
     }
 }
@@ -251,5 +256,14 @@ export default {
       margin-bottom : 10%;
       font-size: 20px;
       font-weight: bold;
+  }
+
+  .share{
+    display: flex;
+
+  }
+
+  .sharebtn{
+    padding:10px;
   }
 </style>
