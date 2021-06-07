@@ -172,32 +172,6 @@
 </script>
 
 <style scoped>
-<<<<<<< HEAD
-.home-collection {
-  font-family: Montserrat;
-}
-.quote {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-  padding-top: 6%;
-  padding-bottom: 3%;
-}
-.collections {
-  margin-top: 100px;
-}
-.collections h2{
-  text-align: center;
-}
-.rakhiTypes {
-  margin-bottom: 15%;
-  margin-top: 15%;
-}
-.caroBlock{
-  position: relative;
-}
-</style>
-=======
   .home-collection {
     font-family: Montserrat;
   }
@@ -219,4 +193,3 @@
     margin-top: 15%;
   }
 </style>
->>>>>>> 8892f70daf48cc7725c1c89945f8e30301ab8692

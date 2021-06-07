@@ -1,9 +1,10 @@
 <template>
-  <v-simple-table class="ml-10 mt-10 ">
-    <template v-slot:default>
+<v-container>
+  <v-simple-table class="mt-10">
+    <template>
       <thead>
         <tr>
-          <th class="text-left" v-for="item in headers" :key = "item.text">
+          <th class="text-left" v-for="item in headers" :key = "item.text" id="header-row">
             {{item.text}}
           </th>
         </tr>
@@ -13,19 +14,39 @@
           v-for="item in products"
           :key="item.name"
         >
-          <td>{{ item.name }}</td>
-          <td>{{ item.price }}</td>
-          <v-container>
-            <input type="number" v-model="item.cart.count">
-          </v-container>
+          <td class="mb-3" style="height:100px;">
+            <div class="mt-3 pb-3">
+                <v-row class="mt-1">
+                  <v-card
+                    width="120"
+                    flat
+                  >
+                  <v-img
+                      :src = "item.src"
+                      aspect-ratio = 1
+                  ></v-img>
+                  </v-card>
+                  <v-card
+                    width="100"
+                    flat
+                  >
+                    <v-card-text>
+                      <p class="grey--text text--darken-3">Colour Lush</p>
+                    </v-card-text>
+                  </v-card>
+                </v-row>
+              </div>
+          </td>
+          <td style="height:100px;">{{ item.price }}</td>
         </tr>
       </tbody>
     </template>
   </v-simple-table>
+</v-container>
 </template>
 
 <script>
-import CatalogServices from '../services/catalogServices'
+// import CatalogServices from '../services/catalogServices'
 export default {
   data () {
       return {
@@ -43,43 +64,58 @@ export default {
         ],
         products: [
           {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
             name: 'Item1',
             price: 100
           },
           {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
             name : 'Item2',
             price : 200
           },
           {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
             name : 'Item3',
             price : 300
           },
           {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
             name : 'Item4',
             price : 400
           },
           {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            name : 'Item5',
+            price : 500
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            name : 'Item5',
+            price : 500
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            name : 'Item5',
+            price : 500
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            name : 'Item5',
+            price : 500
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            name : 'Item5',
+            price : 500
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
             name : 'Item5',
             price : 500
           },
         ],
       }
     },
-    async mounted(){
-        const id =  this.$store.state.user._id;
-        this.products = await CatalogServices.cart(id);
-    },
-    methods :{
-      changequant(operator , pos){
-        console.log(pos);
-        // const field = document.querySelector('#quantity-form');
-        // let x = parseInt(field[pos]);
-        // if(x === 0 && operator.char === '-') return;
-        // if(operator.char === '-') x-=1;
-        // else x+=1;
-        // field[pos].value = x;
-      }
-    }
   }
 </script>
 

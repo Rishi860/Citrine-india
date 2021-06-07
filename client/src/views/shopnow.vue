@@ -51,6 +51,7 @@
                 color="black"
                 class="white--text mt-3"
                 block
+                @click = "navigateTo({name : 'gotocart'})"
                 >
                 Buy Now
               </v-btn>
@@ -83,6 +84,13 @@ export default {
         ],
       }
     },
+
+    methods : {
+       navigateTo(route)
+       {
+         this.$router.push(route);
+       }
+    }
 }
 </script>
 
