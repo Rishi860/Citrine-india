@@ -73,7 +73,11 @@ module.exports = {
         email: userDoc.email,
         imageUrl: userDoc.imageUrl,
         role: userDoc.role,
+<<<<<<< HEAD
         _id:userDoc._id,
+=======
+        _id: userDoc._id,
+>>>>>>> 62cb7031b0a25826c654381cb3379ce3bf5d61c4
       }
 
       const token = await UserServices.createToken(userDoc._id)

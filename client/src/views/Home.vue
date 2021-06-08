@@ -1,17 +1,20 @@
 <template>
   <div class="home-collection">
     <!-- Testimolials -->
-    <v-carousel>
+    <v-carousel
+      height="700"
+    >
       <v-carousel-item
         v-for="(item,i) in items"
         :key="i"
         :src="item.src"
+        aspect-ratio="2.88"
         reverse-transition="fade-transition"
         transition="fade-transition"
       ></v-carousel-item>
     </v-carousel>
     <!-- Quote -->
-    <p class="quote">
+    <p v-scrollanimation class="quote">
       "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
     </p>
     <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
@@ -66,7 +69,7 @@
                 max-width="300"
               >
                 <v-img
-                  src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                  src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/FrontC4.jpeg"
                   height="200px"
                   class="collection-img"
                 ></v-img>
@@ -104,7 +107,7 @@
                 max-width="300"
               >
                 <v-img
-                  src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                  src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/ex.png"
                   height="200px"
                   class="collection-img"
                 ></v-img>
@@ -144,21 +147,35 @@
 </template>
 
 <script>
+
   export default {
+    
     data () {
       return {
         items: [
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            src: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+            src: 'https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg',
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+            src: 'https://citrine-india-site.s3.ap-south-1.amazonaws.com/F7.jpeg',
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            src: 'https://citrine-india-site.s3.ap-south-1.amazonaws.com/F5.jpeg',
+          },
+          {
+            src: 'https://citrine-india-site.s3.ap-south-1.amazonaws.com/F4.jpeg',
+          },
+          {
+            src: 'https://citrine-india-site.s3.ap-south-1.amazonaws.com/F3p.jpg',
+          },
+          {
+            src: 'https://citrine-india-site.s3.ap-south-1.amazonaws.com/F2.jpeg',
+          },
+          {
+            src: 'https://citrine-india-site.s3.ap-south-1.amazonaws.com/F1.jpeg',
           },
         ],
       }
@@ -192,4 +209,19 @@
     margin-bottom: 15%;
     margin-top: 15%;
   }
+<<<<<<< HEAD
 </style>
+=======
+
+  .befor-enter{
+    opacity:0;
+    transform: translateY(100px);
+    transition: all 3s ease-out;
+  }
+
+  .enter{
+    opacity:1;
+    transform: translateY(0px);
+  }
+</style>
+>>>>>>> 62cb7031b0a25826c654381cb3379ce3bf5d61c4
