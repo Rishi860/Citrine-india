@@ -45,41 +45,6 @@
               outlined
               block
               >
-<<<<<<< HEAD
-              </v-carousel-item>
-            </v-carousel>
-          </v-card>
-          <v-card
-            class="mx-auto"
-            max-width="425"
-            flat
-          >
-            <v-card-text>
-              <p class="text-h3 grey--text text--darken-3">Colour Lush</p>
-              <p class="text-h5">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut sed hic perferendis,.
-              </p>
-              <p class="text-h6">MRP : <span>Rs X</span></p>
-              <v-btn
-                elevation="2"
-                outlined
-                block
-                >
-                Add to cart
-              </v-btn>
-              <v-btn
-                elevation="2"
-                color="black"
-                class="white--text mt-3"
-                block
-                @click = "navigateTo({name : 'gotocart'})"
-                >
-                Buy Now
-              </v-btn>
-            </v-card-text>
-          </v-card>
-        </v-col>
-=======
               Add to cart
             </v-btn>
             <v-btn
@@ -104,7 +69,6 @@
             </v-btn>
           </v-card-text>
         </v-card>
->>>>>>> 62cb7031b0a25826c654381cb3379ce3bf5d61c4
       </v-row>
     </v-container>
   </div>

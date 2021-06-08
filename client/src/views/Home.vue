@@ -149,7 +149,7 @@
 <script>
 
   export default {
-    
+
     data () {
       return {
         items: [
@@ -209,9 +209,6 @@
     margin-bottom: 15%;
     margin-top: 15%;
   }
-<<<<<<< HEAD
-</style>
-=======
 
   .befor-enter{
     opacity:0;
@@ -224,4 +221,3 @@
     transform: translateY(0px);
   }
 </style>
->>>>>>> 62cb7031b0a25826c654381cb3379ce3bf5d61c4

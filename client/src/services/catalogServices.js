@@ -6,11 +6,6 @@ export default{
       "Content-Type": "multipart/form-data"
     }})
   },
-<<<<<<< HEAD
-  cart (id) {
-    return Api().get(`cart/${id}`)
-  }
-=======
   index (search, page) {
     return Api().get('admin/product', {
       params: {
@@ -19,5 +14,4 @@ export default{
       }
     })
   },
->>>>>>> 62cb7031b0a25826c654381cb3379ce3bf5d61c4
 }
