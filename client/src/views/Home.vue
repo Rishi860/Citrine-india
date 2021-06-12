@@ -14,7 +14,7 @@
       ></v-carousel-item>
     </v-carousel>
     <!-- Quote -->
-    <p v-scrollanimation class="quote">
+    <p v-scrollanimation class="quote"> 
       "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
     </p>
     <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
@@ -23,18 +23,18 @@
       <h2>OUR COLLECTION</h2>
       <v-form>
         <v-container>
-          <v-row>
+          <v-row >
             <v-col cols="12" sm="4">
               <v-card
                 class="mx-auto rakhiTypes"
                 max-width="300"
               >
-                <v-img
-                  src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-                  height="200px"
-                  class="collection-img"
-                ></v-img>
-
+                  
+                  <v-img
+                    src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                    height = "200px"
+                    class="collection-img"
+                  ></v-img>
                 <v-card-title>
                   Kids Rakhi
                 </v-card-title>
@@ -43,7 +43,7 @@
                   A wide and wonderful range of collection.
                 </v-card-subtitle>
 
-                <v-card-actions>
+                <v-card-actions> 
                   <v-btn
                     color="orange lighten-2"
                     text
@@ -152,7 +152,8 @@
 
     data () {
       return {
-        items: [
+
+items: [
           {
             src: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
           },

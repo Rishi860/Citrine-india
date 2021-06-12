@@ -8,6 +8,9 @@ import Tnc from '../views/Tnc.vue'
 import ShipNreturn from '../views/ShipNreturn.vue'
 import admin from "./admin"
 import GoToCart from '../views/Cart.vue'
+import PaySuccess from '../views/paymentsuccess.vue'
+import PayFailure from '../views/paymentfailure.vue'
+import Payment from '../views/payment.vue'
 
 Vue.use(VueRouter)
 
@@ -47,6 +50,22 @@ Vue.use(VueRouter)
     name : 'gotocart',
     component: GoToCart
   },
+  {
+    path:'/payment',
+    name : 'payment',
+    component: Payment
+  },
+  {
+    path:'/paymentsuccess',
+    name : 'paymentsuccess',
+    component: PaySuccess
+  },
+  {
+    path:'/paymentfailure',
+    name : 'paymentfailure',
+    component: PayFailure
+  },
+
   ...admin
 //   {
 //     path: '/songs/create',
