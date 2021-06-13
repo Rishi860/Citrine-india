@@ -102,10 +102,7 @@ export default {
        navigateTo(route)
        {
          this.$router.push(route);
-       },
-       isViewableNow(isVisible) {
-            this.showAnimation = isVisible;
-        }
+       }
     }
 }
 </script>

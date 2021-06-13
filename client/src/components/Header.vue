@@ -29,13 +29,67 @@
         >
           Sign Up
         </v-btn>
+
         <v-btn
           depressed flat
           color="black"
           class="white--text"
+          @click="navigateTo({
+            name: 'catalog'
+          })"
         >
-          Browse
+          Catalog
         </v-btn>
+        
+        <v-menu
+          open-on-hover
+          offset-y
+        >
+          <template v-slot:activator="{ on }">
+            <v-btn
+              depressed flat
+              color="black"
+              class="white--text"
+              v-on="on"
+            >
+              Collections
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item three-line class="drop">
+              <v-list-item-content>
+                <v-list-item-title>Kids</v-list-item-title>
+                <v-list-item-subtitle 
+                  v-for="item in admins"
+                  :key="item"
+                  v-text="item"
+                  @click="navigateTo({name:'login'})"
+                >
+                </v-list-item-subtitle>
+              </v-list-item-content>
+              <v-spacer vertical></v-spacer>
+              <v-list-item-content>
+                <v-list-item-title>Women</v-list-item-title>
+                <v-list-item-subtitle 
+                  v-for="item in cruds"
+                  :key="item"
+                  v-text="item"
+                >
+                </v-list-item-subtitle>
+              </v-list-item-content>
+              <v-spacer vertical></v-spacer>
+              <v-list-item-content>
+                <v-list-item-title>Men</v-list-item-title>
+                <v-list-item-subtitle 
+                  v-for="item in admins"
+                  :key="item"
+                  v-text="item"
+                >
+                </v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <v-btn
           v-if="$store.state.isUserLoggedin"
           depressed
@@ -104,7 +158,9 @@
         {icon:'mdi-account',title:'Profile'},
         {icon:'mdi-store',title:'Sign Up'},
         {icon:'mdi-account',title:'Sign In'},
-      ]
+      ],
+      admins: ['Management','Settings'],
+      cruds:['Create','Read','Update','Delete','mdi-delete'],
     })
   }
 </script>
@@ -128,5 +184,8 @@
 }
 .nav-items:hover {
   text-decoration: underline;
+}
+.drop:hover {
+  cursor: pointer;
 }
 </style>
