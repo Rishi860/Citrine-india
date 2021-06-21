@@ -1,13 +1,14 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/HomePage/Home.vue'
 import SignUp from '../views/SignUp.vue'
 import Login from '../views/Login.vue'
 import ShopNow from '../views/shopnow.vue'
 import Tnc from '../views/Tnc.vue'
 import ShipNreturn from '../views/ShipNreturn.vue'
-import Catalog from '../views/Catalog.vue'
+import Collections from '../views/Collections.vue'
+import CollectionsType from '../views/CollectionsType.vue'
 import ContactInfo from '../views/ContactInfo.vue'
 import admin from "./admin"
 import Cart from '../views/Cart.vue'
@@ -33,9 +34,14 @@ Vue.use(VueRouter)
     component: Login
   },
   {
-    path: '/catalog',
-    name: 'catalog',
-    component: Catalog
+    path: '/collections',
+    name: 'collections',
+    component: Collections
+  },
+  {
+    path: '/collections/:cName',
+    name: 'collectionType',
+    component: CollectionsType
   },
   {
     path: '/catalog/:pname',

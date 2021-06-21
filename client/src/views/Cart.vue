@@ -1,81 +1,167 @@
 <template>
-  <v-container>
-    <h1>Your cart</h1>
-    <v-simple-table class="mt-10">
-      <template>
-        <thead>
-          <tr>
-            <th class="text-left" v-for="item in headers" :key = "item.text" id="header-row">
-              {{item.text}}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="item in cartItems"
-            :key="item.product._id"
-          >
-            <td class="mb-3" style="height:100px;">
-              <div class="mt-3 mb-3">
-                <v-row class="mt-1">
-                  <v-card
-                    width="120"
-                    flat
+  <v-sheet
+    color= "rgba(240, 240, 242, 1)"
+  >
+    <!-- toolbar to give extra space -->
+    <v-toolbar
+      dense
+      flat
+      height="105px"
+      color="rgba(37, 24, 29, 1)"
+    ></v-toolbar>
+    <div class="text-center display-2 white--text" id="headingText">
+      <p>YOUR CART</p>
+    </div>
+    <v-container>
+      <v-row>
+        <v-col
+          md="8"
+        >
+          <v-simple-table class="mt-10 elevation-2">
+            <template>
+              <thead>
+                <tr>
+                  <th id="tableHead" class="#25181D--text" v-for="item in headers" :key="item.text">
+                    {{item.text}}
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <tr
+                  v-for="item in cartItems"
+                  :key="item.product._id"
+                >
+                  <td class="mb-3" style="height:100px;">
+                    <div class="mt-3 mb-3">
+                      <v-row class="mt-1">
+                        <v-card
+                          width="120"
+                          flat
+                          class="mb-3"
+                        >
+                          <v-img
+                            :src ="item.product.image[0]"
+                            aspect-ratio = 1
+                          ></v-img>
+                        </v-card>
+                        <v-card
+                          width="150"
+                          flat
+                          color="rgba(240, 240, 242, 1)"
+                        >
+                            <v-card-text>
+                              <p class="grey--text text--darken-3">{{ item.product.name }}</p>
+                              <v-btn
+                                  v-model = "selected"
+                                  small
+                                  color ="white"
+                                  class ="black--text"
+                                  depressed
+                                  elevation="2"
+                                  @click.prevent="removeItem(item.product)"
+                              >Delete</v-btn>
+                            </v-card-text>
+                        </v-card>
+                      </v-row>
+                    </div>
+                  </td>
+                  <td>{{ item.product.retailPrice }}</td>
+                  <td>
+                    <v-text-field
+                      rounded
+                      dense
+                      v-model="item.quantity"
+                      class="text-center "
+                      @change="quantityChange(item.product._id, item.quantity)"
+                      outlined
+                    >
+                    </v-text-field>
+                  </td>
+                  <td>{{ item.product.retailPrice*item.quantity }}</td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+        </v-col>
+        <v-col
+          md="4"
+        >
+          <v-container>
+            <v-card
+              id="totalCalc"
+              class="elevation-1 mt-10"
+              max-width="400"
+              color="rgba(240, 240, 242, 1)"
+            >
+              <v-card-title class="text-h5">Order Summary</v-card-title>
+              <v-divider></v-divider>
+              <v-card-text>
+                <v-row class="text-center">
+                  <v-col
+                    cols="6"
                   >
-                    <v-img
-                      :src ="item.product.image[0]"
-                      aspect-ratio = 1
-                    ></v-img>
-                  </v-card>
-                  <v-card
-                    width="150"
-                    flat
-                  >
-                      <v-card-text>
-                        <p class="grey--text text--darken-3">{{ item.product.name }}</p>
-                        <v-btn
-                            v-model = "selected"
-                            small
-                            color ="white"
-                            class ="black--text"
-                            depressed
-                            elevation="2"
-                            @click.prevent="removeItem(item.product)"
-                        >Delete</v-btn>
-                      </v-card-text>
-                  </v-card>
+                    Subtotal
+                  </v-col>
+                  <v-col cols="6">
+                    <v-icon>
+                      mdi-CurrencyInr
+                    </v-icon>
+                    {{ cartTotal.totalPrice }}
+                  </v-col>
                 </v-row>
-              </div>
-            </td>
-            <td>{{ item.product.retailPrice }}</td>
-            <td>
-              <v-text-field
-                v-model="item.quantity"
-                class="text-center"
-                @change="quantityChange(item.product._id, item.quantity)"
-                outlined
+                <v-row class="text-center">
+                  <v-col
+                    cols="6"
+                  >
+                    Shipping
+                  </v-col>
+                  <v-col cols="6">
+                    FREE
+                  </v-col>
+                </v-row>
+              </v-card-text>
+
+              <v-divider></v-divider>
+
+              <v-card-text>
+                <v-row class="text-center text-h5">
+                  <v-col
+                    cols="6"
+                  >
+                    Total
+                  </v-col>
+                  <v-col cols="6">
+                    {{ cartTotal.totalPrice }}
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-card>
+            <v-btn
+              elevation="2"
+              color="#FB9012"
+              block
+              x-large
+              class="white--text mt-3"
+              @click="navigateTo({
+                name:'contactInfo',
+                params:{
+                  name: $store.state.user.name
+                }
+              })"
               >
-              </v-text-field>
-            </td>
-            <td>{{ item.product.retailPrice*item.quantity }}</td>
-          </tr>
-        </tbody>
-      </template>
-    </v-simple-table>
-    <v-btn
-      elevation="2"
-      color="black"
-      class="white--text mt-3"
-      @click="navigateTo({
-        name:'contactInfo',
-        params:{
-          name: $store.state.user.name
-        }
-      })"
-      >
-      Buy Now
-    </v-btn>
-  </v-container>
+              Buy Now
+            </v-btn>
+            <a>
+              <v-icon>
+                mdi-chevron-left
+              </v-icon>
+              Continue Shopping
+            </a>
+          </v-container>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-sheet>
 </template>
 
 <script>
@@ -116,13 +202,42 @@ export default {
   computed: {
     cartItems: function () {
       return this.$store.state.cart
+    },
+    cartTotal: function () {
+      return this.$store.getters.cartTotal
     }
   }
 }
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+#headingText{
+  background-color:rgba(37, 24, 29, 1);
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight : 500 !important;
+  height: 72px;
+}
+#tableHead{
+  background-color: rgba(240, 240, 242, 1);
+  color: #25181D;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 21px;
+}
+#tableBody{
+  background-color: rgba(240, 240, 242, 1);
+  color: #25181D;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+}
 .v-text-field{
-  width: 50px;
+  width: 125px;
+  margin-top: 22px;
+}
+#totalCalc{
+  font-family: 'Montserrat', sans-serif;
+}
+.v-btn{
+  font-family: 'Montserrat', sans-serif;
 }
 </style>

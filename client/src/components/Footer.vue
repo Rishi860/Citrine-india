@@ -1,42 +1,50 @@
 <template>
-  <v-footer
-    color="#3a3a3a"
-    padless
-    class="footer"
+  <v-sheet
+    color="rgba(240, 240, 242, 1)"
   >
-    <v-row
-      justify="center"
-      no-gutters
+    <v-footer
+      padless
+      class="footer"
     >
-      <v-btn
-        v-for="(key,k) in keys"
-        :key="k"
-        color="white"
-        text
-        class="my-2"
-        @click="navigateTo({name:`${key.link}`})"
-      >
-        {{ key.name }}
-      </v-btn>
-      <v-btn
-        v-for="(icon,i) in icons"
-        :key="i"
-        color="white"
-        text
-        class="my-2"
-      >
-        <v-icon size="24px">
-            {{ icon }}
-        </v-icon>
-      </v-btn>
-      <v-col
-        class="#3a3a3a py-4 text-center white--text copyright"
-        cols="12"
-      >
-        {{ new Date().getFullYear() }} — <strong> @Citrine-India made by Rishi and Shivam.</strong>
-      </v-col>
-    </v-row>
-  </v-footer>
+      <v-container>
+        <h1 class="display-3 text-center mb-10 pt-10" id="heading">Citrine</h1>
+        <div class="caption grey--text text-center"><p class="pt-10 mb-10">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro distinctio, sequi illum voluptas veniam alias exercitationem numquam quo, quos sed vitae dolorum consectetur reprehenderit architecto. Odit sunt facilis cum atque?</p></div>
+        <v-row
+          justify="center"
+          no-gutters
+        >
+          <v-btn
+            v-for="(key,k) in keys"
+            :key="k"
+            text
+            class="my-2 font-weight-bold"
+            @click="navigateTo({name:`${key.link}`})"
+          >
+            {{ key.name }}
+          </v-btn>
+        </v-row>
+        <v-row justify="center">
+          <v-btn
+            v-for="(icon,i) in icons"
+            :key="i"
+            color="black"
+            text
+            class="my-2"
+          >
+            <v-icon size="24px">
+                {{ icon }}
+            </v-icon>
+          </v-btn>
+          <v-col
+            class="#3a3a3a py-4 text-center white--text copyright"
+            cols="12"
+          >
+            {{ new Date().getFullYear() }} — <strong> @Citrine-India made by Rishi and Shivam.</strong>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-footer>
+  </v-sheet>
 </template>
 
 
@@ -72,5 +80,8 @@ export default {
 }
 .copyright {
   font-size: .75rem;
+}
+#heading {
+  font-family: 'Cormorant Garamond', serif !important;
 }
 </style>

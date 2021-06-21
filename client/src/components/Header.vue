@@ -1,143 +1,73 @@
 <template>
-  <nav>
-    <v-toolbar
-      color="black"
-      dark
-      fixed
-      app
-    >
-      <v-toolbar-title 
-          class="white--text logo" 
-          @click="navigateTo({name:'home'})" 
-        >
-        CITRINE-INDIA
-      </v-toolbar-title>
+  <div>
+    <v-app-bar app flat hide-on-scroll height="105px">
+      <v-toolbar-title  id="title" @click="navigateTo({name:'home'})" >Citrine-India</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items
+      <v-btn
+        plain
         class="d-none d-sm-flex"
+        id="title-btn"
       >
-        <v-btn
-          
-          v-if="!$store.state.isUserLoggedin"
-          depressed 
-          color="black"
-          class="white--text"
-          @click="navigateTo({
-            name: 'signUp'
-          })"
+        Trends
+      </v-btn>
+      <v-btn
+        id="title-btn"
+        class="d-none d-sm-flex"
+        plain
+        depressed
+        @click="navigateTo({
+          name: 'collections'
+        })"
+      >
+        Collections
+      </v-btn>
+      <v-btn
+        id="title-btn"
+        plain
+        class="d-none d-sm-flex"
+        depressed
+      >
+        Jewelery
+      </v-btn>
+      <v-text-field
+        rounded
+        class="mt-7 d-none d-sm-flex"
+        prepend-inner-icon="mdi-magnify"
+        filled
+      ></v-text-field>
+      <v-tab
+        v-if="$store.state.isUserLoggedin"
+        @click="navigateTo({
+          name:'cart',
+          params:{
+            user:$store.state.user.name
+          }
+        })"
+      >
+        <v-badge
+          color="#25181D"
+          :content="cartBadge"
         >
-          Sign Up
-        </v-btn>
-
-        <v-btn
-          depressed 
-          color="black"
-          class="white--text"
-          @click="navigateTo({
-            name: 'catalog'
-          })"
-        >
-          Catalog
-        </v-btn>
-        
-        <v-tab
-          v-if="$store.state.isUserLoggedin"
-          @click="navigateTo({
-            name:'cart',
-            params:{
-              user:$store.state.user.name
-            }
-          })"
-        >
-          <v-badge
-            color="black"
-            :content="cartBadge"
-          >
-            <v-icon dark>
-              mdi-cart
-            </v-icon>
-          </v-badge>
-        </v-tab>
-        
-        <v-menu
-          open-on-hover
-          offset-y
-        >
-          <template v-slot:activator="{ on }">
-            <v-btn
-              depressed
-              color="black"
-              class="white--text"
-              v-on="on"
-            >
-              Collections
-            </v-btn>
-          </template>
-          <v-list>
-            <v-list-item three-line class="drop">
-              <v-list-item-content>
-                <v-list-item-title>Kids</v-list-item-title>
-                <v-list-item-subtitle 
-                  v-for="item in admins"
-                  :key="item"
-                  v-text="item"
-                  @click="navigateTo({name:'login'})"
-                >
-                </v-list-item-subtitle>
-              </v-list-item-content>
-              <v-spacer vertical></v-spacer>
-              <v-list-item-content>
-                <v-list-item-title>Women</v-list-item-title>
-                <v-list-item-subtitle 
-                  v-for="item in cruds"
-                  :key="item"
-                  v-text="item"
-                >
-                </v-list-item-subtitle>
-              </v-list-item-content>
-              <v-spacer vertical></v-spacer>
-              <v-list-item-content>
-                <v-list-item-title>Men</v-list-item-title>
-                <v-list-item-subtitle 
-                  v-for="item in admins"
-                  :key="item"
-                  v-text="item"
-                >
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-        <v-btn
-          v-if="$store.state.isUserLoggedin"
-          depressed
-          color="black"
-          @click="logout()"
-        >
-          Log Out 
-        </v-btn>
-        <v-btn
-          v-if="!$store.state.isUserLoggedin"
-          depressed
-          color="black"
-          @click="navigateTo({name:'login'})"
-        >
-          Login
-        </v-btn>
-        <v-btn
+          <v-icon>
+            mdi-cart
+          </v-icon>
+        </v-badge>
+      </v-tab>
+      <v-btn
           v-if="$store.state.isAdmin"
+          id="title-btn"
+          plain
+          class="d-none d-sm-flex"
           depressed
-          color="black"
           @click="navigateTo({name:'adminHome'})"
         >
           Admin
         </v-btn>
-      </v-toolbar-items>
       <v-app-bar-nav-icon
         @click="sideNav = !sideNav"
         class="d-flex d-sm-none"
       ></v-app-bar-nav-icon>
-    </v-toolbar>
+    </v-app-bar>
     <v-navigation-drawer v-model="sideNav" app class="d-lg-none d-xl-flex" right>
       <v-list>
         <v-list-item-group>
@@ -154,7 +84,7 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-  </nav>
+  </div>
 </template>
 
 <script>
@@ -201,7 +131,26 @@
 
 
 <style scoped>
-.header{
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
+  #title {
+    font-family: 'Cormorant Garamond', serif;
+    color: #25181D;
+    font-size: 52px;
+    letter-spacing: -.08em;
+  }
+  #title:hover{
+    cursor: pointer;
+  }
+  #title-btn {
+    font-family: 'Cormorant Garamond', serif;
+    color: #25181D;
+    font-size: 20px;
+  }
+  .v-text-field{
+    width: 10px;
+  }
+/* .header{
   font-family: Montserrat;
   margin-bottom: 2%;
   margin-left: 3%;
@@ -219,5 +168,5 @@
 }
 .drop:hover {
   cursor: pointer;
-}
+} */
 </style>

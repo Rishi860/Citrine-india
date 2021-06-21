@@ -51,3 +51,35 @@ exports.addProduct = function (data) {
     })
   }
 }
+
+exports.indexPaginated = async function (req, res) {
+  try {
+    const query = req.query.search
+    const page = req.query.page
+    let searchObject = {};
+
+    if (query) {
+      const re = new RegExp(`${query}.*`, "i");
+      re.ignoreCase = true;
+      searchObject = {
+        $or: [{ name: re }],
+      };
+    }
+
+    let pData = await Collection.paginate(searchObject, {
+      page,
+      limit: 16,
+    });
+    let docs = pData.docs.map(item => {
+      let doc = {
+        name: item.name,
+        image: item.image
+      }
+      return doc
+    })
+    pData.docs = docs
+    res.json({ success: true, data: pData })
+  } catch (error) {
+    return res.status(401).json({ success: false, message: `${error}` });
+  }
+}

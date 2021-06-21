@@ -39,4 +39,5 @@ module.exports = (app) => {
     app.post('/paymentResponse', PaymentControllers.response)
 
     app.get('/collection/all', CollectionControllers.all)
+    app.get('/collections', CollectionControllers.indexPaginated)
 }
