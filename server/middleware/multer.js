@@ -2,6 +2,8 @@ require('dotenv').config();
 const multer = require('multer')
 const path = require('path')
 const fs = require('fs')
+const util = require('util')
+const unlinkFile = util.promisify(fs.unlink)
 const S3 = require('aws-sdk/clients/s3')
 
 const s3 = new S3({
@@ -21,10 +23,9 @@ function uploadFile(files) {
       Body: fileStream,
       Key: file.filename
     }
-
     resultArray.push(s3.upload(uploadParams).promise())
-    fs.unlinkSync(file.path); // Empty uplaod folder
-    // console.log('single', result)
+    unlinkFile(file.path); // Empty uplaod folder
+    console.log('path', file.path)
     
   })
   return Promise.all(resultArray).then(end => {

@@ -1,5 +1,12 @@
 <template>
   <v-container>
+    <!-- toolbar to give extra space -->
+    <v-toolbar
+      dense
+      flat
+      height="105px"
+      color="rgba(37, 24, 29, 1)"
+    ></v-toolbar>
     <v-text-field
       v-model="name"
       :error-messages="nameErrors"

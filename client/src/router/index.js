@@ -13,7 +13,9 @@ import ContactInfo from '../views/ContactInfo.vue'
 import admin from "./admin"
 import Cart from '../views/Cart.vue'
 import Checkout from '../views/Checkout.vue'
-import PayResponse from '../views/paymentResponse' 
+import PayResponse from '../views/paymentResponse'
+import Dashboard from '../views/user/Dashboard.vue'
+import PreviousOrders from '../views/user/PreviousOrders.vue'
 
 Vue.use(VueRouter)
 
@@ -77,6 +79,16 @@ Vue.use(VueRouter)
     path:'/paymentResponse',
     name : 'payResponse',
     component: PayResponse
+  },
+  {
+    path:'/dashboard',
+    name : 'dashboard',
+    component: Dashboard
+  },
+  {
+    path:'/previousorders',
+    name : 'previousorders',
+    component: PreviousOrders
   },
 
   ...admin

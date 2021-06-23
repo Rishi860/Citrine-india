@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-center">
-      <h1>Jewellery</h1>
+      <h1>Influencers</h1>
       <v-divider inset></v-divider>
     </div>
     <v-container>

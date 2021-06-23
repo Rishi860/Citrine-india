@@ -7,7 +7,6 @@
         hide-on-scroll
         scroll-target="#scrolling-techniques-7"
       >
-        
         <v-btn
           color="white"
           depressed flat
@@ -19,6 +18,18 @@
             flat
           </v-icon>
           Create
+        </v-btn>
+        <v-btn
+          color="white"
+          depressed flat
+          class="black--text"
+          @click="navigateTo({name:'newcollection'})"
+        >
+          <v-icon left>
+            mdi-pencil
+            flat
+          </v-icon>
+          New Collection
         </v-btn>
 
         <v-spacer></v-spacer>

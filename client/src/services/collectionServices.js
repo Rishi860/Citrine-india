@@ -12,4 +12,9 @@ export default{
       }
     })
   },
+  newCollection (credentials) {
+    return Api().post('admin/create/newcollection', credentials, { headers: {
+      "Content-Type": "multipart/form-data"
+    }})
+  },
 }

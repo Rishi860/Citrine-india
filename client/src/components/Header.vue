@@ -3,13 +3,54 @@
     <v-app-bar app flat hide-on-scroll height="105px">
       <v-toolbar-title  id="title" @click="navigateTo({name:'home'})" >Citrine-India</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        plain
-        class="d-none d-sm-flex"
-        id="title-btn"
-      >
-        Trends
-      </v-btn>
+      <v-menu
+        open-on-hover
+        bottom
+        offset-y
+        transition="scale-transition"
+        max-width ="704px" 
+        max-height="536px" 
+      >   
+        <template v-slot:activator="{ on }">
+          <v-btn
+            plain
+            class="d-none d-sm-flex"
+            id="title-btn"
+            v-on="on"
+          >
+            Trends
+          </v-btn>
+        </template>
+        <v-list 
+          color="rgba(37, 24, 29, 1)"
+        >
+          <v-container
+            v-for="(item,i) in admins"
+            :key="i"
+          >
+            <v-row>
+              <v-col
+                md="6"
+              >
+                <v-card
+                  color="rgba(37, 24, 29, 1)"
+                >
+                  <v-img :src="item" id="list-element" class="rounded-lg "  width="288px" height="88px"></v-img>
+                </v-card>
+              </v-col>
+              <v-col
+                md="6"
+              >
+                <v-card
+                  color="rgba(37, 24, 29, 1)"
+                >
+                  <v-img :src="item" id="list-element" class="rounded-lg "  width="288px" height="88px"></v-img>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-list>
+      </v-menu>
       <v-btn
         id="title-btn"
         class="d-none d-sm-flex"
@@ -53,16 +94,45 @@
           </v-icon>
         </v-badge>
       </v-tab>
+      <v-tab
+        @click="redirect"
+      >
+        <v-icon>
+          mdi-account
+        </v-icon>
+      </v-tab>
       <v-btn
-          v-if="$store.state.isAdmin"
-          id="title-btn"
-          plain
-          class="d-none d-sm-flex"
-          depressed
-          @click="navigateTo({name:'adminHome'})"
-        >
-          Admin
-        </v-btn>
+        v-if="$store.state.isAdmin"
+        id="title-btn"
+        plain
+        class="d-none d-sm-flex"
+        depressed
+        @click="navigateTo({name:'adminHome'})"
+      >
+        Admin
+      </v-btn>
+      <v-btn
+        v-if="!$store.state.isUserLoggedin"
+        id="title-btn"
+        plain
+        class="d-none d-sm-flex"
+        depressed
+        @click="navigateTo({
+          name:'login'
+        })"
+      >
+        LogIn
+      </v-btn>
+      <v-btn
+        v-if="$store.state.isUserLoggedin"
+        id="title-btn"
+        plain
+        class="d-none d-sm-flex"
+        depressed
+        @click="logout"
+      >
+        LogOut
+      </v-btn>
       <v-app-bar-nav-icon
         @click="sideNav = !sideNav"
         class="d-flex d-sm-none"
@@ -97,6 +167,11 @@
       logout(){
         this.$store.dispatch('logout')
         this.$router.push({name:'home'})
+      },
+      redirect() {
+        if (this.$store.state.isUserLoggedin) {
+          this.navigateTo({name:'dashboard'})
+        }
       }
     },
     data: () => ({
@@ -108,7 +183,12 @@
         {icon:'mdi-store',title:'Sign Up'},
         {icon:'mdi-account',title:'Sign In'},
       ],
-      admins: ['Management','Settings'],
+       admins: [
+        'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
+        'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
+        'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
+        'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
+      ],
       cruds:['Create','Read','Update','Delete','mdi-delete'],
     }),
     watch: {

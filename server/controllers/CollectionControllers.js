@@ -1,4 +1,5 @@
 const Collection = require('../models/collections')
+const { uploadFile, deleteFile } = require('../middleware/multer');
 // const UserControllers = require('./UserControllers')
 
 exports.all = async function (req, res) {
@@ -79,6 +80,21 @@ exports.indexPaginated = async function (req, res) {
     })
     pData.docs = docs
     res.json({ success: true, data: pData })
+  } catch (error) {
+    return res.status(401).json({ success: false, message: `${error}` });
+  }
+}
+
+exports.newCollection = async function (req, res) {
+  try {
+    const files = req.files;
+    let data = JSON.parse(JSON.stringify(req.body))// find another way
+    const result = await uploadFile(files)
+    console.log(result)
+    data.image = result[0]
+    console.log(data)
+    await Collection.create(data)
+    res.json({ success: true })
   } catch (error) {
     return res.status(401).json({ success: false, message: `${error}` });
   }

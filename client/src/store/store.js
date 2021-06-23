@@ -121,8 +121,8 @@ export default new Vuex.Store({
         contactInfo: state => {
             return state.contactInfo;
         },
-        screenSize: () => {
-            return Vue.prototype.$vuetify.breakpoint.name;
-        }
+        getUser: state => {
+            return state.user;
+        },
     }
 })

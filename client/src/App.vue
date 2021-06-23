@@ -29,7 +29,9 @@ export default {
   async mounted () {
     if (this.$store.state.isUserLoggedin){
       let cartActive = (await CartServices.isActive(this.$store.state.user._id)).data
+      console.log(cartActive.active)
       if (!cartActive.active) {
+        console.log('in here')
         this.$store.dispatch('setCart', [])
       }
     }

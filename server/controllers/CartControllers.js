@@ -89,11 +89,13 @@ exports.isActive = async function (req, res) {
   try {
     let doc = await Cart.find({customer: req.params.id});
     let activeCart = false;
+    console.log(doc)
     doc.forEach(item => {
       if (item.active) {
         activeCart = true
       }
     })
+    console.log(activeCart)
     res.send({active: activeCart})
   } catch (error) {
     console.log(error)

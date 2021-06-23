@@ -1,5 +1,6 @@
 const User = require('../models/Users')
 const GoogleAuth = require("../controllers/GoogleAuth");
+const TransactionControllers = require('../controllers/TransactionControllers');
 
 module.exports = {
   async register (req, res) {
@@ -83,16 +84,18 @@ module.exports = {
       })
     }
   },
-  // async addCart (payload) {
-  //   try {
-  //     const id_token = Object.keys(JSON.parse(JSON.stringify(req.body)))[0];
-  //     // const id_token = req.body;
-  //     const data = await GoogleAuth.register(id_token);
-  //     res.send(data)
-  //   } catch (err) {
-  //     res.status(400).send({
-  //       error: 'Server error! Kindly retry after some time.'
-  //     })
-  //   }
-  // },
+  async previousOrders (req, res) {
+    try {
+      const { previousPurchase } = await User.findOne({_id: req.params.id});
+      console.log('pp',previousPurchase)
+      let doc = await TransactionControllers.previousOrders(previousPurchase)
+      console.log('doc',doc)
+      // const id_token = req.body;
+      res.send(doc)
+    } catch (err) {
+      res.status(400).send({
+        error: 'Server error! Kindly retry after some time.'
+      })
+    }
+  },
 }

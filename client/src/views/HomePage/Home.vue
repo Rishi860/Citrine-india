@@ -10,8 +10,11 @@
     </p>
     <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
     <!-- Collection-starts -->
-    <div id="collections" class="mt-6">
-      <collection></collection>
+    <div id="jewlery" class="mt-6">
+      <jewlery></jewlery>
+    </div>
+    <div id="collections">
+      <collections-vue></collections-vue>
     </div>
     <div id="influencers">
       <influencers></influencers>
@@ -21,8 +24,9 @@
 
 <script>
 import Influencers from './Influencers.vue'
-import Collection from './Collection.vue'
+import Jewlery from './Jewlery.vue'
 import HomeCarousel from './Carousel.vue'
+import CollectionsVue from './Collections.vue'
 
   export default {
 
@@ -60,8 +64,9 @@ import HomeCarousel from './Carousel.vue'
     },
     components:{
       Influencers,
-      Collection,
-      HomeCarousel
+      Jewlery,
+      HomeCarousel,
+      CollectionsVue
     }
   }
 </script>

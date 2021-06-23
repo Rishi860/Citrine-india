@@ -10,6 +10,8 @@ module.exports = (app) => {
     UserControllers.register)
     app.post('/login',
     UserControllers.login)
+    app.get('/dashboard/previousorders/:id',
+    UserControllers.previousOrders)
     // app.get('/login/:id',
     // UserControllers.getCart)
 
@@ -40,4 +42,5 @@ module.exports = (app) => {
 
     app.get('/collection/all', CollectionControllers.all)
     app.get('/collections', CollectionControllers.indexPaginated)
+    app.post('/admin/create/newcollection', store.array('imageFiles', 12), CollectionControllers.newCollection)
 }

@@ -6,6 +6,7 @@ import AdminCatalog from '../views/admin/Catalog/AdminCatalog.vue'
 import AdminCreate from '../views/admin/Catalog/AdminCreate.vue'
 import AdminCatalogEdit from '../views/admin/Catalog/Edit.vue'
 import ViewUser from '../views/admin/Users/ViewUser.vue'
+import NewCollection from '../views/admin/Catalog/NewCollection.vue'
 
 export default [
   {
@@ -29,6 +30,11 @@ export default [
     path: '/admin/catalog/create',
     name: 'adminCreate',
     component: AdminCreate,
+  },
+  {
+    path: '/admin/create/newcollection',
+    name: 'newcollection',
+    component: NewCollection,
   },
   {
     path: '/admin/users/:userId',
