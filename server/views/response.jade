@@ -42,7 +42,7 @@ section#Navigation
 section#main
   .text-center
     .card.text-center.mx-auto.border.border-light(style='width: 30rem;height:32rem;')
-      if Verified 
+      if (Verified === "Yes")
         i.mt-5.mb-5.card-img-top.text-success.fa.fa-check-circle.fa-10x(aria-hidden="true")
         .card-body
           h1.card-title.text-success.mt-5.mb-5 Payment Successful

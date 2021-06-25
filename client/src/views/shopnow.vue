@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <v-sheet
+    color="rgba(240, 240, 242, 1)"
+  >
     <v-container>
       <h2  class="text-center mt-4 mb-4">Title</h2>
       <v-divider></v-divider>
@@ -7,11 +9,13 @@
     <v-container class="mt-12">
       <v-row class="mt-2">
         <v-card
+          color="rgba(240, 240, 242, 1)"
           class="mx-auto"
           width="450"
           flat
         >
           <v-carousel
+            id="radi"
             :continuous="false"
             :cycle="cycle"
             :show-arrows="false"
@@ -26,54 +30,68 @@
               :src="src"
               contain
             >
+              <!-- <v-app-bar
+                flat
+                color="rgba(0, 0, 0, 0)"
+              >
+
+                <v-spacer></v-spacer>
+
+                <v-btn
+                  class="mr-16"
+                  fab
+                  dark
+                  small
+                  color="#25181D"
+                >
+                  <v-icon dark>
+                    mdi-share-variant
+                  </v-icon>
+                </v-btn>
+              </v-app-bar> -->
             </v-carousel-item>
           </v-carousel>
         </v-card>
         <v-card
           class="mx-auto"
+          color="rgba(240, 240, 242, 1)"
           width="450"
           flat
         >
-          <v-card-text>
+          <v-card-text color="#25181D">
             <p class="text-h3 grey--text text--darken-3">{{ displayProduct.name }}</p>
             <p class="text-h5">
               {{ displayProduct.description }}
             </p>
-            <p class="text-h6">MRP : <span>Rs {{ displayProduct.retailPrice }}</span></p>
+            <p class="text-h6">
+              MRP : Rs 
+              <span v-if="$store.state.user.role === 'wholesaler'">{{ displayProduct.wholesalePrice }}</span>
+              <span v-else>{{ displayProduct.retailPrice }}</span>
+            </p>
             <v-btn
               elevation="2"
               outlined
               block
+              rounded
               @click="addToCart(displayProduct)"
               >
               Add to cart
             </v-btn>
             <v-btn
               elevation="2"
-              color="black"
-              class="white--text mt-3"
+              color="#FB9012"
+              class="mt-3 white--text"
+              rounded
               block
               @click="buynow(displayProduct)"
               >
               Buy Now
             </v-btn>
-            <v-btn
-              color="white"
-              class="black--text mt-3 mr-3"
-              >
-              Share
-            </v-btn>
-            <v-btn
-              color="white"
-              class="black--text mt-3"
-              >
-              Share
-            </v-btn>
           </v-card-text>
         </v-card>
       </v-row>
     </v-container>
-  </div>
+  </v-sheet>
 </template>
 
 <script>
@@ -136,9 +154,13 @@ export default {
   async mounted () {
     const pname = this.$route.params.pname
     this.displayProduct = (await CatalogServices.productAndRelated(pname)).data
+    console.log(this.displayProduct)
   }
 }
 </script>
 
 <style scoped>
+#radi{
+  border-radius: 4px;
+}
 </style>

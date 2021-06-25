@@ -111,10 +111,19 @@ export default new Vuex.Store({
             let totalPrice = 0;
             let totalQuantity = 0;
 
-            state.cart.forEach(item => {
-                totalPrice += item.product.retailPrice * item.quantity;
-                totalQuantity += item.quantity
-            })
+            if ( state.user.role === 'customer') {
+                state.cart.forEach(item => {
+                    totalPrice += item.product.retailPrice * item.quantity;
+                    totalQuantity += item.quantity
+                })
+            }
+
+            if ( state.user.role === 'wholesaler') {
+                state.cart.forEach(item => {
+                    totalPrice += item.product.wholesalePrice * item.quantity;
+                    totalQuantity += item.quantity
+                })
+            }
 
             return {totalPrice, totalQuantity}
         },

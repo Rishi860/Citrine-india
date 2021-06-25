@@ -19,7 +19,7 @@
         >
           <form
             id="payment-form"
-            action="https://secure.payu.in/_payment"
+            action="https://test.payu.in/_payment"
             method="post"
           >
             <v-container>
@@ -285,7 +285,8 @@
                       </v-row>
                     </div>
                   </td>
-                  <td>{{ item.product.retailPrice }} x {{ item.quantity }}</td>
+                  <td v-if="$store.state.user.role === 'wholesaler'">{{ item.product.wholesalePrice }} x {{ item.quantity }}</td>
+                  <td v-else>{{ item.product.retailPrice }} x {{ item.quantity }}</td>
                 </tr>
               </tbody>
             </template>

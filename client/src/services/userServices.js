@@ -15,6 +15,9 @@ export default{
   },
   previousOrders (id) {
     return Api().get(`dashboard/previousorders/${id}`)
+  },
+  changeRole (id, role) {
+    return Api().post('admin/user/changerole', {id, role})
   }
 }
 

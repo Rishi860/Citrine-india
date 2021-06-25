@@ -86,7 +86,7 @@ Vue.use(VueRouter)
     component: Dashboard
   },
   {
-    path:'/previousorders',
+    path:'/dashboard/previousorders',
     name : 'previousorders',
     component: PreviousOrders
   },

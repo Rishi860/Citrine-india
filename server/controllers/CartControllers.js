@@ -80,6 +80,11 @@ exports.setActiveFalse = async function (udf5) {
     let doc = await Cart.findOne({_id: udf5})
     doc.active = false
     await doc.save();
+    await Cart.create({
+      customer: doc.customer,
+      active: true,
+      cart: []
+    })
   } catch (error) {
     console.log(error)
   }

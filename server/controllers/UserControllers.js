@@ -75,6 +75,7 @@ module.exports = {
   },
   async setTransaction (id, email) {
     try {
+      console.log('in setTransaction')
       let user = await User.findOne({email})
       user.previousPurchase.push(id)
       await user.save();
@@ -87,10 +88,7 @@ module.exports = {
   async previousOrders (req, res) {
     try {
       const { previousPurchase } = await User.findOne({_id: req.params.id});
-      console.log('pp',previousPurchase)
       let doc = await TransactionControllers.previousOrders(previousPurchase)
-      console.log('doc',doc)
-      // const id_token = req.body;
       res.send(doc)
     } catch (err) {
       res.status(400).send({
@@ -98,4 +96,15 @@ module.exports = {
       })
     }
   },
+  async changeRole (req, res) {
+    try {
+      let doc = await User.findOne({_id: req.body.id})
+      doc.role = req.body.role
+      await doc.save();
+    } catch (error) {
+      res.status(400).send({
+        error: 'Server error! Kindly retry after some time.'
+      })
+    }
+  }
 }

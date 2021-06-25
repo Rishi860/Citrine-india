@@ -65,7 +65,8 @@
                       </v-row>
                     </div>
                   </td>
-                  <td>{{ item.product.retailPrice }}</td>
+                  <td v-if="$store.state.user.role === 'wholesaler'">{{ item.product.wholesalePrice }}</td>
+                  <td v-else>{{ item.product.retailPrice }}</td>
                   <td>
                     <v-text-field
                       rounded
@@ -77,7 +78,8 @@
                     >
                     </v-text-field>
                   </td>
-                  <td>{{ item.product.retailPrice*item.quantity }}</td>
+                  <td v-if="$store.state.user.role === 'wholesaler'">{{ item.product.wholesalePrice*item.quantity }}</td>
+                  <td v-else>{{ item.product.retailPrice*item.quantity }}</td>
                 </tr>
               </tbody>
             </template>

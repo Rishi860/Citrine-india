@@ -13,17 +13,24 @@
       <p>MY ACCOUNT</p>
     </div>
     <v-container>
+      <a>
+        <v-icon>
+          mdi-chevron-left
+        </v-icon>
+        Continue Shopping
+      </a>
       <v-row>
         <v-col
           md="4"
         >
           <v-card
+            id="card"
             class="elevation-1 mt-10"
             max-width="400"
             color="rgba(240, 240, 242, 1)"
           >
             <v-card-title class="text-h5">My Profile</v-card-title>
-            <v-divider></v-divider>
+            <v-divider id="divider"></v-divider>
             <v-card-text>
               <p class="text-h6 text--primary">
                 {{ user.name }}
@@ -31,9 +38,9 @@
               <p class="text-h6 text--primary">
                 {{ user.email }}
               </p>
-              <v-expansion-panels flat>
+              <v-expansion-panels id="bg" flat>
                 <v-expansion-panel>
-                  <v-expansion-panel-header>
+                  <v-expansion-panel-header class="text-h6 text--primary">
                     Contact
                   </v-expansion-panel-header>
                   <v-expansion-panel-content v-if="contactInfo">
@@ -44,7 +51,7 @@
                   </v-expansion-panel-content>
                 </v-expansion-panel>
                 <v-expansion-panel>
-                  <v-expansion-panel-header>
+                  <v-expansion-panel-header class="text-h6 text--primary">
                     Address
                   </v-expansion-panel-header>
                   <v-expansion-panel-content v-if="contactInfo">
@@ -61,12 +68,13 @@
             </v-card-text>
           </v-card>
           <v-card
+            id="card"
             class="elevation-1 mt-10"
             max-width="400"
             color="rgba(240, 240, 242, 1)"
           >
             <v-card-title class="text-h5">My Orders</v-card-title>
-            <v-divider></v-divider>
+            <v-divider id="divider"></v-divider>
             <v-card-actions>
               <v-row>
                 <v-col>
@@ -93,24 +101,32 @@
                       mdi-chevron-right
                     </v-icon>
                   </v-btn>
-                  <v-btn
-                    depressed
-                    color="rgba(240, 240, 242, 1)"
-                    block
-                    left
-                  >
-                    My Cart
-                    <v-icon right>
-                      mdi-chevron-right
-                    </v-icon>
-                  </v-btn>
                 </v-col>
               </v-row>
             </v-card-actions>
           </v-card>
+          <v-btn
+            class="mt-2 white--text"
+            color="#FB9012"
+            @click="logout"
+          >
+            <v-icon id="icon">
+              mdi-export
+            </v-icon>
+            Log Out
+          </v-btn>
+          <v-btn
+            v-if="$store.state.isAdmin"
+            outlined
+            color="#FB9012"
+            class="mt-2 ml-2"
+            @click="navigateTo({name: 'adminHome'})"
+          >
+            Admin
+          </v-btn>
         </v-col>
         <v-col md="8">
-          <slot> No Slot Content Defined</slot>
+          <slot></slot>
         </v-col>
       </v-row>
     </v-container>
@@ -131,7 +147,11 @@ export default {
   methods:{
     navigateTo(route){
       this.$router.push(route)
-    }
+    },
+    logout(){
+      this.$store.dispatch('logout')
+      this.$router.push({name:'home'})
+    },
   }
 }
 </script>
@@ -145,6 +165,19 @@ export default {
 }
 .v-expansion-panel{
   color: rgba(240, 240, 242, 1);
+}
+#card{
+  border: 1px solid #FB9012 !important;
+}
+#divider{
+  border-color: #FB9012 !important;
+}
+#bg{
+  background-color: rgba(240, 240, 242, 1);
+}
+#icon{
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 </style>
 

@@ -21,7 +21,9 @@
           <v-text-field  
             outlined
             dense
+            v-model="user.name"
             id="text-field-border"
+            readonly
           ></v-text-field>
         </v-col>
         <v-col
@@ -32,6 +34,7 @@
             v-model="contactInfo.phone"
             outlined
             dense
+            required
           ></v-text-field>
         </v-col>
       </v-row>
@@ -44,6 +47,7 @@
             v-model="contactInfo.address1"
             outlined
             dense
+            required
           ></v-text-field>
         </v-col>
       </v-row>
@@ -68,6 +72,7 @@
             v-model="contactInfo.city"  
             outlined
             dense
+            required
             id="text-field-border"
           ></v-text-field>
         </v-col>
@@ -78,6 +83,7 @@
           <v-text-field
             v-model="contactInfo.state"
             outlined
+            required
             dense
           ></v-text-field>
         </v-col>
@@ -90,6 +96,7 @@
           <v-text-field
             v-model="contactInfo.pinCode"
             outlined
+            required
             dense
           ></v-text-field>
         </v-col>
@@ -123,6 +130,7 @@ export default {
   }),
   methods: {
     checkout () {
+      console.log(this.user.name, 'asf')
       this.$store.dispatch('addContactInfo', this.contactInfo)
       this.$router.push({
         name:'checkout',
@@ -130,6 +138,11 @@ export default {
           name: this.$store.state.user.name
         }
       })
+    }
+  },
+  computed:{
+    user: function () {
+      return this.$store.getters.getUser
     }
   }
 }
@@ -139,25 +152,25 @@ export default {
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
-    #headingtext{
-        background-color:rgba(37, 24, 29, 1);
-        font-family: 'Cormorant Garamond', serif !important;
-        font-weight : 500 !important;
-        height: 72px;
-    }
+  #headingtext{
+    background-color:rgba(37, 24, 29, 1);
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight : 500 !important;
+    height: 72px;
+  }
 
-    #labels{
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        color : rgba(37, 24, 29, 1) !important;
-    }
+  #labels{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color : rgba(37, 24, 29, 1) !important;
+  }
 
-    #cardsize{
-      background-image: url("https://citrine-india-site.s3.ap-south-1.amazonaws.com/cnibg.png");
-      background-size: 846px 452px;
-      background-position: 705px 70px;
-    }
-    .v-container{
-      font-family: 'Montserrat', sans-serif;
-    }
+  #cardsize{
+    background-image: url("https://citrine-india-site.s3.ap-south-1.amazonaws.com/cnibg.png");
+    background-size: 846px 452px;
+    background-position: 705px 70px;
+  }
+  .v-container{
+    font-family: 'Montserrat', sans-serif;
+  }
 </style>

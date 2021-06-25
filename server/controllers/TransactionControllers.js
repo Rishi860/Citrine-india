@@ -4,10 +4,10 @@ const UserControllers = require('./UserControllers')
 
 exports.index = async function (body) {
   try {
-    if (body.verified) {
+    if (body.verified === "Yes") {
       await CartControllers.setActiveFalse(body.udf5)
     }
-    const doc = await Transaction.create(body)
+    const doc = await Transaction.create(body);
     await UserControllers.setTransaction(doc._id, body.email)
   } catch (error) {
     console.log(error)

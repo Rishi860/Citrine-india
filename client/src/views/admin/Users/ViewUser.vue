@@ -3,14 +3,14 @@
     <v-navigation-drawer permanent >
       <v-list-item>
         <v-list-item-avatar>
-          <img v-bind:src="user.imageUrl">
+          <img v-bind:src="spectatingUser.imageUrl">
         </v-list-item-avatar>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
-            {{ user.name }}
+            {{ spectatingUser.name }}
           </v-list-item-title>
           <v-list-item-subtitle>
-            {{ user.email }}
+            {{ spectatingUser.email }}
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -21,17 +21,12 @@
         dense
         nav
       >
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
+        <v-list-item-title>Change role</v-list-item-title>
+        <v-list-item>
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title><a @click="changeRole('admin')">Admin?</a></v-list-item-title>
+            <v-list-item-title><a @click="changeRole('wholesaler')">WholeSaler?</a></v-list-item-title>
+            <v-list-item-title><a @click="changeRole('customer')">Customer?</a></v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -44,11 +39,41 @@ import UserServices from '../../../services/userServices'
 
 export default {
   data: () => ({
-    user:null
+    spectatingUser:null
   }),
   async mounted () {
     const userId = this.$route.params.userId
-    this.user = (await UserServices.user(userId)).data
+    this.spectatingUser = (await UserServices.user(userId)).data
+  },
+  methods:{
+    async changeRole (role) {
+      console.log(this.$store.state.user._id, this.spectatingUser._id, 'sd')
+      if (this.$store.state.user._id === this.spectatingUser._id) {
+        if (role !== 'admin') {
+          if (confirm('Changing role will take away critical functionality!!')){
+            await UserServices.changeRole(this.spectatingUser._id, role)
+            return
+          }
+          return
+        }
+      }
+      
+      if (role === 'wholesaler') {
+        if (confirm('User will see wholesale prices of a product!!')){
+          await UserServices.changeRole(this.spectatingUser._id, role)
+        }
+      }
+      if (role === 'customer') {
+        if (confirm('User will see retail prices!!')) {
+          await UserServices.changeRole(this.spectatingUser._id, role)
+        }
+      }
+      if (role === 'admin') {
+        if (confirm('User will get full access over the site!!')) {
+          await UserServices.changeRole(this.spectatingUser._id, role)
+        } 
+      }
+    }
   }
 }
 

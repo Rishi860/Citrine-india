@@ -26,6 +26,7 @@ module.exports = (app) => {
 
     app.get('/admin/users', UserControllers.indexPaginated)
     app.get('/admin/users/:id', UserControllers.user)
+    app.post('/admin/user/changerole', UserControllers.changeRole)
 
     app.post('/cart',
     CartControllers.post)

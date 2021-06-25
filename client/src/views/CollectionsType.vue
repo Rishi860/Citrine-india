@@ -35,7 +35,6 @@
               aspect-ratio="0.75"
               max-width="216px"
               max-height="288px"
-              class="align-end"
             >
               <v-app-bar
                 flat
@@ -44,22 +43,27 @@
                 <v-spacer></v-spacer>
 
                 <v-btn
-                  color="white"
-                  icon
+                  fab
+                  dark
+                  color="rgba(37, 24, 29, 1)"
                   @click="addToCart(doc)"
                 >
-                  <v-icon>mdi-cart</v-icon>
+                  <v-icon dark>
+                    mdi-cart
+                  </v-icon>
                 </v-btn>
               </v-app-bar>
-              <v-card-actions>
+              
+              <v-card-title>
                 <v-btn
-                  class="ma-2"
+                  id="buyBtn"
                   outlined
-                  color="indigo"
+                  color="#25181D"
+                  @click="navigateTo({name:'shopnow', params:{pname: doc.name}})"
                 >
-                  Outlined Button
+                  Buy Now
                 </v-btn>
-              </v-card-actions>
+              </v-card-title>
             </v-img>
           </v-card>
         </v-col>
@@ -139,5 +143,9 @@ export default {
   font-family: 'Cormorant Garamond', serif !important;
   font-weight : 500 !important;
   height: 72px;
+}
+#buyBtn{
+  margin-top: 160px;
+  margin-left: 25px;
 }
 </style>

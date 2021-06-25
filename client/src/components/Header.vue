@@ -86,7 +86,7 @@
         })"
       >
         <v-badge
-          color="#25181D"
+          color="#F0F0F2"
           :content="cartBadge"
         >
           <v-icon>
@@ -95,22 +95,12 @@
         </v-badge>
       </v-tab>
       <v-tab
-        @click="redirect"
+        @click="navigateTo({name:'dashboard'})"
       >
         <v-icon>
           mdi-account
         </v-icon>
       </v-tab>
-      <v-btn
-        v-if="$store.state.isAdmin"
-        id="title-btn"
-        plain
-        class="d-none d-sm-flex"
-        depressed
-        @click="navigateTo({name:'adminHome'})"
-      >
-        Admin
-      </v-btn>
       <v-btn
         v-if="!$store.state.isUserLoggedin"
         id="title-btn"
@@ -122,16 +112,6 @@
         })"
       >
         LogIn
-      </v-btn>
-      <v-btn
-        v-if="$store.state.isUserLoggedin"
-        id="title-btn"
-        plain
-        class="d-none d-sm-flex"
-        depressed
-        @click="logout"
-      >
-        LogOut
       </v-btn>
       <v-app-bar-nav-icon
         @click="sideNav = !sideNav"
@@ -164,15 +144,6 @@
       navigateTo (route) {
         this.$router.push(route)
       },
-      logout(){
-        this.$store.dispatch('logout')
-        this.$router.push({name:'home'})
-      },
-      redirect() {
-        if (this.$store.state.isUserLoggedin) {
-          this.navigateTo({name:'dashboard'})
-        }
-      }
     },
     data: () => ({
       sideNav: false,
