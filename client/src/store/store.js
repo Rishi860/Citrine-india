@@ -118,7 +118,7 @@ export default new Vuex.Store({
                 })
             }
 
-            if ( state.user.role === 'wholesaler') {
+            if ( state.user.role === 'wholesaler' || state.user.role === 'admin') {
                 state.cart.forEach(item => {
                     totalPrice += item.product.wholesalePrice * item.quantity;
                     totalQuantity += item.quantity

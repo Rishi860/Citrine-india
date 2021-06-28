@@ -13,12 +13,14 @@
           <v-card
             color="#f0f0f2"
             flat
-            max-height="527px"
-            max-width="561px"
+            height="527px"
+            width="561px"
           >
-            <v-img contain max-wdith="122px" max-height="122px" aspect-ratio="1" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+77collection1.png"></v-img>
-            <v-img contain max-wdith="475px" max-height="313px" aspect-ratio="1.517" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Rectangle+58collection2.png"></v-img>
-            <v-img id="coll3" contain max-wdith="409px" max-height="344px" aspect-ratio="1.188" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+83collection3.png"></v-img>
+            <!-- <v-img contain wdith="122px" height="122px" aspect-ratio="1" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+77collection1.png"></v-img> -->
+            <v-img contain wdith="475px" height="313px" aspect-ratio="1.517" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Rectangle+58collection2.png"></v-img>
+            <v-img id="coll3" contain wdith="409px" height="344px" aspect-ratio="1.188" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+83collection3.png"></v-img>
+            <v-img id="coll4" aspect-ratio="0.727" width="214px" height="294px" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Rectangle+63collection4.png"></v-img>
+            <v-img id="coll5" aspect-ratio="0.9029" height="237" width="214" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+80collection5.png"></v-img>
           </v-card>
         </v-col>
       </v-row>
@@ -64,5 +66,14 @@ export default {
   }
   #coll3{
     margin-top: -291px;
+    margin-left: -193px;
+  }
+  #coll4{
+    margin-top: -316px;
+    margin-left: 183px;
+  }
+  #coll5{
+    margin-top: -364px;
+    margin-left: 310px;
   }
 </style>

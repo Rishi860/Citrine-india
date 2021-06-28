@@ -4,7 +4,7 @@ const reqpost = require('request')
 const key = process.env.MERCHANT_KEY ;
 const salt = process.env.MERCHANT_SALT ;
 const Cart = require('../models/Cart')
-// const CartControllers = require('./CartControllers')
+const ProductControllers = require('./ProductControllers')
 const TransactionControllers = require('./TransactionControllers')
 
 module.exports = {
@@ -23,8 +23,10 @@ module.exports = {
     try{
       const data = req.body;
       let cryp = crypto.createHash('sha512')
-      //   let firstname = data.name.substr(0,data.name.firstIndexof(' '));
-      const text = key+'|'+data.txnid+'|'+data.amount+'|'+data.productInfo+'|'+data.firstname+'|'+data.email+'|||||'+data.udf5+'||||||'+salt;
+      // amount calc
+      let amount = await this.amountCheck(data.udf5)
+
+      const text = key+'|'+data.txnid+'|'+amount+'|'+data.productInfo+'|'+data.firstname+'|'+data.email+'|||||'+data.udf5+'||||||'+salt;
       // let hash = CryptoJS.SHA512(text).toString(CryptoJS.enc.Hex);
       cryp.update(text)
       const hash = cryp.digest('hex');
@@ -138,6 +140,20 @@ module.exports = {
       res.status(400).send({
         error: 'Server error! Kindly retry after some time.'
       })
+    }
+  },
+  async amountCheck (id) {
+    try {
+      const cartDetails = await Cart.findOne({_id:id, active:true})
+      const doc = await ProductControllers.getCartItems(cartDetails.cart)
+      let cartTotal = 0;
+      doc.forEach(item => {
+        subTotal = item.product.retailPrice*item.quantity; // will apply if according to wholesaler or retailer
+        cartTotal += subTotal
+      })
+      return cartTotal
+    } catch (error) {
+      
     }
   }
 }

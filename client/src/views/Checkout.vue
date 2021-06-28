@@ -278,9 +278,9 @@
                           flat
                           color="rgba(240, 240, 242, 1)"
                         >
-                            <v-card-text>
-                              <p class="grey--text text--darken-3">{{ item.product.name }}</p>
-                            </v-card-text>
+                          <v-card-text>
+                            <p class="grey--text text--darken-3">{{ item.product.name }}</p>
+                          </v-card-text>
                         </v-card>
                       </v-row>
                     </div>

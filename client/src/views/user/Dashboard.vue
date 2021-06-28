@@ -152,11 +152,16 @@ export default {
       this.$store.dispatch('logout')
       this.$router.push({name:'home'})
     },
+  },
+  mounted () {
+    if (!this.$store.state.isUserLoggedin) {
+      this.$router.push({name:'login'})
+    }
   }
 }
 </script>
 
-<style>
+<style scoped>
 #headingText{
   background-color:rgba(37, 24, 29, 1);
   font-family: 'Cormorant Garamond', serif !important;

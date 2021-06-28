@@ -70,14 +70,7 @@
       >
         Jewelery
       </v-btn>
-      <v-text-field
-        rounded
-        class="mt-7 d-none d-sm-flex"
-        prepend-inner-icon="mdi-magnify"
-        filled
-      ></v-text-field>
       <v-tab
-        v-if="$store.state.isUserLoggedin"
         @click="navigateTo({
           name:'cart',
           params:{
@@ -101,18 +94,6 @@
           mdi-account
         </v-icon>
       </v-tab>
-      <v-btn
-        v-if="!$store.state.isUserLoggedin"
-        id="title-btn"
-        plain
-        class="d-none d-sm-flex"
-        depressed
-        @click="navigateTo({
-          name:'login'
-        })"
-      >
-        LogIn
-      </v-btn>
       <v-app-bar-nav-icon
         @click="sideNav = !sideNav"
         class="d-flex d-sm-none"

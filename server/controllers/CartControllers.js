@@ -1,4 +1,5 @@
 const Cart = require('../models/Cart')
+const ProductControllers = require('./ProductControllers')
 // const UserControllers = require('./UserControllers')
 
 exports.post = async function (req, res) {
@@ -6,11 +7,12 @@ exports.post = async function (req, res) {
     let doc = await Cart.findOne({customer: req.body.customer, active:true})
     let exist = false
 
-    if (!doc) {
-      let doc = await Cart.create(req.body)
-      res.send(doc)
-      return;
-    }
+    // note useful anymore
+    // if (!doc) {
+    //   let doc = await Cart.create(req.body)
+    //   res.send(doc)
+    //   return;
+    // }
     if (doc.cart !== []) {
       doc.cart = doc.cart.map(item => {
         if (item.productId === req.body.cart.productId) {
@@ -90,18 +92,11 @@ exports.setActiveFalse = async function (udf5) {
   }
 }
 
-exports.isActive = async function (req, res) {
+exports.getActive = async function (req, res) {
   try {
-    let doc = await Cart.find({customer: req.params.id});
-    let activeCart = false;
-    console.log(doc)
-    doc.forEach(item => {
-      if (item.active) {
-        activeCart = true
-      }
-    })
-    console.log(activeCart)
-    res.send({active: activeCart})
+    let { cart } = await Cart.findOne({customer: req.params.id, active:true});
+    const payload = await ProductControllers.getCartItems(cart);
+    res.send(payload)
   } catch (error) {
     console.log(error)
   }

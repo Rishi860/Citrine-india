@@ -12,7 +12,10 @@
     <div class="text-center display-2 white--text" id="headingText">
       <p>YOUR CART</p>
     </div>
-    <v-container>
+    <v-container v-if="$store.state.cart === []">
+      <v-img src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/emptyCart.png"></v-img>
+    </v-container>
+    <v-container v-else>
       <v-row>
         <v-col
           md="8"

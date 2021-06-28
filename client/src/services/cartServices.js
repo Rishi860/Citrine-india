@@ -11,7 +11,7 @@ export default{
   quantityChange (payload) {
     return Api().post('cart/quantityChange', payload)
   },
-  isActive (id) {
+  getActive (id) {
     return Api().get(`cart/active/${id}`)
   }
 }

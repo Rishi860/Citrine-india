@@ -30,7 +30,7 @@ module.exports = {
 
       const newUser = await User.create(data);
       const token = await UserServices.createToken(newUser._id)
-      const cart = await Cart.create({customer:newUser._id, cart:[]})
+      await Cart.create({customer:newUser._id, cart:[], active:true})
 
       return {
         token,
