@@ -7,6 +7,7 @@ import AdminCreate from '../views/admin/Catalog/AdminCreate.vue'
 import AdminCatalogEdit from '../views/admin/Catalog/Edit.vue'
 import ViewUser from '../views/admin/Users/ViewUser.vue'
 import NewCollection from '../views/admin/Catalog/NewCollection.vue'
+import PrevOrderView from '../views/admin/Users/PrevOrderView'
 
 export default [
   {
@@ -45,6 +46,11 @@ export default [
     path: '/admin/catalog/:productId',
     name: 'adminCatalogEdit',
     component: AdminCatalogEdit,
+  },
+  {
+    path: '/admin/users/:userId/pastorder',
+    name: 'adminuserpast',
+    component: PrevOrderView,
   }
 ]
 

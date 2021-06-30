@@ -3,11 +3,12 @@
     <v-carousel
       height="764"
       :vertical="true"
-      :vertical-delimiters="vertical-delimiters"
       :reverse="true"
       :cycle="true"
-      :interval="15000"
+      :show-arrows="false"
+      :interval="5000"
       class="hidden-xs-only"
+      hide-delimiters
     >
       <v-carousel-item
         v-for="i in 6"
@@ -15,7 +16,8 @@
       >
         <v-container fill-height>
           <v-row align="center" justify="center">
-            <v-col md="6">
+            <v-col md="1"></v-col>
+            <v-col md="5">
               <v-img aspect-ratio="1" class="top--img" :src="items[i-1]" width="280px" height="420px"></v-img>
               <v-img aspect-ratio="0.667" class="rounded-lg mid--img" :src="items[i]" width="280px" height="420px"></v-img>
               <v-img aspect-ratio="1" class="bottom--img" :src="items[i+1]" width="280px" height="420px"></v-img>
@@ -56,7 +58,7 @@
         <v-row class="mb-cara">
           <div class="carousel--text--mb">Building a <br> better you</div>
           <div class="carousel--subtext--mb">
-            You gotta have style. It helps you get down the stairs. <br>
+            You gotta have style. It helps you get down the stairs.
             It helps you get up in the morning. It’s a way of life.
           </div>
         </v-row>
@@ -123,7 +125,7 @@ export default {
   display: flex;
   align-items: center;
   letter-spacing: -0.05em;
-  margin-top: 2px;
+  margin-top: 18px;
 }
 .right--img--mb{
   border-top-left-radius: 90px;
@@ -155,6 +157,7 @@ export default {
   align-items: center;
   letter-spacing: -0.02em;
   color: #25181D;
+  margin-top: 8px;
   text-shadow: 1px 1px 2px rgba(37, 24, 29, 0.15);
 }
 .mb-cara{

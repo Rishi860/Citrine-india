@@ -1,10 +1,17 @@
 <template>
-  <div>
-    <div class="text-center">
-      <h1 class="hidden-sm-and-down heading--home">Jewellery</h1>
-      <h1 class="hidden-md-and-up heading--home--mb">Jewellery</h1>
+  <v-sheet
+    color= "rgba(240, 240, 242, 1)"
+  >
+    <v-toolbar
+      dense
+      flat
+      height="105px"
+      color="rgba(37, 24, 29, 1)"
+    ></v-toolbar>
+    <div class="display-2 text-center white--text" id="headingText">
+      <p class="pt-2">JEWELERY</p>
     </div>
-    <v-container class="jewel--sec">
+    <v-container class="mt-4">
       <v-row>
         <v-col cols="12" sm="4">
           <v-img
@@ -47,45 +54,20 @@
         </v-col>
       </v-row>
     </v-container>
-  </div>
+  </v-sheet>
 </template>
 
+<script>
+export default {
+  
+}
+</script>
+
 <style scoped>
-  #collections{
-    font-family: 'Cormorant Garamond', serif;
-  }
-  .v-card--reveal {
-    bottom: 0;
-    opacity: 1 !important;
-    position: absolute;
-    width: 100%;
-  }
-  .card {
-    transition: opacity .4s ease-in-out;
-  }
-
-  .card:not(.on-hover) {
-    opacity: 0.6;
-  }
-
-  .show-btns {
-    color: rgba(255, 255, 255, 1) !important;
-  }
-  .heading--home{
-    font-family: 'Cormorant Garamond', serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 56px;
-    line-height: 132%;
-  }
-  .heading--home--mb{
-    font-family: 'Cormorant Garamond', serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 42px;
-    line-height: 132%;
-  }
-  .jewel--sec{
-    margin-top: 88px;
-  }
+#headingText{
+  background-color:rgba(37, 24, 29, 1);
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight : 500 !important;
+  height: 72px;
+}
 </style>

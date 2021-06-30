@@ -15,19 +15,6 @@ module.exports = {
       })
     }
   },
-  // get cart check
-  // async getCart (req, res) {
-  //   try {
-  //     const _id = req.params.id;
-  //     // const id_token = req.body;
-  //     const data = await GoogleAuth.register(id_token);
-  //     res.send(data)
-  //   } catch (err) {
-  //     res.status(400).send({
-  //       error: 'Server error! Kindly retry after some time.'
-  //     })
-  //   }
-  // },
   async login (req, res) {
     try {
       const id_token = Object.keys(JSON.parse(JSON.stringify(req.body)))[0];
@@ -73,7 +60,7 @@ module.exports = {
       })
     }
   },
-  async setTransaction (id, email) {
+  async setTransaction (id, email) { // rejected will see when free means never :)
     try {
       console.log('in setTransaction')
       let user = await User.findOne({email})
@@ -106,5 +93,5 @@ module.exports = {
         error: 'Server error! Kindly retry after some time.'
       })
     }
-  }
+  },
 }

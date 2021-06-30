@@ -13,6 +13,9 @@ export default{
   },
   getActive (id) {
     return Api().get(`cart/active/${id}`)
+  },
+  cartItems (id) {
+    return Api().get(`admin/usercart/${id}`)
   }
 }
 

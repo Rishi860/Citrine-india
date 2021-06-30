@@ -28,6 +28,8 @@ module.exports = (app) => {
     app.get('/admin/users/:id', UserControllers.user)
     app.post('/admin/user/changerole', UserControllers.changeRole)
 
+    app.get('/admin/usercart/:id', CartControllers.getCartItems)
+
     app.post('/cart',
     CartControllers.post)
     app.post('/cart/quantityChange',

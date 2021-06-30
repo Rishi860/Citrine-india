@@ -101,3 +101,13 @@ exports.getActive = async function (req, res) {
     console.log(error)
   }
 }
+
+exports.getCartItems = async function (req, res) {
+  try {
+    let { cart } = await Cart.findOne({_id: req.params.id});
+    const payload = await ProductControllers.getCartItems(cart);
+    res.send(payload)
+  } catch (error) {
+    console.log(error)
+  }
+}

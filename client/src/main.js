@@ -5,6 +5,7 @@ import vuetify from './plugins/vuetify'
 import GoogleAuth from '@/config/google_oAuth.js'
 import Admin from './components/Admin'
 import Dashboard from './views/user/Dashboard.vue'
+import AdminUserView from './views/admin/Users/ViewUser.vue'
 import {sync} from 'vuex-router-sync'
 import store from './store/store'
 import Vuelidate from 'vuelidate'
@@ -15,6 +16,7 @@ Vue.config.productionTip = false
 // Vue.directive('scrollanimation', ScrollAnimation)
 Vue.component('admin', Admin)
 Vue.component('dashboard', Dashboard)
+Vue.component('adminuser', AdminUserView)
 sync(store, router)
 Vue.use(Vuelidate)
 

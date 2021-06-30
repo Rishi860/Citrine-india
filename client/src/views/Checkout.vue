@@ -285,7 +285,7 @@
                       </v-row>
                     </div>
                   </td>
-                  <td v-if="$store.state.user.role === 'wholesaler'">{{ item.product.wholesalePrice }} x {{ item.quantity }}</td>
+                  <td v-if="$store.state.user.role !== 'customer'">{{ item.product.wholesalePrice }} x {{ item.quantity }}</td>
                   <td v-else>{{ item.product.retailPrice }} x {{ item.quantity }}</td>
                 </tr>
               </tbody>

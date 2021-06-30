@@ -16,6 +16,7 @@ import Checkout from '../views/Checkout.vue'
 import PayResponse from '../views/paymentResponse'
 import Dashboard from '../views/user/Dashboard.vue'
 import PreviousOrders from '../views/user/PreviousOrders.vue'
+import Jewelry from '../views/Jewelry.vue'
 
 Vue.use(VueRouter)
 
@@ -89,6 +90,11 @@ Vue.use(VueRouter)
     path:'/dashboard/previousorders',
     name : 'previousorders',
     component: PreviousOrders
+  },
+  {
+    path:'/jewelery',
+    name : 'jewelry',
+    component: Jewelry
   },
 
   ...admin

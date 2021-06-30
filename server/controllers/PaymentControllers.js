@@ -4,8 +4,9 @@ const reqpost = require('request')
 const key = process.env.MERCHANT_KEY ;
 const salt = process.env.MERCHANT_SALT ;
 const Cart = require('../models/Cart')
+const User = require('../models/Users')
 const ProductControllers = require('./ProductControllers')
-const TransactionControllers = require('./TransactionControllers')
+const TransactionControllers = require('./TransactionControllers');
 
 module.exports = {
   async txnid (req, res) {
@@ -24,7 +25,18 @@ module.exports = {
       const data = req.body;
       let cryp = crypto.createHash('sha512')
       // amount calc
-      let amount = await this.amountCheck(data.udf5)
+      const {role} = await User.findOne({email:data.email})
+      const cartDetails = await Cart.findOne({_id:data.udf5})
+      const doc = await ProductControllers.getCartItems(cartDetails.cart)
+      let amount = 0;
+      doc.forEach(item => {
+        if (role === 'customer') {
+          subTotal = item.product.retailPrice*item.quantity;
+        } else {
+          subTotal = item.product.wholesalePrice*item.quantity;
+        }
+        amount += subTotal
+      })
 
       const text = key+'|'+data.txnid+'|'+amount+'|'+data.productInfo+'|'+data.firstname+'|'+data.email+'|||||'+data.udf5+'||||||'+salt;
       // let hash = CryptoJS.SHA512(text).toString(CryptoJS.enc.Hex);

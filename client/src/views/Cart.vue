@@ -73,7 +73,7 @@
                       </v-row>
                     </div>
                   </td>
-                  <td v-if="$store.state.user.role === 'wholesaler'">{{ item.product.wholesalePrice }}</td>
+                  <td v-if="$store.state.user.role !== 'customer'">{{ item.product.wholesalePrice }}</td>
                   <td v-else>{{ item.product.retailPrice }}</td>
                   <td>
                     <v-text-field

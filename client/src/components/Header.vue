@@ -69,6 +69,7 @@
         plain
         class="hidden-sm-and-down"
         depressed
+        @click="navigateTo({name:'jewelry'})"
       >
         Jewelery
       </v-btn>
@@ -103,13 +104,14 @@
         class="hidden-md-and-up"
       ></v-app-bar-nav-icon>
     </v-app-bar>
-    <v-navigation-drawer v-model="sideNav" app class="hidden-md-and-up" color="rgba(37, 24, 29, 1)" right>
-      <v-container>
+    <!-- rgba(37, 24, 29, 1) -->
+    <v-navigation-drawer v-model="sideNav" app class="hidden-md-and-up" color="rgba(240, 240, 242, 1)" right>
+      <!-- <v-container>
         <v-row class="text-center mt-1 ml-3 ">
-            <v-icon size="50px" color="rgba(240, 240, 242, 1)">mdi-account-circle-outline</v-icon>
+            <v-icon size="50px">mdi-account-circle-outline</v-icon>
             <p id="hellotext" >Hello bonker</p>
         </v-row>
-      </v-container>
+      </v-container> -->
       <v-list>
         <v-list-item-group>
           <v-list-item
@@ -121,6 +123,12 @@
             <v-list-item-title>
               {{ item.title }}
             </v-list-item-title>
+          </v-list-item>
+          <v-list-item
+            @click="navigateTo({name :'login'})"
+            id="changefont"
+          >
+            <v-list-item-title id="changefontcolor">Sign in/Sign Up</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -230,6 +238,9 @@
   letter-spacing: -0.08em;
   line-height: 133.7%;
   color:rgba(240, 240, 242, 1);
+}
+#changefontcolor{
+  color : rgba(251, 144, 18, 1) !important;
 }
 /* .header{
   font-family: Montserrat;
