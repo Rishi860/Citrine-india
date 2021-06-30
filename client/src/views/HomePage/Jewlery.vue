@@ -1,282 +1,50 @@
 <template>
-  <div id="collection">
+  <div>
     <div class="text-center">
-      <h1>Jewellery</h1>
-      <v-divider inset></v-divider>
+      <h1 class="hidden-sm-and-down heading--home">Jewellery</h1>
+      <h1 class="hidden-md-and-up heading--home--mb">Jewellery</h1>
     </div>
-
-    <v-container class="pa-4 text-center">
+    <v-container class="jewel--sec">
       <v-row>
-        <template >
-          <v-col
-            cols="12"
-            md="4"
+        <v-col cols="12" sm="4">
+          <v-img
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/necklace.png"
+            aspect-ratio="1.19047"
+            contain
+          ></v-img>
+          <v-img
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/earings.png"
+            aspect-ratio="1.282"
+            class="mt-4"
+          ></v-img>
+        </v-col>
+        <v-col cols="12" sm="4">
+          <v-img
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/rings.png"
+            aspect-ratio="1.353"
+            contain
+          ></v-img>
+          <v-img
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/handcuffs.png"
+            aspect-ratio="0.9787"
+            class="mt-4"
+            contain
           >
-            <v-hover v-slot="{ hover }">
-              <v-card
-                class="card  align-end"
-                :elevation="hover ? 12 : 2"
-                :class="{ 'on-hover': hover }"
-                width="432px"
-                height="198px"
-              >
-                <v-img
-                  src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
-                  aspect-ratio="2.18"
-                >
-                  <v-card-title class="text-h6 white--text">
-                    <v-row
-                      class="fill-height flex-column"
-                      justify="space-between"
-                    >
-
-                      <div class="align-self-center">
-                        <v-btn
-                          v-for="(icon, index) in icons"
-                          :key="index"
-                          :class="{ 'show-btns': hover }"
-                          :color="transparent"
-                          icon
-                        >
-                          <v-icon
-                            :class="{ 'show-btns': hover }"
-                            :color="transparent"
-                          >
-                            {{ icon }}
-                          </v-icon>
-                        </v-btn>
-                      </div>
-                    </v-row>
-                  </v-card-title>
-                </v-img>
-              </v-card>
-            </v-hover>
-          </v-col>
-          <v-col
-            cols="12"
-            md="4"
-          >
-            <v-hover v-slot="{ hover }">
-              <v-card
-                class="card  align-end"
-                :elevation="hover ? 12 : 2"
-                :class="{ 'on-hover': hover }"
-                width="432px"
-                height="198px"
-              >
-                <v-img
-                  src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
-                  aspect-ratio="2.18"
-                >
-                  <v-card-title class="text-h6 white--text">
-                    <v-row
-                      class="fill-height flex-column"
-                      justify="space-between"
-                    >
-
-                      <div class="align-self-center">
-                        <v-btn
-                          v-for="(icon, index) in icons"
-                          :key="index"
-                          :class="{ 'show-btns': hover }"
-                          :color="transparent"
-                          icon
-                        >
-                          <v-icon
-                            :class="{ 'show-btns': hover }"
-                            :color="transparent"
-                          >
-                            {{ icon }}
-                          </v-icon>
-                        </v-btn>
-                      </div>
-                    </v-row>
-                  </v-card-title>
-                </v-img>
-              </v-card>
-            </v-hover>
-          </v-col>
-          <v-col
-            cols="12"
-            md="4"
-          >
-            <v-hover v-slot="{ hover }">
-              <v-card
-                class="card  align-end"
-                :elevation="hover ? 12 : 2"
-                :class="{ 'on-hover': hover }"
-                width="320px"
-                height="360px"
-              >
-                <v-img
-                  src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
-                  aspect-ratio="0.88"
-                >
-                  <v-card-title class="text-h6 white--text">
-                    <v-row
-                      class="fill-height flex-column"
-                      justify="space-between"
-                    >
-
-                      <div class="align-self-center">
-                        <v-btn
-                          v-for="(icon, index) in icons"
-                          :key="index"
-                          :class="{ 'show-btns': hover }"
-                          :color="transparent"
-                          icon
-                        >
-                          <v-icon
-                            :class="{ 'show-btns': hover }"
-                            :color="transparent"
-                          >
-                            {{ icon }}
-                          </v-icon>
-                        </v-btn>
-                      </div>
-                    </v-row>
-                  </v-card-title>
-                </v-img>
-              </v-card>
-            </v-hover>
-          </v-col>
-        </template>
-      </v-row>
-      <v-row>
-        <template >
-          <v-col
-            cols="12"
-            md="4"
-          >
-            <v-hover v-slot="{ hover }">
-              <v-card
-                class="card  align-end"
-                :elevation="hover ? 12 : 2"
-                :class="{ 'on-hover': hover }"
-                width="432px"
-                height="198px"
-              >
-                <v-img
-                  src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
-                  aspect-ratio="2.18"
-                >
-                  <v-card-title class="text-h6 white--text">
-                    <v-row
-                      class="fill-height flex-column"
-                      justify="space-between"
-                    >
-
-                      <div class="align-self-center">
-                        <v-btn
-                          v-for="(icon, index) in icons"
-                          :key="index"
-                          :class="{ 'show-btns': hover }"
-                          :color="transparent"
-                          icon
-                        >
-                          <v-icon
-                            :class="{ 'show-btns': hover }"
-                            :color="transparent"
-                          >
-                            {{ icon }}
-                          </v-icon>
-                        </v-btn>
-                      </div>
-                    </v-row>
-                  </v-card-title>
-                </v-img>
-              </v-card>
-            </v-hover>
-          </v-col>
-          <v-col
-            cols="12"
-            md="4"
-          >
-            <v-hover v-slot="{ hover }">
-              <v-card
-                class="card  align-end"
-                :elevation="hover ? 12 : 2"
-                :class="{ 'on-hover': hover }"
-                width="432px"
-                height="198px"
-              >
-                <v-img
-                  src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
-                  aspect-ratio="2.18"
-                >
-                  <v-card-title class="text-h6 white--text">
-                    <v-row
-                      class="fill-height flex-column"
-                      justify="space-between"
-                    >
-
-                      <div class="align-self-center">
-                        <v-btn
-                          v-for="(icon, index) in icons"
-                          :key="index"
-                          :class="{ 'show-btns': hover }"
-                          :color="transparent"
-                          icon
-                        >
-                          <v-icon
-                            :class="{ 'show-btns': hover }"
-                            :color="transparent"
-                          >
-                            {{ icon }}
-                          </v-icon>
-                        </v-btn>
-                      </div>
-                    </v-row>
-                  </v-card-title>
-                </v-img>
-              </v-card>
-            </v-hover>
-          </v-col>
-          <v-col
-            cols="12"
-            md="4"
-          >
-            <v-hover v-slot="{ hover }">
-              <v-card
-                class="card  align-end"
-                :elevation="hover ? 12 : 2"
-                :class="{ 'on-hover': hover }"
-                width="320px"
-                height="360px"
-              >
-                <v-img
-                  src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
-                  aspect-ratio="0.88"
-                >
-                  <v-card-title class="text-h6 white--text">
-                    <v-row
-                      class="fill-height flex-column"
-                      justify="space-between"
-                    >
-
-                      <div class="align-self-center">
-                        <v-btn
-                          v-for="(icon, index) in icons"
-                          :key="index"
-                          :class="{ 'show-btns': hover }"
-                          :color="transparent"
-                          icon
-                        >
-                          <v-icon
-                            :class="{ 'show-btns': hover }"
-                            :color="transparent"
-                          >
-                            {{ icon }}
-                          </v-icon>
-                        </v-btn>
-                      </div>
-                    </v-row>
-                  </v-card-title>
-                </v-img>
-              </v-card>
-            </v-hover>
-          </v-col>
-        </template>
+          </v-img>
+        </v-col>
+        <v-col cols="12" sm="4">
+          <v-img
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/bracelet.png"
+            aspect-ratio="1"
+            contain
+          ></v-img>
+          <v-img
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/rakhi.png"
+            aspect-ratio="1.235"
+            class="mt-4"
+            contain
+          ></v-img>
+        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -302,5 +70,22 @@
 
   .show-btns {
     color: rgba(255, 255, 255, 1) !important;
+  }
+  .heading--home{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 132%;
+  }
+  .heading--home--mb{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 132%;
+  }
+  .jewel--sec{
+    margin-top: 88px;
   }
 </style>
