@@ -1,20 +1,20 @@
 <template>
-  <div>
-    <v-app-bar app flat hide-on-scroll height="105px">
-      <v-toolbar-title  id="title" @click="navigateTo({name:'home'})" >Citrine-India</v-toolbar-title>
+  <v-container>
+    <v-app-bar :color="bg" app flat hide-on-scroll height="105px">
+      <v-toolbar-title  id="title" @click="navigateTo({name:'home'})" >Citrine</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-menu
         open-on-hover
         bottom
         offset-y
         transition="scale-transition"
-        max-width ="704px" 
-        max-height="536px" 
+        width ="704px" 
+        height="536px" 
       >   
         <template v-slot:activator="{ on }">
           <v-btn
             plain
-            class="d-none d-sm-flex"
+            class="hidden-sm-and-down"
             id="title-btn"
             v-on="on"
           >
@@ -30,6 +30,7 @@
           >
             <v-row>
               <v-col
+                cols="12"
                 md="6"
               >
                 <v-card
@@ -39,6 +40,7 @@
                 </v-card>
               </v-col>
               <v-col
+                cols="12"
                 md="6"
               >
                 <v-card
@@ -53,7 +55,7 @@
       </v-menu>
       <v-btn
         id="title-btn"
-        class="d-none d-sm-flex"
+        class="hidden-sm-and-down"
         plain
         depressed
         @click="navigateTo({
@@ -65,12 +67,13 @@
       <v-btn
         id="title-btn"
         plain
-        class="d-none d-sm-flex"
+        class="hidden-sm-and-down"
         depressed
       >
         Jewelery
       </v-btn>
       <v-tab
+        class="hidden-sm-and-down"
         @click="navigateTo({
           name:'cart',
           params:{
@@ -88,6 +91,7 @@
         </v-badge>
       </v-tab>
       <v-tab
+        class="hidden-sm-and-down"
         @click="navigateTo({name:'dashboard'})"
       >
         <v-icon>
@@ -96,26 +100,33 @@
       </v-tab>
       <v-app-bar-nav-icon
         @click="sideNav = !sideNav"
-        class="d-flex d-sm-none"
+        class="hidden-md-and-up"
       ></v-app-bar-nav-icon>
     </v-app-bar>
-    <v-navigation-drawer v-model="sideNav" app class="d-lg-none d-xl-flex" right>
+    <v-navigation-drawer v-model="sideNav" app class="hidden-md-and-up" color="rgba(37, 24, 29, 1)" right>
+      <v-container>
+        <v-row class="text-center mt-1 ml-3 ">
+            <v-icon size="50px" color="rgba(240, 240, 242, 1)">mdi-account-circle-outline</v-icon>
+            <p id="hellotext" >Hello bonker</p>
+        </v-row>
+      </v-container>
       <v-list>
         <v-list-item-group>
           <v-list-item
             v-for="item in menuItems"
             :key="item.title"
             @click="navigateTo({name:item.link})"
+            id="changefont"
           >
             <v-list-item-title>
-              <v-icon>{{ item.icon }}</v-icon>
               {{ item.title }}
             </v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
+      <div class="text-center mt-10 " id="changefonttogara"><h1>Citrine</h1></div>
     </v-navigation-drawer>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -125,8 +136,19 @@
       navigateTo (route) {
         this.$router.push(route)
       },
+      // changeColor() {
+      // if (
+      //   document.body.scrollTop > 100 ||
+      //   document.documentElement.scrollTop > 100
+      // ) {
+      //   this.bg = 'white';
+      // } else {
+      //   this.bg = 'transparent';
+      // }
+    // },
     },
     data: () => ({
+      bg:null,
       sideNav: false,
       cartCount: null,
       menuItems: [
@@ -155,7 +177,12 @@
       cartBadge: function () {
         return this.$store.getters.cartItemCount
       }
-    }
+    },
+    // mounted() {
+    // window.onscroll = () => {
+    //   this.changeColor();
+    // };
+  // },
   }
 </script>
 
@@ -182,6 +209,28 @@
   .v-text-field{
     width: 10px;
   }
+  #hellotext{
+    margin-bottom: 16px;
+    margin-top: 15px;
+    margin-left: 10px;
+    font-size: 25px;
+    color:rgba(240, 240, 242, 1);
+  }
+  #changefont{
+    font-family: 'Montserrat' , sans-serif;
+    letter-spacing: 0.01em;
+    font-size: 24px;
+    line-height: 100%;
+    margin-left: 15px;
+    color:rgba(240, 240, 242, 1) !important;
+  }
+  #changefonttogara{
+  font-family: 'Cormorant Garamond', serif;
+  font-size:30px;
+  letter-spacing: -0.08em;
+  line-height: 133.7%;
+  color:rgba(240, 240, 242, 1);
+}
 /* .header{
   font-family: Montserrat;
   margin-bottom: 2%;

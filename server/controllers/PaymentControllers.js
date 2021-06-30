@@ -153,7 +153,7 @@ module.exports = {
       })
       return cartTotal
     } catch (error) {
-      
+        console.log(error)
     }
-  }
+  },
 }

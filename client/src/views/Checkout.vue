@@ -295,7 +295,7 @@
             <v-card
               id="totalCalc"
               class="elevation-1 mt-10"
-              max-width="400"
+              width="400"
               color="rgba(240, 240, 242, 1)"
             >
               <!-- <v-card-title class="text-h5">Order Summary</v-card-title> -->

@@ -22,7 +22,7 @@
         >
           <v-card
             elevation="4"
-            max-width="350"
+            width="350"
             class="mx-auto"
           >
             <v-system-bar lights-out></v-system-bar>

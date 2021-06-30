@@ -2,6 +2,7 @@
   <v-sheet
     color= "rgba(240, 240, 242, 1)"
   >
+    <!-- toolbar to give extra space -->
     <v-toolbar
       dense
       flat
@@ -12,25 +13,38 @@
       <p>MY ACCOUNT</p>
     </div>
     <v-container>
-      <a>
-        <v-icon>
-          mdi-chevron-left
-        </v-icon>
-        Continue Shopping
-      </a>
       <v-row>
         <v-col
           md="6"
         >
           <v-card
             id="card"
-            class="mt-16"
-            max-width="400"
+            class="mt-10"
             color="rgba(240, 240, 242, 1)"
           >
-            <v-card-title class="text-h5" color="rgba(37, 24, 29, 0.03)">My Profile</v-card-title>
+            <v-card-title class="card--heading">My Orders</v-card-title>
             <v-divider id="divider"></v-divider>
             <v-card-actions>
+              <v-row>
+                <v-col cols="4" md="4"></v-col>
+                <v-col cols="4" md="4">
+                  <v-btn
+                    class="ma-2 #25181D--text elevation-2"
+                    @click.prevent="loginWithGoogle"
+                  >
+                    <v-avatar color="rgba(240, 240, 242, 1)" size="25">
+                      <v-icon small>
+                        mdi-google
+                      </v-icon>
+                    </v-avatar>
+                    Login
+                  </v-btn>
+                </v-col>
+                <v-col cols="4" md="4"></v-col>
+              </v-row>
+            </v-card-actions>
+            <v-card-text>  
+              Alerady have an account?
               <v-btn
                 class="ma-2 #25181D--text elevation-2"
                 @click.prevent="loginWithGoogle"
@@ -42,18 +56,14 @@
                 </v-avatar>
                 Login
               </v-btn>
-            </v-card-actions>
-            <div>
-              <p>Don't have a account? </p>
-              <a @click="navigateTo({name:'signUp'})">Sign Up</a>
-            </div>
+            </v-card-text>
           </v-card>
         </v-col>
         <v-col
           md="6"
         >
-          <v-container>
-            <v-img src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/notLogged.png" max-width="500px" max-height="500px" aspect-ratio="1"></v-img>
+          <v-container class="mt-n9">
+            <v-img src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/notLogged.png" width="500px" height="500px" aspect-ratio="1"></v-img>
           </v-container>
         </v-col>
       </v-row>
@@ -117,5 +127,13 @@ export default {
 }
 #divider{
   border-color: #FB9012 !important;
+}
+.card--heading{
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(37, 24, 29, 0.03);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
 }
 </style>

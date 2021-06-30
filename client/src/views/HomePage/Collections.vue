@@ -11,6 +11,7 @@
           align-self="start"
         >
           <v-card
+            class="hidden-sm-and-down"
             color="#f0f0f2"
             flat
             height="527px"

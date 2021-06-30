@@ -17,8 +17,8 @@
                 class="card  align-end"
                 :elevation="hover ? 12 : 2"
                 :class="{ 'on-hover': hover }"
-                max-width="432px"
-                max-height="198px"
+                width="432px"
+                height="198px"
               >
                 <v-img
                   src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
@@ -61,8 +61,8 @@
                 class="card  align-end"
                 :elevation="hover ? 12 : 2"
                 :class="{ 'on-hover': hover }"
-                max-width="432px"
-                max-height="198px"
+                width="432px"
+                height="198px"
               >
                 <v-img
                   src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
@@ -105,8 +105,8 @@
                 class="card  align-end"
                 :elevation="hover ? 12 : 2"
                 :class="{ 'on-hover': hover }"
-                max-width="320px"
-                max-height="360px"
+                width="320px"
+                height="360px"
               >
                 <v-img
                   src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
@@ -153,8 +153,8 @@
                 class="card  align-end"
                 :elevation="hover ? 12 : 2"
                 :class="{ 'on-hover': hover }"
-                max-width="432px"
-                max-height="198px"
+                width="432px"
+                height="198px"
               >
                 <v-img
                   src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
@@ -197,8 +197,8 @@
                 class="card  align-end"
                 :elevation="hover ? 12 : 2"
                 :class="{ 'on-hover': hover }"
-                max-width="432px"
-                max-height="198px"
+                width="432px"
+                height="198px"
               >
                 <v-img
                   src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
@@ -241,8 +241,8 @@
                 class="card  align-end"
                 :elevation="hover ? 12 : 2"
                 :class="{ 'on-hover': hover }"
-                max-width="320px"
-                max-height="360px"
+                width="320px"
+                height="360px"
               >
                 <v-img
                   src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"

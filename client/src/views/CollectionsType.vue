@@ -27,14 +27,14 @@
           <v-card
             elevation="4"
             class="mx-auto"
-            max-width="216px"
-            max-height="288px"
+            width="216px"
+            height="288px"
           >
             <v-img
               :src="doc.image[0]"
               aspect-ratio="0.75"
-              max-width="216px"
-              max-height="288px"
+              width="216px"
+              height="288px"
             >
               <v-app-bar
                 flat

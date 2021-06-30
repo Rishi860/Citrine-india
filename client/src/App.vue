@@ -13,6 +13,7 @@
 <script>
 import PageHeader from './components/Header.vue';
 import PageFooter from './components/Footer.vue';
+// import PageFooterTwo from './components/Footer2.vue';
 import CartServices from './services/cartServices'
 
 export default {
@@ -21,6 +22,7 @@ export default {
   components: {
     PageHeader,
     PageFooter,
+    // PageFooterTwo
   },
 
   data: () => ({

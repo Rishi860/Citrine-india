@@ -26,7 +26,7 @@
         >
           <v-card
             elevation="4"
-            max-width="350"
+            width="216px"
             class="mx-auto"
             @click="navigateTo({
               name:'collectionType',
@@ -38,7 +38,9 @@
             <v-img
               :src="doc.image"
               class="white--text align-end"
-              height="200px"
+              height="288px"
+              width="216px"
+              aspect-ratio="0.75"
             >
               <v-card-title v-text="doc.name"></v-card-title>
             </v-img>

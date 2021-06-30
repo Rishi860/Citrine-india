@@ -13,8 +13,8 @@
           >
               <v-card
                 class="align-end"
-                max-width="336px"
-                max-height="640px"
+                width="336px"
+                height="640px"
                 color="#f0f0f2"
                 id="card"
               >
@@ -27,7 +27,7 @@
                 <v-card
                   class="mx-auto"
                   flat
-                  max-height="168px"
+                  height="168px"
                   id="radii_below"
                 >
                   <v-card-text>
@@ -50,8 +50,8 @@
                 class="card  align-end"
                 :elevation="hover ? 12 : 2"
                 :class="{ 'on-hover': hover }"
-                max-width="336px"
-                max-height="640px"
+                width="336px"
+                height="640px"
               >
                 <v-img
                   src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
@@ -94,8 +94,8 @@
                 class="card  align-end"
                 :elevation="hover ? 12 : 2"
                 :class="{ 'on-hover': hover }"
-                max-width="336px"
-                max-height="640px"
+                width="336px"
+                height="640px"
               >
                 <v-img
                   src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"

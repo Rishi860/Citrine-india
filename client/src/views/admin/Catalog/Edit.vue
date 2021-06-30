@@ -51,8 +51,8 @@
     >
       <v-img
         :src="img"
-        max-height="150"
-        max-width="250"
+        height="150"
+        width="250"
       ></v-img>
       <v-btn
         @click="remove(img)"

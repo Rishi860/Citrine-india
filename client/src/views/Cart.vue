@@ -18,6 +18,7 @@
     <v-container v-else>
       <v-row>
         <v-col
+          cols="12"
           md="8"
         >
           <v-simple-table class="mt-10 elevation-2">
@@ -37,34 +38,38 @@
                   <td class="mb-3" style="height:100px;">
                     <div class="mt-3 mb-3">
                       <v-row class="mt-1">
-                        <v-card
-                          width="120"
-                          flat
-                          class="mb-3"
-                        >
-                          <v-img
-                            :src ="item.product.image[0]"
-                            aspect-ratio = 1
-                          ></v-img>
-                        </v-card>
-                        <v-card
-                          width="150"
-                          flat
-                          color="rgba(240, 240, 242, 1)"
-                        >
-                            <v-card-text>
-                              <p class="grey--text text--darken-3">{{ item.product.name }}</p>
-                              <v-btn
-                                  v-model = "selected"
-                                  small
-                                  color ="white"
-                                  class ="black--text"
-                                  depressed
-                                  elevation="2"
-                                  @click.prevent="removeItem(item.product)"
-                              >Delete</v-btn>
-                            </v-card-text>
-                        </v-card>
+                        <v-col cols="12" md="6">
+                          <v-card
+                            width="120"
+                            flat
+                            class="mb-3"
+                          >
+                            <v-img
+                              :src ="item.product.image[0]"
+                              aspect-ratio = 1
+                            ></v-img>
+                          </v-card>
+                        </v-col>
+                        <v-col cols="12" md="6">
+                          <v-card
+                            width="120"
+                            flat
+                            color="rgba(240, 240, 242, 1)"
+                          >
+                              <v-card-text>
+                                <p class="grey--text text--darken-3">{{ item.product.name }}</p>
+                                <v-btn
+                                    v-model = "selected"
+                                    small
+                                    color ="white"
+                                    class ="black--text"
+                                    depressed
+                                    elevation="2"
+                                    @click.prevent="removeItem(item.product)"
+                                >Delete</v-btn>
+                              </v-card-text>
+                          </v-card>
+                        </v-col>
                       </v-row>
                     </div>
                   </td>
@@ -89,13 +94,14 @@
           </v-simple-table>
         </v-col>
         <v-col
+          cols="12"
           md="4"
         >
           <v-container>
             <v-card
               id="totalCalc"
               class="elevation-1 mt-10"
-              max-width="400"
+              width="400"
               color="rgba(240, 240, 242, 1)"
             >
               <v-card-title class="text-h5">Order Summary</v-card-title>
@@ -141,21 +147,28 @@
                 </v-row>
               </v-card-text>
             </v-card>
-            <v-btn
-              elevation="2"
-              color="#FB9012"
-              block
-              x-large
-              class="white--text mt-3"
-              @click="navigateTo({
-                name:'contactInfo',
-                params:{
-                  name: $store.state.user.name
-                }
-              })"
-              >
-              Buy Now
-            </v-btn>
+            <v-card
+              id="totalCalc"
+              class="elevation-1 mt-2"
+              width="400"
+              color="rgba(240, 240, 242, 1)"
+            >
+              <v-btn
+                elevation="2"
+                color="#FB9012"
+                block
+                x-large
+                class="white--text mt-3"
+                @click="navigateTo({
+                  name:'contactInfo',
+                  params:{
+                    name: $store.state.user.name
+                  }
+                })"
+                >
+                Buy Now
+              </v-btn>
+            </v-card>
             <a>
               <v-icon>
                 mdi-chevron-left

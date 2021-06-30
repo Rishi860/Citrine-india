@@ -13,7 +13,7 @@
       <p>MY ACCOUNT</p>
     </div>
     <v-container>
-      <a>
+      <a @click="navigateTo({name:'home'})">
         <v-icon>
           mdi-chevron-left
         </v-icon>
@@ -25,55 +25,10 @@
         >
           <v-card
             id="card"
-            class="elevation-1 mt-10"
-            max-width="400"
+            class="mt-10"
             color="rgba(240, 240, 242, 1)"
           >
-            <v-card-title class="text-h5">My Profile</v-card-title>
-            <v-divider id="divider"></v-divider>
-            <v-card-text>
-              <p class="text-h6 text--primary">
-                {{ user.name }}
-              </p>
-              <p class="text-h6 text--primary">
-                {{ user.email }}
-              </p>
-              <v-expansion-panels id="bg" flat>
-                <v-expansion-panel>
-                  <v-expansion-panel-header class="text-h6 text--primary">
-                    Contact
-                  </v-expansion-panel-header>
-                  <v-expansion-panel-content v-if="contactInfo">
-                    {{ contactInfo.phone }}
-                  </v-expansion-panel-content>
-                  <v-expansion-panel-content v-else>
-                    Data Not Available
-                  </v-expansion-panel-content>
-                </v-expansion-panel>
-                <v-expansion-panel>
-                  <v-expansion-panel-header class="text-h6 text--primary">
-                    Address
-                  </v-expansion-panel-header>
-                  <v-expansion-panel-content v-if="contactInfo">
-                    Address1: <br>
-                      {{ contactInfo.address1 }} <br>
-                    Address2: <br>
-                      {{ contactInfo.address2 }}
-                  </v-expansion-panel-content>
-                  <v-expansion-panel-content v-else>
-                    Data Not Available
-                  </v-expansion-panel-content>
-                </v-expansion-panel>
-              </v-expansion-panels>
-            </v-card-text>
-          </v-card>
-          <v-card
-            id="card"
-            class="elevation-1 mt-10"
-            max-width="400"
-            color="rgba(240, 240, 242, 1)"
-          >
-            <v-card-title class="text-h5">My Orders</v-card-title>
+            <v-card-title class="card--heading">My Orders</v-card-title>
             <v-divider id="divider"></v-divider>
             <v-card-actions>
               <v-row>
@@ -104,6 +59,26 @@
                 </v-col>
               </v-row>
             </v-card-actions>
+          </v-card>
+          <v-card
+            id="card"
+            class="mt-10"
+            width="400"
+            color="rgba(240, 240, 242, 1)"
+          >
+            <v-card-title class="card--heading">My Profile</v-card-title>
+            <v-divider id="divider"></v-divider>
+            <v-card-text>
+              <p class="profile--text">
+                {{ user.name }}
+              </p>
+              <p class="profile--text">
+                {{ user.email }}
+              </p>
+              <p class="profile--text">
+                Contact 
+              </p>
+            </v-card-text>
           </v-card>
           <v-btn
             class="mt-2 white--text"
@@ -162,17 +137,18 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 #headingText{
   background-color:rgba(37, 24, 29, 1);
   font-family: 'Cormorant Garamond', serif !important;
   font-weight : 500 !important;
   height: 72px;
 }
-.v-expansion-panel{
-  color: rgba(240, 240, 242, 1);
-}
 #card{
   border: 1px solid #FB9012 !important;
+  box-shadow: 4px 8px 16px rgba(37, 24, 29, 0.15);
+  border-radius: 8px;
 }
 #divider{
   border-color: #FB9012 !important;
@@ -183,6 +159,22 @@ export default {
 #icon{
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+}
+.card--heading{
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(37, 24, 29, 0.03);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+}
+.profile--text{
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 100%;
+  color: #25181D
 }
 </style>
 
