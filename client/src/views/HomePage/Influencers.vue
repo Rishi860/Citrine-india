@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="text-center">
-      <h1>Influencers</h1>
-      <v-divider inset></v-divider>
+      <h1 class="hidden-sm-and-down heading--home">Influencers</h1>
+      <h1 class="hidden-md-and-up heading--home--mb">Influencers</h1>
     </div>
     <v-container>
       <v-row>
@@ -162,5 +162,19 @@
   #radii_below{
     border-top-left-radius: 340px;
     border-bottom-right-radius: 340px;
+  }
+  .heading--home{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 132%;
+  }
+  .heading--home--mb{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 132%;
   }
 </style>

@@ -13,7 +13,7 @@
     <div id="jewlery" class="mt-6">
       <jewlery></jewlery>
     </div>
-    <div id="collections">
+    <div id="collections" class="mt-16">
       <collections-vue></collections-vue>
     </div>
     <div id="influencers">
