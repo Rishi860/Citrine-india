@@ -8,7 +8,7 @@
       height="105px"
       color="rgba(37, 24, 29, 1)"
     ></v-toolbar>
-    <div class="display-2 text-center white--text" id="headingText">
+    <div class="display-2 text-center white--text mt-n4" id="headingText">
       <p class="pt-2">COLLECTIONS</p>
     </div>
     <v-container

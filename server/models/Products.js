@@ -2,9 +2,9 @@ const { model, Schema } = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate")
 
 const productSchema = new Schema({
-    name:{type:String, required:true, unique:true},
+    name: String,
     productCode:{type:String, required:true, unique:true},
-    category:{type:String, enum:['Kids', 'Men', 'Women']},
+    category:{type:String, enum:['Rings', 'Necklace', 'Bracelet', 'Ear Rings', 'Handcuffs', 'Rakhi']},
     collections: [{type:String}],
     description: String,
     retailPrice: Number,

@@ -26,19 +26,20 @@ exports.all = async function (req, res) {
 
 exports.addProduct = function (data) {
   try {
+    console.log('data add collec', data)
     data.collections.forEach(async element => {
+      console.log(element)
       if (element === "") {return}
       await Collection.findOne({name: element}, async function(err, result){
         if(err){
           console.log(err)
         } else {
-
-          if (!result) {
-            const res = await Collection.create({
-              name: element,
-              products: [data._id]
-            })
-            return;
+          for (i=0;i<result.products.length;i++) {
+            console.log(result.products[i], data._id)
+            if (result.products[i] == data._id ) {
+              console.log('matched')
+              return;
+            }
           }
           result.products.push(data._id)
           result.save();

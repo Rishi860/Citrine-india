@@ -13,20 +13,24 @@
     <div id="jewlery" class="mt-6">
       <jewlery></jewlery>
     </div>
+    <div id="deals" class="mt-6">
+      <deals></deals>
+    </div>
     <div id="collections" class="mt-16">
       <collections-vue></collections-vue>
     </div>
-    <div id="influencers">
-      <influencers></influencers>
+    <div id="citrinewomen">
+      <citrine-women></citrine-women>
     </div>
   </v-sheet>
 </template>
 
 <script>
-import Influencers from './Influencers.vue'
 import Jewlery from './Jewlery.vue'
 import HomeCarousel from './Carousel.vue'
 import CollectionsVue from './Collections.vue'
+import Deals from './Deals.vue'
+import CitrineWomen from './CitrineWomen.vue'
 
   export default {
 
@@ -63,10 +67,11 @@ import CollectionsVue from './Collections.vue'
       }
     },
     components:{
-      Influencers,
       Jewlery,
       HomeCarousel,
-      CollectionsVue
+      CollectionsVue,
+      Deals,
+      CitrineWomen
     }
   }
 </script>

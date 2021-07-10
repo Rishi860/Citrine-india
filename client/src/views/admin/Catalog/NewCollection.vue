@@ -73,13 +73,7 @@
           this.loading = false
           window.location.reload();
         }
-      },
-      clear () {
-        this.$v.$reset()
-        this.name = ''
-        this.email = ''
-        this.select = null
-      },
+      }
     },
     async mounted() {
       this.collectionKeys = (await CollectionServices.all()).data

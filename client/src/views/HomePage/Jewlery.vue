@@ -7,48 +7,140 @@
     <v-container class="jewel--sec">
       <v-row>
         <v-col cols="12" sm="4">
-          <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/necklace.png"
-            aspect-ratio="1.19047"
-            contain
-          ></v-img>
-          <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/earings.png"
-            aspect-ratio="1.282"
-            class="mt-4"
-          ></v-img>
+          <v-hover v-slot="{ hover }">
+            <v-img
+              src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/necklace.png"
+              contain
+              class="change--cursor"
+              @click="navigateTo({name:'store', params:{item:'necklace'}})"
+            >
+                <v-fade-transition>
+                  <v-overlay
+                    v-if="hover"
+                    absolute
+                    color="#F0F0F2"
+                  >
+                    <v-text class="display-1" id="givecolor">Necklace</v-text>
+                  </v-overlay>
+                </v-fade-transition>
+              </v-img>
+            </v-hover>
+            <v-hover v-slot="{ hover }">
+            <v-img
+              src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/earings.png"
+              aspect-ratio="1.282"
+              class="mt-4 change--cursor"
+              @click="navigateTo({name:'store', params:{item:'earings'}})"
+            >
+                <v-fade-transition>
+                  <v-overlay
+                    v-if="hover"
+                    absolute
+                    color="#F0F0F2"
+                  >
+                    <v-text class="display-1" id="givecolor">Ear Rings</v-text>
+                  </v-overlay>
+                </v-fade-transition>
+              </v-img>
+            </v-hover>
         </v-col>
         <v-col cols="12" sm="4">
-          <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/rings.png"
-            aspect-ratio="1.353"
-            contain
-          ></v-img>
-          <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/handcuffs.png"
-            aspect-ratio="1"
-            class="mt-4"
-            contain
-          >
-          </v-img>
+          <v-hover v-slot="{ hover }">
+            <v-img
+              src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/rings.png"
+              aspect-ratio="1.353"
+              contain
+              class="change--cursor"
+              @click="navigateTo({name:'store', params:{item:'rings'}})"
+            > 
+              <v-fade-transition>
+                  <v-overlay
+                    v-if="hover"
+                    absolute
+                    color="#F0F0F2"
+                  >
+                    <v-text class="display-1" id="givecolor">Rings</v-text>
+                  </v-overlay>
+                </v-fade-transition>
+            </v-img>
+          </v-hover>
+          <v-hover v-slot="{hover}">
+            <v-img
+              src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/handcuffs.png"
+              aspect-ratio="1"
+              class="mt-4 change--cursor"
+              @click="navigateTo({name:'store', params:{item:'handcuf'}})"
+              contain
+            >
+              <v-fade-transition>
+                  <v-overlay
+                    v-if="hover"
+                    absolute
+                    color="#F0F0F2"
+                  >
+                    <v-text class="display-1" id="givecolor">Handcuffs</v-text>
+                  </v-overlay>
+                </v-fade-transition>
+            </v-img>
+          </v-hover>
         </v-col>
         <v-col cols="12" sm="4">
-          <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/bracelet.png"
-            aspect-ratio="1.1"
-            contain
-          ></v-img>
-          <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/rakhi.png"
-            aspect-ratio="1.235"
-            class="mt-4"
-            contain
-          ></v-img>
+          <v-hover v-slot="{hover}">
+            <v-img
+              src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/bracelet.png"
+              aspect-ratio="1.1"
+              class="change--cursor"
+              @click="navigateTo({name:'store', params:{item:'bracelet'}})"
+              contain
+            >
+              <v-fade-transition>
+                  <v-overlay
+                    v-if="hover"
+                    absolute
+                    color="#F0F0F2"
+                  >
+                    <v-text class="display-1" id="givecolor">Bracelet</v-text>
+                  </v-overlay>
+                </v-fade-transition>
+            </v-img>
+          </v-hover>
+          <v-hover v-slot="{hover}">
+            <v-img
+              src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/rakhi.png"
+              aspect-ratio="1.235"
+              class="mt-4 change--cursor"
+              @click="navigateTo({name:'store', params:{item:'rakhi'}})"
+              contain
+            >
+              <v-fade-transition>
+                  <v-overlay
+                    v-if="hover"
+                    absolute
+                    color="#F0F0F2"
+                  >
+                    <v-text class="display-1" id="givecolor">Rakhi</v-text>
+                  </v-overlay>
+                </v-fade-transition>
+            </v-img>
+          </v-hover>
         </v-col>
       </v-row>
     </v-container>
   </div>
 </template>
+
+<script>
+  export default {
+    data : () => ({
+      icons: ['mdi-rewind', 'mdi-play', 'mdi-fast-forward'],
+    }),
+    methods: {
+      navigateTo(route) {
+        this.$router.push(route)
+      }
+    }
+  }
+</script>  
 
 <style scoped>
   #collections{
@@ -63,13 +155,11 @@
   .card {
     transition: opacity .4s ease-in-out;
   }
-
   .card:not(.on-hover) {
     opacity: 0.6;
   }
-
   .show-btns {
-    color: rgba(255, 255, 255, 1) !important;
+    color: rgba(240, 240, 242, 1) !important;
   }
   .heading--home{
     font-family: 'Cormorant Garamond', serif;
@@ -87,5 +177,14 @@
   }
   .jewel--sec{
     margin-top: 88px;
+  }
+  #givecolor{
+    color : #25181D !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight : 500 !important;
+  }
+
+  .change--cursor{
+    cursor: pointer !important;
   }
 </style>

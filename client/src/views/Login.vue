@@ -9,7 +9,7 @@
       height="105px"
       color="rgba(37, 24, 29, 1)"
     ></v-toolbar>
-    <div class="display-2 text-center white--text" id="headingText">
+    <div class="display-2 text-center white--text mt-n4" id="headingText">
       <p>MY ACCOUNT</p>
     </div>
     <v-container>
@@ -20,15 +20,17 @@
           <v-card
             id="card"
             class="mt-10"
+            height="218px"
             color="rgba(240, 240, 242, 1)"
           >
             <v-card-title class="card--heading">My Orders</v-card-title>
             <v-divider id="divider"></v-divider>
-            <v-card-actions>
+            <v-card-actions class="mx-auto">
               <v-row>
-                <v-col cols="4" md="4"></v-col>
-                <v-col cols="4" md="4">
+                <v-col md="2"></v-col>
+                <v-col cols="12" md="4">
                   <v-btn
+                    large
                     class="ma-2 #25181D--text elevation-2"
                     @click.prevent="loginWithGoogle"
                   >
@@ -37,26 +39,27 @@
                         mdi-google
                       </v-icon>
                     </v-avatar>
-                    Login
+                    Log In
                   </v-btn>
                 </v-col>
-                <v-col cols="4" md="4"></v-col>
+                <v-col cols="12" md="4">
+                  <v-btn
+                    large
+                    color="#25181D"
+                    class="ma-2 elevation-2 white--text"
+                    @click.prevent="signWithGoogle"
+                  >
+                    <v-avatar size="25">
+                      <v-icon small>
+                        mdi-google
+                      </v-icon>
+                    </v-avatar>
+                    Sign Up
+                  </v-btn>
+                </v-col>
+                <v-col md="2"></v-col>
               </v-row>
             </v-card-actions>
-            <v-card-text>  
-              Alerady have an account?
-              <v-btn
-                class="ma-2 #25181D--text elevation-2"
-                @click.prevent="loginWithGoogle"
-              >
-                <v-avatar color="rgba(240, 240, 242, 1)" size="25">
-                  <v-icon small>
-                    mdi-google
-                  </v-icon>
-                </v-avatar>
-                Login
-              </v-btn>
-            </v-card-text>
           </v-card>
         </v-col>
         <v-col
@@ -94,8 +97,23 @@ export default {
           console.log('error', error)
         })
     },
+    signWithGoogle () {
+      this.$gAuth
+        .signIn()
+        .then(async (GoogleUser) => {
+          // on success do something
+          const id_token = GoogleUser.getAuthResponse().id_token;
+          const response = (await AuthenticationServices.register(id_token)).data;
+          this.$store.dispatch('setToken', response.token)
+          this.$store.dispatch('setUser', response.user)
+          this.$router.push({name:'home'})
+        })
+        .catch(error => {
+          console.log('error', error)
+        })
+    },
     navigateTo(route){
-        this.$router.push(route)
+      this.$router.push(route)
     }
   },
   data () {
@@ -121,6 +139,7 @@ export default {
   width: 100%;
 }
 #card{
+  font-family: 'Montserrat', sans-serif;
   border: 1px solid #FB9012 !important;
   box-shadow: 4px 8px 16px rgba(37, 24, 29, 0.15);
   border-radius: 8px;

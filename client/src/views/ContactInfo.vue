@@ -9,7 +9,7 @@
       height="105px"
       color="rgba(37, 24, 29, 1)"
     ></v-toolbar>
-    <div class="display-2 text-center white--text" id="headingtext">
+    <div class="display-2 text-center white--text mt-n4" id="headingtext">
       <p>CONTACT INFORMATION</p>
     </div>
     <v-container>

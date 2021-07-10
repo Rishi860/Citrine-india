@@ -23,6 +23,7 @@ module.exports = (app) => {
     app.post('/admin/product/:id/edit', store.array('imageFiles', 12), ProductControllers.update)
     app.get('/admin/product', ProductControllers.indexPaginated)
     app.delete('/admin/remove/img', ProductControllers.deleteImage)
+    // app.delete('/admin/product/delete', ProductControllers.deleteProduct)
 
     app.get('/admin/users', UserControllers.indexPaginated)
     app.get('/admin/users/:id', UserControllers.user)

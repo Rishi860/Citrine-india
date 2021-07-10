@@ -1,5 +1,12 @@
 <template>
   <v-container>
+    <!-- toolbar to give extra space -->
+    <v-toolbar
+      dense
+      flat
+      height="80px"
+      color="rgba(37, 24, 29, 1)"
+    ></v-toolbar>
     <h1 class="text-center">Terms & Conditions</h1>
     <div>
       <br>

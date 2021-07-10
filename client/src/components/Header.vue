@@ -18,7 +18,7 @@
             id="title-btn"
             v-on="on"
           >
-            Trends
+            Deals
           </v-btn>
         </template>
         <v-list 
@@ -73,7 +73,8 @@
       >
         Jewelery
       </v-btn>
-      <v-tab
+      <v-btn
+        icon
         class="hidden-sm-and-down"
         @click="navigateTo({
           name:'cart',
@@ -90,15 +91,16 @@
             mdi-cart
           </v-icon>
         </v-badge>
-      </v-tab>
-      <v-tab
+      </v-btn>
+      <v-btn
+        icon
         class="hidden-sm-and-down"
         @click="navigateTo({name:'dashboard'})"
       >
         <v-icon>
           mdi-account
         </v-icon>
-      </v-tab>
+      </v-btn>
       <v-app-bar-nav-icon
         @click="sideNav = !sideNav"
         class="hidden-md-and-up"

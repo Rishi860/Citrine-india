@@ -30,4 +30,7 @@ export default{
   removeImage (keys) {
     return Api().delete('admin/remove/img', keys)
   }
+  // deleteitem (id) {
+  //   return Api().delete('admin/product/delete', id)
+  // }
 }

@@ -20,7 +20,19 @@
             <!-- <v-img contain wdith="122px" height="122px" aspect-ratio="1" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+77collection1.png"></v-img> -->
             <v-img contain wdith="475px" height="313px" aspect-ratio="1.517" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Rectangle+58collection2.png"></v-img>
             <v-img id="coll3" contain wdith="409px" height="344px" aspect-ratio="1.188" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+83collection3.png"></v-img>
-            <v-img id="coll4" aspect-ratio="0.727" width="214px" height="294px" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Rectangle+63collection4.png"></v-img>
+            <v-hover v-slot="{ hover }">
+              <v-img id="coll4" aspect-ratio="0.727" width="214px" height="294px" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Rectangle+63collection4.png">
+                <v-fade-transition>
+                  <v-overlay
+                    v-if="hover"
+                    absolute
+                    color="#F0F0F2"
+                  >
+                    <v-text class="text-h5" id="givecolor">See Collections</v-text>
+                  </v-overlay>
+                </v-fade-transition>
+              </v-img>
+            </v-hover>
             <v-img id="coll5" aspect-ratio="0.9029" height="237" width="214" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+80collection5.png"></v-img>
           </v-card>
         </v-col>
@@ -37,9 +49,33 @@
           >
             <!-- <v-img contain wdith="122px" height="122px" aspect-ratio="1" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+77collection1.png"></v-img> -->
             <v-img contain wdith="475px" height="313px" aspect-ratio="1.517" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Rectangle+58collection2.png"></v-img>
-            <v-img id="dcoll3" contain wdith="409px" height="344px" aspect-ratio="1.188" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+83collection3.png"></v-img>
+            <v-hover v-slot="{ hover }">
+              <v-img id="dcoll3" contain wdith="409px" height="344px" aspect-ratio="1.188" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+83collection3.png">
+                <v-fade-transition>
+                  <v-overlay
+                    v-if="hover"
+                    absolute
+                    color="#F0F0F2"
+                  >
+                    <v-text class="text-h5" id="givecolor">See Collections</v-text>
+                  </v-overlay>
+                </v-fade-transition>
+              </v-img>
+            </v-hover>
             <v-img id="dcoll4" aspect-ratio="0.727" width="214px" height="294px" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Rectangle+63collection4.png"></v-img>
-            <v-img id="dcoll5" aspect-ratio="0.9029" height="237" width="214" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+80collection5.png"></v-img>
+            <v-hover v-slot="{hover}">
+              <v-img id="dcoll5" aspect-ratio="0.9029" height="237" width="214" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Frame+80collection5.png">
+                <v-fade-transition>
+                  <v-overlay
+                    v-if="hover"
+                    absolute
+                    color="#F0F0F2"
+                  >
+                    <v-text class="text-h5" id="givecolor">See Collections</v-text>
+                  </v-overlay>
+                </v-fade-transition>
+              </v-img>
+            </v-hover>
           </v-card>
         </v-col>
       </v-row>
@@ -48,12 +84,9 @@
 </template>
 
 <script>
-
 export default {
-
 }
 </script>
-
 
 <style scoped>
   /* .v-card--reveal {
@@ -67,11 +100,9 @@ export default {
     border-top-left-radius: 340px;
     border-bottom-right-radius: 340px;
   }
-
   /* .card:not(.on-hover) {
     opacity: 0.6;
   } */
-
   .show-btns {
     color: rgba(255, 255, 255, 1) !important;
   }
@@ -90,6 +121,7 @@ export default {
   #coll4{
     margin-top: -316px;
     margin-left: 200px;
+    cursor: pointer !important;
   }
   #coll5{
     margin-top: -420px;
@@ -98,6 +130,7 @@ export default {
   #dcoll3{
     margin-top: -291px;
     margin-left: -193px;
+    cursor: pointer !important;
   }
   #dcoll4{
     margin-top: -316px;
@@ -105,6 +138,7 @@ export default {
   }
   #dcoll5{
     margin-top: -420px;
+    cursor: pointer !important;
     margin-left: 325px;
   }
   .heading--home{

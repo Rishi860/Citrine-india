@@ -9,12 +9,8 @@
     ></v-toolbar>
     <v-text-field
       v-model="name"
-      :error-messages="nameErrors"
-      :counter="10"
       label="Product Name"
       required
-      @input="$v.name.$touch()"
-      @blur="$v.name.$touch()"
     ></v-text-field>
     <v-text-field
       v-model="desc"
@@ -38,10 +34,6 @@
       label="Category"
       required
     ></v-select>
-    <v-text-field
-      v-model="newCollection"
-      label="New collection"
-    ></v-text-field>
     <v-select
       v-model="collectionValues"
       :items="collectionKeys"
@@ -90,20 +82,10 @@
 </template>
 
 <script>
-  import { validationMixin } from 'vuelidate'
-  import { required, maxLength, email } from 'vuelidate/lib/validators'
   import CatalogServices from '../../../services/catalogServices'
   import CollectionServices from '../../../services/collectionServices'
 
   export default {
-    mixins: [validationMixin],
-
-    validations: {
-      name: { required, maxLength: maxLength(10) },
-      email: { required, email },
-      select: { required },
-    },
-
     data: () => ({
       loading:false,
       name: 'CRA',
@@ -111,9 +93,12 @@
       category: null,
       newCollection: '',
       items: [
-        'Kids',
-        'Men',
-        'Women'
+        'Rings',
+        'Necklace',
+        'Bracelet',
+        'Ear Rings',
+        'Handcuffs',
+        'Rakhi'
       ],
       collectionKeys: [],
       collectionValues: [],
@@ -122,24 +107,9 @@
       files:[],
       productCode: 'CRA'
     }),
-
-    computed: {
-      nameErrors () {
-        const errors = []
-        if (!this.$v.name.$dirty) return errors
-        !this.$v.name.maxLength && errors.push('Name must be at most 10 characters long')
-        !this.$v.name.required && errors.push('Name is required.')
-        return errors
-      },
-    },
-
     methods: {
       async upload () {
         this.loading = true
-        this.collectionValues = [
-          ...this.collectionValues,
-          this.newCollection,
-        ]
         const payload = {
           name:this.name,
           category:this.category,
@@ -160,12 +130,6 @@
           this.loading = false
           window.location.reload();
         }
-      },
-      clear () {
-        this.$v.$reset()
-        this.name = ''
-        this.email = ''
-        this.select = null
       },
     },
     async mounted() {

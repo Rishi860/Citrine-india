@@ -1,5 +1,12 @@
 <template>
   <v-container>
+    <!-- toolbar to give extra space -->
+    <v-toolbar
+      dense
+      flat
+      height="105px"
+      color="rgba(37, 24, 29, 1)"
+    ></v-toolbar>
     <v-text-field
       v-model="product.name"
       :error-messages="nameErrors"
@@ -31,10 +38,6 @@
       label="Category"
       required
     ></v-select>
-    <v-text-field
-      v-model="newCollection"
-      label="New collection"
-    ></v-text-field>
     <v-select
       v-model="collectionValues"
       :items="collectionKeys"
@@ -51,8 +54,9 @@
     >
       <v-img
         :src="img"
-        height="150"
-        width="250"
+        aspect-ration="1"
+        max-width="250px"
+        max-height="250px"
       ></v-img>
       <v-btn
         @click="remove(img)"
@@ -93,30 +97,20 @@
           mdi-cloud-upload
         </v-icon>
       </v-btn>
-      <v-btn
-        @click="Delete"
+      <!-- <v-btn
+        @click="deleteItem()"
       >
         Delete
-      </v-btn>
+      </v-btn> -->
     </div>
   </v-container>
 </template>
 
 <script>
-  import { validationMixin } from 'vuelidate'
-  import { required, maxLength, email } from 'vuelidate/lib/validators'
   import CatalogServices from '../../../services/catalogServices'
   import CollectionServices from '../../../services/collectionServices'
 
   export default {
-    mixins: [validationMixin],
-
-    validations: {
-      name: { required, maxLength: maxLength(10) },
-      email: { required, email },
-      select: { required },
-    },
-
     data: () => ({
       loading:false,
       removedImage: null,
@@ -130,26 +124,18 @@
         productCode: null,
         image:[]
       },
-      newCollection: '',
       items: [
-        'Kids',
-        'Men',
-        'Women'
+        'Rings',
+        'Necklace',
+        'Bracelet',
+        'Ear Rings',
+        'Handcuffs',
+        'Rakhi'
       ],
       collectionKeys: [],
       collectionValues: [],
       files:[],
     }),
-
-    computed: {
-      nameErrors () {
-        const errors = []
-        if (!this.$v.name.$dirty) return errors
-        !this.$v.name.maxLength && errors.push('Name must be at most 10 characters long')
-        !this.$v.name.required && errors.push('Name is required.')
-        return errors
-      },
-    },
     async mounted(){
       const productId = this.$route.params.productId
       this.product = (await CatalogServices.get(productId)).data;
@@ -165,18 +151,14 @@
           await CatalogServices.removeImage(key)
         }
         this.loading = true
-        this.collectionValues = [
-          ...this.collectionValues,
-          this.newCollection,
-        ]
         const payload = {
-          name:this.name,
-          category:this.category,
+          name: this.product.name,
+          category: this.product.category,
           collections: this.collectionValues,
-          description: this.desc,
-          retailPrice: this.retail,
-          wholesalePrice: this.wholesale,
-          productCode: this.productCode,
+          description: this.product.description,
+          retailPrice: this.product.retailPrice,
+          wholesalePrice: this.product.wholesalePrice,
+          productCode: this.product.productCode,
           image: this.product.image
         }
         const formData = new FormData();
@@ -200,6 +182,11 @@
         this.product.image.splice(this.product.image.indexOf(img),1)
         this.removedImage.push(img)
       }
+      // async deleteItem(){
+      //   const productId = this.$route.params.productId
+      //   await CatalogServices.deleteItem(productId);
+      //   window.history.back();
+      // }
     },
   }
 </script>

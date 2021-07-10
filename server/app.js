@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 // const authRouter = require('./routes/auth')
 
 const app = express();
-// const DB = 'mongodb+srv://admin:admin12345@testdep.vins4.mongodb.net/Test-Citrine?retryWrites=true&w=majority'
+const DB = 'mongodb+srv://admin:oFqfeU1l2Kxc6yck@citrine-data.k6xms.mongodb.net/Citrine?retryWrites=true&w=majority'
 
 // for parsing application/json
 app.use(cors())
@@ -23,7 +23,7 @@ app.set('view engine', 'jade');
 
 // app.use('/', indexRouter)
 require('./routes')(app)
-mongoose.connect(`mongodb://localhost:27017/citrine`, {
+mongoose.connect(DB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false

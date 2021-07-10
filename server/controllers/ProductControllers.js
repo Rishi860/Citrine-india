@@ -36,7 +36,7 @@ exports.indexPaginated = async function (req, res) {
 
     const pData = await Products.paginate(searchObject, {
       page,
-      limit: 6,
+      limit: 16,
     });
     res.json({ success: true, data: pData })
   } catch (error) {
@@ -91,12 +91,13 @@ exports.update = async function (req, res) {
   try {
     const files = req.files;
     let data = JSON.parse((JSON.parse(JSON.stringify(req.body))).payload) // find another way
+    console.log('data',data)
     const result = await uploadFile(files)
     result.forEach(item => {
       data.image.push(item)
     })
-    const { _id, collections } = await Products.findOneAndUpdate({_id: req.params.id}, data)
-    await CollectionControllers.addProduct({ _id, collections })
+    const {_id} = await Products.findOneAndUpdate({_id: req.params.id}, data)
+    await CollectionControllers.addProduct({ _id, collections: data.collections })
     res.json({ success: true })
   } catch (error) {
     return res.status(401).json({ success: false, message: `${error}` });
@@ -113,3 +114,12 @@ exports.deleteImage = function (req, res) {
     return res.status(401).json({ success: false, message: `${error}` });
   }
 }
+
+// exports.deleteProduct = function (req, res) {
+//   try {
+//     const id = req.body.id;
+//     await 
+//   } catch (error) {
+//     return res.status(401).json({ success: false, message: `${error}` });
+//   }
+// }
