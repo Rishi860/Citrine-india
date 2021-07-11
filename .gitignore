@@ -1,2 +1,9 @@
-server/node_modules
-*.json
+
+earings.json
+necklace.json
+rakhi.json
+rings.json
+updatedearings.json
+updatednecklace.json
+updatedRakhi.json
+updatedRings.json

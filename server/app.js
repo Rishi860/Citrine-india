@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
+const config = require('./config')
 const bodyParser = require('body-parser')
 // const authRouter = require('./routes/auth')
 
 const app = express();
-const DB = 'mongodb+srv://admin:oFqfeU1l2Kxc6yck@citrine-data.k6xms.mongodb.net/Citrine?retryWrites=true&w=majority'
 
 // for parsing application/json
 app.use(cors())
@@ -23,7 +23,17 @@ app.set('view engine', 'jade');
 
 // app.use('/', indexRouter)
 require('./routes')(app)
-mongoose.connect(DB, {
+
+// Handle production
+if (process.env.NODE_ENV === 'production') {
+  // static folder
+  app.use(express.static(__dirname + '/public/'));
+
+  // handle SPA
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+  
+}
+mongoose.connect(config.mongo.uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
@@ -41,8 +51,9 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', async function() {
   // we're connected!
-  app.listen(8081)
-  console.log('app started at port 8081');
+  app.listen(config.port)
+  console.log(`app started at port ${config.port}`);
+  console.log(`app connected to ${config.mongo.uri}`)
 });
 
 // var newDate = new Date();
