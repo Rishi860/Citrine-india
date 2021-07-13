@@ -109,7 +109,7 @@
               src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/rakhi.png"
               aspect-ratio="1.235"
               class="mt-4 change--cursor"
-              @click="navigateTo({name:'store', params:{item:'rakhi'}})"
+              @click="navigateTo({name:'rakhi'})"
               contain
             >
               <v-fade-transition>

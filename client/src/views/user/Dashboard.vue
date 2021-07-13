@@ -6,11 +6,11 @@
     <v-toolbar
       dense
       flat
-      height="105px"
-      color="rgba(37, 24, 29, 1)"
+      height="80px"
+      color="#F0F0F2"
     ></v-toolbar>
-    <div class="display-2 text-center white--text" id="headingText">
-      <p>MY ACCOUNT</p>
+    <div class="text-center white--text" id="headingText">
+      <p class="pt-3">MY ACCOUNT</p>
     </div>
     <v-container>
       <a @click="navigateTo({name:'home'})">
@@ -81,7 +81,7 @@
             </v-card-text>
           </v-card>
           <v-btn
-            class="mt-2 white--text"
+            class="mt-2 white--text logout--btn"
             color="#FB9012"
             @click="logout"
           >
@@ -143,7 +143,9 @@ export default {
   background-color:rgba(37, 24, 29, 1);
   font-family: 'Cormorant Garamond', serif !important;
   font-weight : 500 !important;
-  height: 72px;
+  height: 56px;
+  font-size: 24px;
+  line-height: 132%;
 }
 #card{
   border: 1px solid #FB9012 !important;
@@ -159,6 +161,7 @@ export default {
 #icon{
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+  padding-left: -4px;
 }
 .card--heading{
   font-family: 'Montserrat', sans-serif;
@@ -175,6 +178,13 @@ export default {
   font-size: 18px;
   line-height: 100%;
   color: #25181D
+}
+.logout--btn{
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 100%;
 }
 </style>
 

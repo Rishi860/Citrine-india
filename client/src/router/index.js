@@ -18,6 +18,8 @@ import Dashboard from '../views/user/Dashboard.vue'
 import PreviousOrders from '../views/user/PreviousOrders.vue'
 import Jewelry from '../views/Jewelry.vue'
 import Store from '../views/Store.vue'
+import Rakhi from '../views/Rakhi.vue'
+import RakhiTypes from '../views/RakhiTypes.vue'
 
 Vue.use(VueRouter)
 
@@ -101,6 +103,16 @@ Vue.use(VueRouter)
     path:'/jewelery/:item',
     name : 'store',
     component: Store
+  },
+  {
+    path:'/rakhi',
+    name : 'rakhi',
+    component: Rakhi
+  },
+  {
+    path:'/rakhi/:item',
+    name : 'rakhistore',
+    component: RakhiTypes
   },
 
   ...admin

@@ -3,10 +3,9 @@
         <v-toolbar
             dense
             flat
-            height="105px"
-            color="transparent"
-        >
-        </v-toolbar>
+            height="80px"
+            color="#F0F0F2"
+        ></v-toolbar>
         <v-container >
             <v-row>
                 <v-col cols="12" md="8" id="givemargin">

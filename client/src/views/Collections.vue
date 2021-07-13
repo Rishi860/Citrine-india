@@ -5,11 +5,11 @@
     <v-toolbar
       dense
       flat
-      height="105px"
-      color="rgba(37, 24, 29, 1)"
+      height="80px"
+      color="#F0F0F2"
     ></v-toolbar>
-    <div class="display-2 text-center white--text mt-n4" id="headingText">
-      <p class="pt-2">COLLECTIONS</p>
+    <div class="text-center white--text" id="headingText">
+      <p class="pt-3">COLLECTIONS</p>
     </div>
     <v-container
       style="height: 1500px;"
@@ -114,6 +114,8 @@ export default {
   background-color:rgba(37, 24, 29, 1);
   font-family: 'Cormorant Garamond', serif !important;
   font-weight : 500 !important;
-  height: 72px;
+  height: 56px;
+  font-size: 24px;
+  line-height: 132%;
 }
 </style>

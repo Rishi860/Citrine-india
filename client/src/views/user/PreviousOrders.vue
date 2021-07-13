@@ -42,10 +42,10 @@
           </v-expand-transition>
         </v-card>
       </div>
-      <div v-else>
-        <v-img src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/orderHistory.png" aspect-ratio="1.355" width="494.8px" height="365.15px"></v-img>
+      <v-card flat color="rgba(240, 240, 242, 1)" class="track_order text-center" v-else>
+        <v-img class="ml-6" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/orderHistory.png" aspect-ratio="1.355" width="494.8px" height="365.15px"></v-img>
         <p id="hist">You have no order history</p>
-      </div>
+      </v-card>
     </v-container>
   </dashboard>
 </template>
@@ -68,9 +68,11 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 #hist{
   font-family: 'Montserrat', sans-serif;
-  font-size: 32px;
-  opacity: 30%;
   color: #FB9012;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 100%;
 }
 #subHeading{
   font-family: 'Montserrat', sans-serif;
@@ -90,5 +92,8 @@ export default {
 }
 .v-card__title{
   word-break: keep-all !important;
+}
+.track_order{
+  opacity: .8;
 }
 </style>

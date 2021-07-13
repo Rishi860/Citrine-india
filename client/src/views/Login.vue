@@ -6,10 +6,10 @@
     <v-toolbar
       dense
       flat
-      height="105px"
+      height="80px"
       color="rgba(37, 24, 29, 1)"
     ></v-toolbar>
-    <div class="display-2 text-center white--text mt-n4" id="headingText">
+    <div class="text-center white--text mt-n4" id="headingText">
       <p>MY ACCOUNT</p>
     </div>
     <v-container>
@@ -130,7 +130,10 @@ export default {
   background-color:rgba(37, 24, 29, 1);
   font-family: 'Cormorant Garamond', serif !important;
   font-weight : 500 !important;
-  height: 72px;
+  height: 56px;
+  font-size: 24px;
+  line-height: 132%;
+  margin-top: 24px;
 }
 .v-card--reveal {
   bottom: 0;

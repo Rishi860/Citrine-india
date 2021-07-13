@@ -6,10 +6,10 @@
       dense
       flat
       height="80px"
-      color="rgba(37, 24, 29, 1)"
+      color="#F0F0F2"
     ></v-toolbar>
     <div class="text-center white--text" id="headingText">
-      <p class="pt-2">{{ collectionName }}</p>
+      <p class="pt-3">Rakhi</p>
     </div>
     <v-container
       style="height: 1500px;"
@@ -20,21 +20,15 @@
         class="mt-10"
       >
         <v-col
-          v-for="doc in data.docs"
+          v-for="doc in dataa.docs"
           :key="doc"
           class="ml-3 mb-3"
         >
-          <v-card
-            elevation="4"
-            class="mx-auto"
-            width="216px"
-            height="288px"
-          >
             <v-img
               :src="doc.image[0]"
-              aspect-ratio="0.75"
-              width="216px"
-              height="288px"
+              aspect-ratio="0.7619"
+              width="256px"
+              height="336px"
             >
               <v-app-bar
                 flat
@@ -65,14 +59,14 @@
                 </v-btn>
               </v-card-title>
             </v-img>
-          </v-card>
         </v-col>
       </v-row>
       <div class="text-center mt-5">
         <v-pagination
-          v-model="data.page"
+          v-model="dataa.page"
           :length="length"
           circle
+          :total-visible="total_visible"
           @input="getProducts"
         ></v-pagination>
       </div>
@@ -87,7 +81,8 @@ import CartServices from '../services/cartServices'
 export default {
   data : ()=>({
     cart: null,
-    data: {
+    total_visible: null,
+    dataa: {
       docs: null,
       total: null,
       limit: null,
@@ -103,14 +98,20 @@ export default {
     }
   },
   async mounted (){
-    console.log(this.collectionName)
-    this.data = (await CatalogServices.index(this.collectionName)).data.data
-    this.length = this.data.pages
+    let jewelType = this.$route.params.item
+    this.dataa = (await CatalogServices.index(jewelType, this.dataa.page)).data.data
+    this.length = this.dataa.pages
+    if (this.length >= 7) {
+      this.total_visible = 5
+    } else {
+      this.total_visible = this.length;
+    }
   },
   methods:{
     async getProducts(page){
-      this.data = (await CatalogServices.index('',page)).data.data
-      this.length = this.data.pages
+      let jewelType = this.$route.params.item 
+      this.dataa = (await CatalogServices.index(jewelType, page)).data.data
+      this.length = this.dataa.pages
     },
     navigateTo(route){
       this.$router.push(route)
@@ -138,17 +139,14 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 #headingText{
   background-color:rgba(37, 24, 29, 1);
-  font-family: 'Cormorant Garamond', serif !important;
+  font-family: 'Montserrat', sans-serif;
   font-weight : 500 !important;
   height: 56px;
   font-size: 24px;
   line-height: 132%;
-  margin-top: 24px;
-}
-#buyBtn{
-  margin-top: 160px;
-  margin-left: 25px;
 }
 </style>

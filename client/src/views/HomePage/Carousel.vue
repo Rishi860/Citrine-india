@@ -27,6 +27,15 @@
               <div class="carousel--subtext">You gotta have style. It helps you get down the stairs. <br>
                 It helps you get up in the morning. It’s a way of life.
               </div>
+              <div class="mt-6">
+                <v-btn
+                  outlined
+                  large
+                  color="#FB9012"
+                >
+                  See Collection
+                </v-btn>
+              </div>
             </v-col>
           </v-row>
         </v-container>
@@ -106,7 +115,7 @@ export default {
   text-shadow: 2px 2px 4px rgba(37, 24, 29, 0.25);
 }
 .top--img{
-  margin-top: -250px;
+  margin-top: -300px;
   border-radius: 140px;
 }
 .mid--img{

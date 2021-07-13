@@ -1,58 +1,19 @@
 <template>
-  <v-container>
-    <v-app-bar :color="bg" app flat hide-on-scroll height="105px">
+  <div>
+    <v-app-bar :color="bg" app flat hide-on-scroll height="104px">
       <v-toolbar-title  id="title" @click="navigateTo({name:'home'})" >Citrine</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-menu
-        open-on-hover
-        bottom
-        offset-y
-        transition="scale-transition"
-        width ="704px" 
-        height="536px" 
-      >   
-        <template v-slot:activator="{ on }">
-          <v-btn
-            plain
-            class="hidden-sm-and-down"
-            id="title-btn"
-            v-on="on"
-          >
-            Deals
-          </v-btn>
-        </template>
-        <v-list 
-          color="rgba(37, 24, 29, 1)"
-        >
-          <v-container
-            v-for="(item,i) in admins"
-            :key="i"
-          >
-            <v-row>
-              <v-col
-                cols="12"
-                md="6"
-              >
-                <v-card
-                  color="rgba(37, 24, 29, 1)"
-                >
-                  <v-img :src="item" id="list-element" class="rounded-lg "  width="288px" height="88px"></v-img>
-                </v-card>
-              </v-col>
-              <v-col
-                cols="12"
-                md="6"
-              >
-                <v-card
-                  color="rgba(37, 24, 29, 1)"
-                >
-                  <v-img :src="item" id="list-element" class="rounded-lg "  width="288px" height="88px"></v-img>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-list>
-      </v-menu>
+      <v-btn
+        id="title-btn"
+        class="hidden-sm-and-down"
+        plain
+        depressed
+        @click="navigateTo({
+          name: 'collections'
+        })"
+      >
+        Deals
+      </v-btn>
       <v-btn
         id="title-btn"
         class="hidden-sm-and-down"
@@ -136,7 +97,7 @@
       </v-list>
       <div class="text-center mt-10 " id="changefonttogara"><h1>Citrine</h1></div>
     </v-navigation-drawer>
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -146,16 +107,16 @@
       navigateTo (route) {
         this.$router.push(route)
       },
-      // changeColor() {
-      // if (
-      //   document.body.scrollTop > 100 ||
-      //   document.documentElement.scrollTop > 100
-      // ) {
-      //   this.bg = 'white';
-      // } else {
-      //   this.bg = 'transparent';
-      // }
-    // },
+      changeColor() {
+        if (
+          document.body.scrollTop > 100 ||
+          document.documentElement.scrollTop > 100
+        ) {
+          this.bg = '#F0F0F2';
+        } else {
+          this.bg = 'transparent';
+        }
+      },
     },
     data: () => ({
       bg:null,
@@ -188,16 +149,13 @@
         return this.$store.getters.cartItemCount
       }
     },
-    // mounted() {
-    // window.onscroll = () => {
-    //   this.changeColor();
-    // };
-  // },
+    mounted() {
+    window.onscroll = () => {
+      this.changeColor();
+    };
+  },
   }
 </script>
-
-
-
 
 <style scoped>
 
@@ -206,7 +164,7 @@
     font-family: 'Cormorant Garamond', serif;
     color: #25181D;
     font-size: 52px;
-    letter-spacing: -.08em;
+    letter-spacing: -.06em;
   }
   #title:hover{
     cursor: pointer;
@@ -240,10 +198,10 @@
   letter-spacing: -0.08em;
   line-height: 133.7%;
   color:rgba(240, 240, 242, 1);
-}
-#changefontcolor{
-  color : rgba(251, 144, 18, 1) !important;
-}
+  }
+  #changefontcolor{
+    color : rgba(251, 144, 18, 1) !important;
+  }
 /* .header{
   font-family: Montserrat;
   margin-bottom: 2%;
