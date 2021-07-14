@@ -4,13 +4,8 @@
   >
     <!-- Testimolials -->
     <home-carousel></home-carousel>
-    <!-- Quote -->
-    <p class="quote">
-      "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-    </p>
-    <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
     <!-- Collection-starts -->
-    <div id="jewlery" class="mt-6">
+    <div id="jewlery" class="mt-16">
       <jewlery></jewlery>
     </div>
     <div id="deals" class="mt-6">

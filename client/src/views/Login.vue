@@ -23,7 +23,7 @@
             height="218px"
             color="rgba(240, 240, 242, 1)"
           >
-            <v-card-title class="card--heading">My Orders</v-card-title>
+            <v-card-title class="card--heading">Account</v-card-title>
             <v-divider id="divider"></v-divider>
             <v-card-actions class="mx-auto">
               <v-row>

@@ -87,10 +87,10 @@
         <v-col cols="12" sm="4">
           <v-hover v-slot="{hover}">
             <v-img
-              src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/bracelet.png"
+              src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/harness.png"
               aspect-ratio="1.1"
               class="change--cursor"
-              @click="navigateTo({name:'store', params:{item:'bracelet'}})"
+              @click="navigateTo({name:'store', params:{item:'harness'}})"
               contain
             >
               <v-fade-transition>
@@ -99,7 +99,7 @@
                     absolute
                     color="#F0F0F2"
                   >
-                    <v-text class="display-1" id="givecolor">Bracelet</v-text>
+                    <v-text class="display-1" id="givecolor">Harness</v-text>
                   </v-overlay>
                 </v-fade-transition>
             </v-img>

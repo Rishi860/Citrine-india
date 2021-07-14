@@ -11,7 +11,7 @@
       hide-delimiters
     >
       <v-carousel-item
-        v-for="i in 6"
+        v-for="i in 4"
         :key="i"
       >
         <v-container fill-height>
@@ -23,15 +23,18 @@
               <v-img aspect-ratio="1" class="bottom--img" :src="items[i+1]" width="280px" height="420px"></v-img>
             </v-col>
             <v-col md="6">
-              <div class="carousel--text">Building a better you</div>
-              <div class="carousel--subtext">You gotta have style. It helps you get down the stairs. <br>
-                It helps you get up in the morning. It’s a way of life.
+              <div class="carousel--text">Touch of Modernity!</div>
+              <div class="carousel--subtext">Our twist on Glam Rakhi’s with modern aesthetics and the beautiful motifs.
+                Each of these slip effortlessly into your Bond of Love 💕 
               </div>
               <div class="mt-6">
                 <v-btn
                   outlined
                   large
                   color="#FB9012"
+                  @click="navigateTo({
+                    name: 'collections'
+                  })"
                 >
                   See Collection
                 </v-btn>
@@ -47,9 +50,10 @@
     :cycle="true"
     :interval="15000"
     class="hidden-sm-and-up"
+    hide-delimiters
   >
     <v-carousel-item
-      v-for="i in 6"
+      v-for="i in 4"
       :key="i"
     >
       <v-container fill-height>
@@ -65,7 +69,7 @@
           </v-col>
         </v-row>
         <v-row class="mb-cara">
-          <div class="carousel--text--mb">Building a <br> better you</div>
+          <div class="carousel--text--mb">Touch of <br> Modernity!</div>
           <div class="carousel--subtext--mb">
             You gotta have style. It helps you get down the stairs.
             It helps you get up in the morning. It’s a way of life.
@@ -82,17 +86,19 @@
 export default {
   data: () => ({
     items: [
-      'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
-      'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
-      'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
-      'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
-      'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
-      'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
-      'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
-      'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
+      'https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/cara4.jpeg',
+      'https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/cara1.jpeg',
+      'https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/cara2.jpeg',
+      'https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/cara3.jpeg',
+      'https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/cara4.jpeg',
+      'https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/cara1.jpeg',
     ],
-    slides: ["lorem ipsum", "Design", "Technology" , "Technology" , "Technology" , "Technology" , "Technology" , "Technology"],
-  })
+  }),
+  methods: {
+    navigateTo(route) {
+      this.$router.push(route)
+    }
+  }
 }
 </script>
 

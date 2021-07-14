@@ -4,7 +4,7 @@
       <h1 class="hidden-sm-and-down heading--home">Citrine Women</h1>
       <h1 class="hidden-md-and-up heading--home--mb">Citrine Women</h1>
     </div>
-    <v-container>
+    <v-container class="mt-16">
       <v-row>
         <template >
           <v-col sm="1"></v-col>
@@ -14,9 +14,10 @@
           >
             <v-img
               class="imageLeft"
-              src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
+              src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/radhey.png"
               aspect-ratio="0.525"
               id="radii"
+              contain
             >
             </v-img>
           </v-col>
@@ -26,9 +27,10 @@
           >
             <v-img
               class="imageRight"
-              src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/F8.jpeg"
+              src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/chinky.png"
               aspect-ratio="0.525"
               id="radii"
+              contain
             >
             </v-img>
           </v-col>
@@ -41,7 +43,6 @@
 
 <script>
 export default {
-
 }
 </script>
 
@@ -69,5 +70,18 @@ export default {
   /* transition: opacity .4s ease-in-out; */
   border-top-left-radius: 1340px;
   border-bottom-right-radius: 1340px;
+}
+
+@media only screen and (max-width: 600px) {
+  .imageLeft {
+      margin : auto !important;
+      width : 300px !important;
+      height : 571px !important;
+  }
+  .imageRight {
+      margin : auto !important;
+      width  : 300px !important;
+      height : 571px !important;
+  }
 }
 </style>

@@ -42,8 +42,8 @@
         </v-col>
         <v-col cols="12" sm="4">
           <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/jewelery/bracelet.jpeg"
-            @click="navigateTo({name:'store', params:{item:'bracelet'}})"
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA673.jpg"
+            @click="navigateTo({name:'store', params:{item:'harness'}})"
             aspect-ratio="0.7479"
           ></v-img>
           <v-img
