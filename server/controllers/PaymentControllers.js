@@ -99,7 +99,7 @@ module.exports = {
       
       const options = {
         method: 'POST',
-        uri: 'https://test.payu.in/merchant/postservice.php?form=2',
+        uri: 'https://secure.payu.in/merchant/postservice.php?form=2',
         form: {
           key: key,
           hash: vhash,

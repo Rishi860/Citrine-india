@@ -19,7 +19,7 @@
         >
           <form
             id="payment-form"
-            action="https://test.payu.in/_payment"
+            action="https://secure.payu.in/_payment"
             method="post"
           >
             <v-container>
@@ -202,7 +202,7 @@
                     readonly
                     name="surl"
                     id="surl"
-                    value="http://localhost:8081/paymentResponse"
+                    value="https://citrineindia.herokuapp.com/paymentResponse"
                     v-show="false"
                   ></v-text-field>
                 </v-col>
@@ -213,7 +213,7 @@
                     readonly
                     id="furl"
                     name="furl"
-                    value="http://localhost:8081/paymentResponse"
+                    value="https://citrineindia.herokuapp.com/paymentResponse"
                     v-show="false"
                   ></v-text-field>
                 </v-col>
@@ -224,7 +224,7 @@
                     readonly
                     id="curl"
                     name="curl"
-                    value="http://localhost:8081/paymentResponse"
+                    value="https://citrineindia.herokuapp.com/paymentResponse"
                     v-show="false"
                   ></v-text-field>
                 </v-col>
@@ -436,9 +436,9 @@ export default {
     email: this.user.email,
     phone: this.contactInfo.phone,
     udf5: this.udf5, // particular to a payment
-    surl: "http://localhost:8081/paymentResponse",
-    furl: "http://localhost:8081/paymentResponse",
-    curl: "http://localhost:8081/paymentResponse",
+    surl: "https://citrineindia.herokuapp.com/paymentResponse",
+    furl: "https://citrineindia.herokuapp.com/paymentResponse",
+    curl: "https://citrineindia.herokuapp.com/paymentResponse",
     }
     const obj = (await paymentServices.hash(payload)).data;
     this.hash = obj.hash
