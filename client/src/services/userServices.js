@@ -3,7 +3,7 @@ import Api from '../services/api'
 export default{
   
   index (search, page) {
-    return Api().get('admin/users', {
+    return Api().get('admin/users/get', {
       params: {
         page,
         search: search

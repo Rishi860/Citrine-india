@@ -29,7 +29,7 @@
         <v-col cols="12" sm="4">
           <v-img
             src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/jewelery/rings.jpeg"
-            @click="navigateTo({name:'store', params:{item:'ring'}})"
+            @click="navigateTo({name:'store', params:{item:'rings'}})"
             aspect-ratio="0.7479"
           ></v-img>
           <v-img

@@ -157,6 +157,9 @@ export default {
     }
   },
   async mounted () {
+    if (!this.$store.state.isUserLoggedin) {
+      this.$router.push({name: 'login'})
+    }
     const pname = this.$route.params.pname
     this.displayProduct = (await CatalogServices.productAndRelated(pname)).data
     console.log(this.displayProduct)

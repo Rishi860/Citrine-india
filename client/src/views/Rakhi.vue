@@ -9,18 +9,18 @@
       color="#F0F0F2"
     ></v-toolbar>
     <div class="text-center white--text" id="headingText">
-      <p class="pt-3">RAKHI</p>
+      <p class="pt-3">Rakhi Category</p>
     </div>
     <v-container class="mt-16">
       <v-row>
         <v-col cols="12" sm="4">
           <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA8.jpg"
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA229.jpg"
             @click="navigateTo({name:'rakhistore', params:{item:'Bracelet'}})"
             aspect-ratio="0.7479"
           ></v-img>
           <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA1091.jpg"
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA221.jpg"
             @click="navigateTo({name:'rakhistore', params:{item:'Mauli'}})"
             aspect-ratio="0.7479"
             class="mt-4"
@@ -42,7 +42,7 @@
         </v-col>
         <v-col cols="12" sm="4">
           <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA192.jpg"
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA490.jpg"
             @click="navigateTo({name:'rakhistore', params:{item:'chuda'}})"
             aspect-ratio="0.7479"
           ></v-img>

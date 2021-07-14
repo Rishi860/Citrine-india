@@ -28,7 +28,7 @@
             <v-card-actions class="mx-auto">
               <v-row>
                 <v-col md="2"></v-col>
-                <v-col cols="12" md="4">
+                <v-col xs="6" md="4">
                   <v-btn
                     large
                     class="ma-2 #25181D--text elevation-2"
@@ -42,7 +42,7 @@
                     Log In
                   </v-btn>
                 </v-col>
-                <v-col cols="12" md="4">
+                <v-col xs="6" md="4">
                   <v-btn
                     large
                     color="#25181D"

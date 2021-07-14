@@ -5,7 +5,7 @@
       dense
       flat
       height="105px"
-      color="rgba(37, 24, 29, 1)"
+      color="#F0F0F2"
     ></v-toolbar>
     <v-card flat height="100vh">
     <v-divider></v-divider>

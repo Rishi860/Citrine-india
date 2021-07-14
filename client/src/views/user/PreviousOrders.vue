@@ -42,7 +42,7 @@
           </v-expand-transition>
         </v-card>
       </div>
-      <v-card flat color="rgba(240, 240, 242, 1)" class="track_order text-center" v-else>
+      <v-card width="494.8px" height="365.15px" flat color="rgba(240, 240, 242, 1)" class="track_order text-center" v-else>
         <v-img class="ml-6" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/orderHistory.png" aspect-ratio="1.355" width="494.8px" height="365.15px"></v-img>
         <p id="hist">You have no order history</p>
       </v-card>

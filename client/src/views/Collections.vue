@@ -1,62 +1,71 @@
 <template>
-  <v-sheet
-    color= "rgba(240, 240, 242, 1)"
+  <v-card
+    class="overflow-hidden"
+    height="100vh"
+    flat
   >
-    <v-toolbar
-      dense
-      flat
-      height="80px"
-      color="#F0F0F2"
-    ></v-toolbar>
-    <div class="text-center white--text" id="headingText">
-      <p class="pt-3">COLLECTIONS</p>
-    </div>
-    <v-container
-      style="height: 1500px;"
-      class="rgba(240, 240, 242, 1)"
+    <v-sheet
+      id="scrolling-techniques-7"
+      color= "rgba(240, 240, 242, 1)"
+      class="overflow-y-auto"
+      height="100vh"
     >
-      <v-row
-        no-gutters
-        class="mt-10"
-      >
-        <v-col
-          v-for="doc in data.docs"
-          :key="doc"
-          class="ml-3 mb-3"
-        >
-          <v-card
-            elevation="4"
-            width="216px"
-            class="mx-auto"
-            @click="navigateTo({
-              name:'collectionType',
-              params:{
-                cName: doc.name
-              }
-            })"
-          >
-            <v-img
-              :src="doc.image"
-              class="white--text align-end"
-              height="288px"
-              width="216px"
-              aspect-ratio="0.75"
-            >
-              <v-card-title v-text="doc.name"></v-card-title>
-            </v-img>
-          </v-card>
-        </v-col>
-      </v-row>
-      <div class="text-center mt-5">
-        <v-pagination
-          v-model="data.page"
-          :length="length"
-          circle
-          @input="getProducts"
-        ></v-pagination>
+      <v-toolbar
+        dense
+        flat
+        height="80px"
+        color="#F0F0F2"
+      ></v-toolbar>
+      <div class="text-center white--text" id="headingText">
+        <p class="pt-3">COLLECTIONS</p>
       </div>
-    </v-container>
-  </v-sheet>
+      <v-container
+        style="height: 1500px;"
+        class="rgba(240, 240, 242, 1)"
+      >
+        <v-row
+          no-gutters
+          class="mt-10"
+        >
+          <v-col
+            v-for="doc in data.docs"
+            :key="doc"
+            class="ml-3 mb-3"
+          >
+            <v-card
+              elevation="4"
+              width="216px"
+              class="mx-auto"
+              @click="navigateTo({
+                name:'collectionType',
+                params:{
+                  cName: doc.name
+                }
+              })"
+            >
+              <v-img
+                :src="doc.image"
+                class="white--text align-end"
+                height="288px"
+                width="216px"
+                aspect-ratio="0.75"
+              >
+                <v-card-title v-text="doc.name"></v-card-title>
+              </v-img>
+            </v-card>
+          </v-col>
+        </v-row>
+        <div class="text-center mt-5">
+          <v-pagination
+            v-model="data.page"
+            :length="length"
+            circle
+            @input="getProducts"
+          ></v-pagination>
+        </div>
+      </v-container>
+    </v-sheet>
+  </v-card>
 </template>
 
 <script>

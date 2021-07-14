@@ -172,8 +172,7 @@
                   cols="12"
                 >
                   <v-text-field
-                    type="submit"
-                    value="Pay"
+                    value="Payments Will be enabled soon :)"
                     outlined
                     color="rgba(240, 240, 242, 1)"
                   >

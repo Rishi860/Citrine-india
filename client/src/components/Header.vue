@@ -37,12 +37,7 @@
       <v-btn
         icon
         class="hidden-sm-and-down"
-        @click="navigateTo({
-          name:'cart',
-          params:{
-            user:$store.state.user.name
-          }
-        })"
+        @click="routeChange('cart')"
       >
         <v-badge
           color="transparent"
@@ -82,7 +77,7 @@
           <v-list-item
             v-for="item in menuItems"
             :key="item.title"
-            @click="navigateTo({name:item.link})"
+            @click="routeChange(item.link)"
             id="changefont"
           >
             <v-list-item-title>
@@ -113,6 +108,22 @@
           this.bg = 'transparent';
         }
       },
+      routeChange(routeName) {
+        if (routeName == 'cart') {
+          if (!this.$store.state.isUserLoggedin) {
+            this.navigateTo({name: 'login'})
+          } else {
+            this.navigateTo({
+              name: 'cart',
+              params:{
+                user: this.$store.state.user.name
+              }
+            })
+          }
+        } else {
+          this.navigateTo({name: routeName})
+        }
+      }
     },
     data: () => ({
       bg:null,
@@ -124,6 +135,7 @@
         {icon:'mdi-store',title:'Your Cart',link:"cart"},
         {icon:'mdi-account',title: "Our Collections",link:"collections"},
         {icon:'mdi-account',title:'Jewellery',link:"jewelry"},
+        {icon:'mdi-account',title:'About Us',link:"about"},
       ],
        admins: [
         'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',

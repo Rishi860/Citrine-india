@@ -5,7 +5,7 @@ export default{
     return Api().get('collection/all')
   },
   index (search, page) {
-    return Api().get('collections', {
+    return Api().get('getcollections', {
       params: {
         page,
         search: search

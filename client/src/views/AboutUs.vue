@@ -79,8 +79,8 @@ export default {
      data () {
       return {
         imagesouce : [
-            "https://citrine-india-site.s3.ap-south-1.amazonaws.com/about1.png",
-            "https://citrine-india-site.s3.ap-south-1.amazonaws.com/about2.png",
+            "https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/aboutradhey.png",
+            "https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/aboutchinky.png",
         ],
       }
     },

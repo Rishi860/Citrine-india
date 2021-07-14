@@ -16,7 +16,7 @@
         color="#F0F0F2"
       ></v-toolbar>
       <div class="text-center white--text" id="headingText">
-        <p class="pt-3">Rings</p>
+        <p class="pt-3">{{ jewelType }}</p>
       </div>
       <v-container
         style="height: 1500px;"
@@ -36,7 +36,7 @@
                 aspect-ratio="0.7619"
                 width="256px"
                 height="336px"
-                @click="navigateTo({name:'shopnow', params:{pname: doc.name}})"
+                @click="shopnowpage(doc.name)"
               >
                 <v-app-bar
                   flat
@@ -102,8 +102,8 @@ export default {
     addedToCart: false
   }),
   computed: {
-    collectionName: function () {
-      return this.$route.params.cName
+    jewelType: function () {
+      return this.$route.params.item
     }
   },
   async mounted (){
@@ -142,6 +142,12 @@ export default {
           quantity: 1,
         }
       })
+    },
+    shopnowpage(name){
+      if (!this.$store.state.isUserLoggedin) {
+        this.$router.push({name:'login'})
+      }
+      this.navigateTo({name:'shopnow', params:{pname: name}})
     }
   }
 }

@@ -129,9 +129,9 @@
             height="230px"
           >
             <v-img contain wdith="217px" height="143px" aspect-ratio="1.517" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Rectangle+58collection2.png"></v-img>
-            <v-img id="coll3--mb" contain wdith="187px" height="158px" aspect-ratio="1.18" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/collpicbottomup.png"></v-img>
-            <v-img id="coll4--mb" width="80px" height="123px" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/collecpicmidup.png"></v-img>
-            <v-img id="coll5--mb" aspect-ratio="0.9029" height="108px" width="97px" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/collpictopup.png"></v-img>
+            <v-img id="coll3--mb" contain @click="navigateTo({name:'collections'})" wdith="187px" height="158px" aspect-ratio="1.18" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/collpicbottomup.png"></v-img>
+            <v-img id="coll4--mb" width="80px" @click="navigateTo({name:'collections'})" height="123px" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/collecpicmidup.png"></v-img>
+            <v-img id="coll5--mb" aspect-ratio="0.9029" @click="navigateTo({name:'collections'})" height="108px" width="97px" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/collpictopup.png"></v-img>
           </v-card>
         </v-col>
         <v-col xs='1'></v-col>
@@ -147,9 +147,9 @@
             height="230px"
           >
             <v-img contain wdith="217px" height="143px" aspect-ratio="1.517" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Rectangle+58collection2.png"></v-img>
-            <v-img id="coll3--mb" contain wdith="187px" height="158px" aspect-ratio="1.18" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/collpicbmbm.png"></v-img>
-            <v-img id="coll4--mb" width="80px" height="123px" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/collpicmidbm.png"></v-img>
-            <v-img id="coll5--mb" aspect-ratio="0.9029" height="108px" width="97px" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/collpictopbm.png"></v-img>
+            <v-img id="coll3--mb" contain wdith="187px" @click="navigateTo({name:'collections'})" height="158px" aspect-ratio="1.18" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/collpicbmbm.png"></v-img>
+            <v-img id="coll4--mb" width="80px" height="123px" @click="navigateTo({name:'collections'})" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/collpicmidbm.png"></v-img>
+            <v-img id="coll5--mb" aspect-ratio="0.9029" height="108px" @click="navigateTo({name:'collections'})" width="97px" src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/collpictopbm.png"></v-img>
           </v-card>
         </v-col>
         <v-col xs="1"></v-col>

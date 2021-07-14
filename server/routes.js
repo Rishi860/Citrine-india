@@ -25,7 +25,7 @@ module.exports = (app) => {
     app.delete('/admin/remove/img', ProductControllers.deleteImage)
     // app.delete('/admin/product/delete', ProductControllers.deleteProduct)
 
-    app.get('/admin/users', UserControllers.indexPaginated)
+    app.get('/admin/users/get', UserControllers.indexPaginated)
     app.get('/admin/users/:id', UserControllers.user)
     app.post('/admin/user/changerole', UserControllers.changeRole)
 
@@ -45,6 +45,6 @@ module.exports = (app) => {
     app.post('/paymentResponse', PaymentControllers.response)
 
     app.get('/collection/all', CollectionControllers.all)
-    app.get('/collections', CollectionControllers.indexPaginated)
+    app.get('/getcollections', CollectionControllers.indexPaginated)
     app.post('/admin/create/newcollection', store.array('imageFiles', 12), CollectionControllers.newCollection)
 }

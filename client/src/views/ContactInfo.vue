@@ -130,7 +130,6 @@ export default {
   }),
   methods: {
     checkout () {
-      console.log(this.user.name, 'asf')
       this.$store.dispatch('addContactInfo', this.contactInfo)
       this.$router.push({
         name:'checkout',
