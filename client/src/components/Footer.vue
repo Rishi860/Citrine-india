@@ -136,7 +136,6 @@
               @click="navigateTo({name:`${icons[i-1].name}`})"
             >
               <v-icon color="black">{{icons[i-1].image}}</v-icon>
-              {{ icons[i-1].name }}
             </v-btn>
           </v-col>
           <!-- <v-col md="1">

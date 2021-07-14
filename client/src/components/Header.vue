@@ -68,14 +68,16 @@
       ></v-app-bar-nav-icon>
     </v-app-bar>
     <!-- rgba(37, 24, 29, 1) -->
-    <v-navigation-drawer v-model="sideNav" app class="hidden-md-and-up" color="rgba(240, 240, 242, 1)" right>
-      <!-- <v-container>
-        <v-row class="text-center mt-1 ml-3 ">
-            <v-icon size="50px">mdi-account-circle-outline</v-icon>
-            <p id="hellotext" >Hello bonker</p>
-        </v-row>
-      </v-container> -->
-      <v-list>
+    <v-navigation-drawer v-model="sideNav" app class="d-flex .d-flex d-sm-none" color="#25181D" right>
+      <v-list class="mt-10">
+        <v-list-item class="text-center">
+        <v-list-item-content>
+          <v-list-item-title class="text-h6">
+            <v-icon color="#F0F0F2" style="font-size: 50px;">mdi-account-circle</v-icon> 
+            <v-text class="text-h5" id="changefont">Hello</v-text>
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
         <v-list-item-group>
           <v-list-item
             v-for="item in menuItems"
@@ -87,15 +89,9 @@
               {{ item.title }}
             </v-list-item-title>
           </v-list-item>
-          <v-list-item
-            @click="navigateTo({name :'login'})"
-            id="changefont"
-          >
-            <v-list-item-title id="changefontcolor">Sign in/Sign Up</v-list-item-title>
-          </v-list-item>
         </v-list-item-group>
       </v-list>
-      <div class="text-center mt-10 " id="changefonttogara"><h1>Citrine</h1></div>
+      <div class="text-center mt-10 text-h3" id="changefonttogara">Citrine</div>
     </v-navigation-drawer>
   </div>
 </template>
@@ -123,10 +119,11 @@
       sideNav: false,
       cartCount: null,
       menuItems: [
-        {icon:'mdi-folder-open',title:'Collections'},
-        {icon:'mdi-account',title:'Profile'},
-        {icon:'mdi-store',title:'Sign Up'},
-        {icon:'mdi-account',title:'Sign In'},
+        {icon:'mdi-folder-open',title:'Home',link:"home"},
+        {icon:'mdi-account',title:'Account',link:"dashboard"},
+        {icon:'mdi-store',title:'Your Cart',link:"cart"},
+        {icon:'mdi-account',title: "Our Collections",link:"collections"},
+        {icon:'mdi-account',title:'Jewellery',link:"jewelry"},
       ],
        admins: [
         'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
@@ -190,14 +187,14 @@
     font-size: 24px;
     line-height: 100%;
     margin-left: 15px;
-    color:rgba(240, 240, 242, 1) !important;
+    color:#F0F0F2 !important;
   }
   #changefonttogara{
-  font-family: 'Cormorant Garamond', serif;
-  font-size:30px;
-  letter-spacing: -0.08em;
-  line-height: 133.7%;
-  color:rgba(240, 240, 242, 1);
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size:25px;
+    letter-spacing: -0.08em;
+    line-height: 133.7%;
+    color:#F0F0F2 !important;
   }
   #changefontcolor{
     color : rgba(251, 144, 18, 1) !important;

@@ -5,6 +5,11 @@
       <h1 class="hidden-md-and-up heading--home--mb">Deals</h1>
     </div>
     <v-sheet
+      class="hidden-xs-only"
+    >
+      
+    </v-sheet>
+    <v-sheet
       class="mx-auto hidden-sm-and-up"
       max-width="800"
       color="rgba(240, 240, 242, 1)"

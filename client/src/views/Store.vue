@@ -36,6 +36,7 @@
                 aspect-ratio="0.7619"
                 width="256px"
                 height="336px"
+                @click="navigateTo({name:'shopnow', params:{pname: doc.name}})"
               >
                 <v-app-bar
                   flat
@@ -61,9 +62,8 @@
                     class="buy--btn"
                     outlined
                     color="#25181D"
-                    @click="navigateTo({name:'shopnow', params:{pname: doc.name}})"
                   >
-                    Buy Now
+                    Rs {{ doc.retailPrice }}
                   </v-btn>
                 </v-card-title>
               </v-img>

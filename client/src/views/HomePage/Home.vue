@@ -8,9 +8,6 @@
     <div id="jewlery" class="mt-16">
       <jewlery></jewlery>
     </div>
-    <div id="deals" class="mt-6">
-      <deals></deals>
-    </div>
     <div id="collections" class="mt-16">
       <collections-vue></collections-vue>
     </div>
@@ -24,7 +21,6 @@
 import Jewlery from './Jewlery.vue'
 import HomeCarousel from './Carousel.vue'
 import CollectionsVue from './Collections.vue'
-import Deals from './Deals.vue'
 import CitrineWomen from './CitrineWomen.vue'
 
   export default {
@@ -65,7 +61,6 @@ import CitrineWomen from './CitrineWomen.vue'
       Jewlery,
       HomeCarousel,
       CollectionsVue,
-      Deals,
       CitrineWomen
     }
   }
