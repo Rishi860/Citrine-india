@@ -2,10 +2,15 @@
   <v-sheet
     color="rgba(240, 240, 242, 1)"
   >
-    <v-container>
-      <h2  class="text-center mt-4 mb-4">Title</h2>
-      <v-divider></v-divider>
-    </v-container>
+    <v-toolbar
+      dense
+      flat
+      height="80px"
+      color="#F0F0F2"
+    ></v-toolbar>
+    <div class="text-center white--text" id="headingText">
+      <p class="pt-3">Item</p>
+    </div>
     <v-container class="mt-12">
       <v-row class="mt-2">
         <v-card
@@ -160,6 +165,16 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+#headingText{
+  background-color:rgba(37, 24, 29, 1);
+  font-family: 'Montserrat', sans-serif;
+  font-weight : 500 !important;
+  height: 56px;
+  font-size: 24px;
+  line-height: 132%;
+}
 #radi{
   border-radius: 4px;
 }

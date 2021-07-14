@@ -20,6 +20,7 @@ import Jewelry from '../views/Jewelry.vue'
 import Store from '../views/Store.vue'
 import Rakhi from '../views/Rakhi.vue'
 import RakhiTypes from '../views/RakhiTypes.vue'
+import AboutUs from '../views/AboutUs.vue'
 
 Vue.use(VueRouter)
 
@@ -113,6 +114,11 @@ Vue.use(VueRouter)
     path:'/rakhi/:item',
     name : 'rakhistore',
     component: RakhiTypes
+  },
+  {
+    path:'/about',
+    name : 'about',
+    component: AboutUs
   },
 
   ...admin

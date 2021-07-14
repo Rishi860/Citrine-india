@@ -1,40 +1,42 @@
 <template>
-  <v-sheet
-    color= "rgba(240, 240, 242, 1)"
+  <v-card
+    class="overflow-hidden"
+    height="100vh"
+    flat
   >
-    <v-toolbar
-      dense
-      flat
-      height="80px"
-      color="rgba(37, 24, 29, 1)"
-    ></v-toolbar>
-    <div class="text-center white--text" id="headingText">
-      <p class="pt-2">{{ collectionName }}</p>
-    </div>
-    <v-container
-      style="height: 1500px;"
-      class="rgba(240, 240, 242, 1)"
+    <v-sheet
+      id="scrolling-techniques-7"
+      color= "rgba(240, 240, 242, 1)"
+      class="overflow-y-auto"
+      height="100vh"
     >
-      <v-row
-        no-gutters
-        class="mt-10"
+      <v-toolbar
+        dense
+        flat
+        height="80px"
+        color="#F0F0F2"
+      ></v-toolbar>
+      <div class="text-center white--text" id="headingText">
+        <p class="pt-2">{{ collectionName }}</p>
+      </div>
+      <v-container
+        style="height: 1500px;"
+        class="rgba(240, 240, 242, 1)"
       >
-        <v-col
-          v-for="doc in data.docs"
-          :key="doc"
-          class="ml-3 mb-3"
+        <v-row
+          no-gutters
+          class="mt-10"
         >
-          <v-card
-            elevation="4"
-            class="mx-auto"
-            width="216px"
-            height="288px"
+          <v-col
+            v-for="doc in dataa.docs"
+            :key="doc"
+            class="ml-3 mb-3"
           >
             <v-img
               :src="doc.image[0]"
-              aspect-ratio="0.75"
-              width="216px"
-              height="288px"
+              aspect-ratio="0.7619"
+              width="256px"
+              height="336px"
             >
               <v-app-bar
                 flat
@@ -43,6 +45,7 @@
                 <v-spacer></v-spacer>
 
                 <v-btn
+                  class="cart--btn"
                   fab
                   dark
                   color="rgba(37, 24, 29, 1)"
@@ -56,7 +59,7 @@
               
               <v-card-title>
                 <v-btn
-                  id="buyBtn"
+                  class="buy--btn"
                   outlined
                   color="#25181D"
                   @click="navigateTo({name:'shopnow', params:{pname: doc.name}})"
@@ -65,19 +68,20 @@
                 </v-btn>
               </v-card-title>
             </v-img>
-          </v-card>
-        </v-col>
-      </v-row>
-      <div class="text-center mt-5">
-        <v-pagination
-          v-model="data.page"
-          :length="length"
-          circle
-          @input="getProducts"
-        ></v-pagination>
-      </div>
-    </v-container>
-  </v-sheet>
+          </v-col>
+        </v-row>
+        <div class="text-center mt-5">
+          <v-pagination
+            v-model="dataa.page"
+            :length="length"
+            circle
+            @input="getProducts"
+            :total-visible="total_visible"
+          ></v-pagination>
+        </div>
+      </v-container>
+    </v-sheet>
+  </v-card>
 </template>
 
 <script>
@@ -87,7 +91,7 @@ import CartServices from '../services/cartServices'
 export default {
   data : ()=>({
     cart: null,
-    data: {
+    dataa: {
       docs: null,
       total: null,
       limit: null,
@@ -104,13 +108,18 @@ export default {
   },
   async mounted (){
     console.log(this.collectionName)
-    this.data = (await CatalogServices.index(this.collectionName)).data.data
-    this.length = this.data.pages
+    this.dataa = (await CatalogServices.index(this.collectionName,this.dataa.page)).data.data
+    this.length = this.dataa.pages
+    if (this.length >= 7) {
+      this.total_visible = 5
+    } else {
+      this.total_visible = this.length;
+    }
   },
   methods:{
     async getProducts(page){
-      this.data = (await CatalogServices.index('',page)).data.data
-      this.length = this.data.pages
+      this.dataa = (await CatalogServices.index(this.collectionName, page)).data.data
+      this.length = this.dataa.pages
     },
     navigateTo(route){
       this.$router.push(route)
@@ -147,8 +156,11 @@ export default {
   line-height: 132%;
   margin-top: 24px;
 }
-#buyBtn{
-  margin-top: 160px;
-  margin-left: 25px;
+.buy--btn{
+  margin-top: 210px;
+  border-radius: 32px;
+}
+.cart--btn{
+  opacity: 0.9;
 }
 </style>

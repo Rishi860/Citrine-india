@@ -7,10 +7,10 @@
       dense
       flat
       height="80px"
-      color="rgba(37, 24, 29, 1)"
+      color="#F0F0F2"
     ></v-toolbar>
-    <div class="text-center white--text mt-n4" id="headingText">
-      <p>MY ACCOUNT</p>
+    <div class="text-center white--text" id="headingText">
+      <p class="pt-3">MY ACCOUNT</p>
     </div>
     <v-container>
       <v-row>

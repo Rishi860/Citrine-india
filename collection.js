@@ -3,15 +3,17 @@ const Collection = require('./server/models/collections')
 
 async function createcoll(value,img) {
     try {
-        const doc = await Product.find({name:value});
-        let ids = doc.forEach(element => {
-            return element._id;
-        })
-        await Collection.create({
-            name:value,
-            image:img,
-            products: ids
-        })
+        const doc = await Product.find({name:"Bracelet Rakhi"});
+        let ids = []
+        doc.forEach(element => {
+      ids.push(element._id)
+      return element._id;
+  })
+  await Collection.create({
+    name:"Bracelet Rakhi",
+    image: 'https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA8.jpg',
+    products: ids,
+  })
     } catch (error) {
         console.log(error)
     }

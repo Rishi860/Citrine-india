@@ -157,13 +157,13 @@
 export default {
   data: () => ({
     keys: [
-      {name: 'Jewellery', link:'team'},
-      {name: 'Collections', link:'contactus'},
-      {name:'Deals', link:'tnc'},
+      {name: 'Jewellery', link:'jewelry'},
+      {name: 'Collections', link:'collections'},
+      {name:'Deals', link:'deals'},
       {name:'Trends', link:'tnc'},
-      {name:'About', link:'tnc'},
+      {name:'About', link:'about'},
       {name:'Terms & Conditions', link:'tnc'},
-      {name:'Shiping & Returns', link:'tnc'},
+      {name:'Shiping & Returns', link:'shipnreturn'},
     ],
     contactdetails :[
       {image:'mdi-phone' , text:'+91 9829558616 +91 9166469999'},

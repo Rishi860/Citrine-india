@@ -5,6 +5,9 @@
       <h1 class="hidden-md-and-up heading--home--mb">Deals</h1>
     </div>
     <v-sheet
+      class="mx-auto hidden-sm-and-up"
+      max-width="800"
+      color="rgba(240, 240, 242, 1)"
     >
       <v-slide-group
         v-model="model"
@@ -17,28 +20,6 @@
           :key="n"
           v-slot="{ active, toggle }"
         >
-          <v-card
-            :color="active ? undefined : 'grey lighten-1'"
-            class="ma-4"
-            height="200"
-            width="100"
-            @click="toggle"
-          >
-            <v-row
-              class="fill-height"
-              align="center"
-              justify="center"
-            >
-              <v-scale-transition>
-                <v-icon
-                  v-if="active"
-                  color="white"
-                  size="48"
-                  v-text="'mdi-close-circle-outline'"
-                ></v-icon>
-              </v-scale-transition>
-            </v-row>
-          </v-card>
           <v-card
             :color="active ? undefined : 'grey lighten-1'"
             class="ma-4"

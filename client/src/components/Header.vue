@@ -45,7 +45,7 @@
         })"
       >
         <v-badge
-          color="#F0F0F2"
+          color="transparent"
           :content="cartBadge"
         >
           <v-icon>
