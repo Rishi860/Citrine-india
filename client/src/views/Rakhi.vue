@@ -28,7 +28,7 @@
         </v-col>
         <v-col cols="12" sm="4">
           <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA143.jpg"
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA507.jpg"
             @click="navigateTo({name:'rakhistore', params:{item:'couple'}})"
             aspect-ratio="0.7479"
           ></v-img>
@@ -47,7 +47,7 @@
             aspect-ratio="0.7479"
           ></v-img>
           <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA545.jpg"
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA1054.jpg"
             @click="navigateTo({name:'rakhistore', params:{item:'kids'}})"
             aspect-ratio="0.7479"
             class="mt-4"
