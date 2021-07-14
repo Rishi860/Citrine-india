@@ -71,8 +71,8 @@
         <v-row class="mb-cara">
           <div class="carousel--text--mb">Touch of <br> Modernity!</div>
           <div class="carousel--subtext--mb">
-            You gotta have style. It helps you get down the stairs.
-            It helps you get up in the morning. It’s a way of life.
+            Our twist on Glam Rakhi’s with modern aesthetics and the beautiful motifs.
+            Each of these slip effortlessly into your Bond of Love 💕 
           </div>
         </v-row>
       </v-container>
