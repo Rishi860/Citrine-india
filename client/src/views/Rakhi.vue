@@ -18,25 +18,29 @@
             src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA229.jpg"
             @click="navigateTo({name:'rakhistore', params:{item:'Bracelet'}})"
             aspect-ratio="0.7479"
+            contain
           ></v-img>
           <v-img
             src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA221.jpg"
             @click="navigateTo({name:'rakhistore', params:{item:'Mauli'}})"
             aspect-ratio="0.7479"
             class="mt-4"
+            contain
           ></v-img>
         </v-col>
         <v-col cols="12" sm="4">
           <v-img
-            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA507.jpg"
+            src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA187.jpg"
             @click="navigateTo({name:'rakhistore', params:{item:'couple'}})"
             aspect-ratio="0.7479"
+            contain
           ></v-img>
           <v-img
             src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA439.jpg"
             @click="navigateTo({name:'rakhistore', params:{item:'kundan'}})"
             aspect-ratio="0.7479"
             class="mt-4"
+            contain
           >
           </v-img>
         </v-col>
@@ -45,12 +49,14 @@
             src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA490.jpg"
             @click="navigateTo({name:'rakhistore', params:{item:'chuda'}})"
             aspect-ratio="0.7479"
+            contain
           ></v-img>
           <v-img
             src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/rakhi/CRA1054.jpg"
             @click="navigateTo({name:'rakhistore', params:{item:'kids'}})"
             aspect-ratio="0.7479"
             class="mt-4"
+            contain
           ></v-img>
         </v-col>
       </v-row>
