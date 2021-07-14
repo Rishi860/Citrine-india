@@ -21,7 +21,7 @@ sync(store, router)
 Vue.use(Vuelidate)
 
 const gauthOption = {
-  clientId: '643638695088-abgs8j26a2s3so67gnroh5606g2lp8je.apps.googleusercontent.com',
+  clientId: process.env.VUE_APP_GOOGLE_CLIENT_ID,
   scope: 'profile email',
   prompt: 'select_account'
 }
