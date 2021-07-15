@@ -18,6 +18,15 @@ export default{
   },
   changeRole (id, role) {
     return Api().post('admin/user/changerole', {id, role})
+  },
+  createLink (id) {
+    return Api().post('user/paylink/update', {id})
+  },
+  getPaylinkReq (userId) {
+    return Api().get(`admin/paylink/data/${userId}`)
+  },
+  payLinkSuccess(id) {
+    return Api().post('admin/paylink/success', {id})
   }
 }
 

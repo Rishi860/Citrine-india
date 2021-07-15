@@ -46,6 +46,19 @@
                 <v-list-item-title>Orders Placed</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
+            <v-list-item
+              link
+              @click="navigateTo({
+                name: 'adminuserpaylink',
+                params:{
+                  userId:spectatingUser._id
+                }
+              })"
+            >
+              <v-list-item-content>
+                <v-list-item-title>Payment link request</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
           </v-list>
         </v-navigation-drawer>
       </v-col>

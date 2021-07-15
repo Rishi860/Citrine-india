@@ -18,6 +18,7 @@
               aspect-ratio="0.525"
               id="radii"
               contain
+              @click="navigateTo({name: 'about'})"
             >
             </v-img>
           </v-col>
@@ -30,6 +31,7 @@
               src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/chinky.png"
               aspect-ratio="0.525"
               id="radii"
+              @click="navigateTo({name: 'about'})"
               contain
             >
             </v-img>
@@ -43,6 +45,11 @@
 
 <script>
 export default {
+  methods:{
+    navigateTo(route){
+      this.$router.push(route)
+    }
+  }
 }
 </script>
 

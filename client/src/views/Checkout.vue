@@ -19,7 +19,7 @@
         >
           <form
             id="payment-form"
-            action="https://secure.payu.in/_payment"
+            action="https://sandboxsecure.payu.in/_payment"
             method="post"
           >
             <v-container>
@@ -171,13 +171,13 @@
                 <v-col
                   cols="12"
                 >
-                  <v-text-field
-                    value="Payments Will be enabled soon :)"
+                  <v-btn
                     outlined
-                    color="rgba(240, 240, 242, 1)"
+                    color="#FB9012"
+                    @click="paylink(user._id)"
                   >
-
-                  </v-text-field>
+                    Genrate Payment Link
+                  </v-btn> 
                   <!-- <input
                     type="submit"
                     value="Pay"
@@ -201,7 +201,7 @@
                     readonly
                     name="surl"
                     id="surl"
-                    value="https://citrineindia.herokuapp.com/paymentResponse"
+                    value="http://localhost:8081/response"
                     v-show="false"
                   ></v-text-field>
                 </v-col>
@@ -212,7 +212,7 @@
                     readonly
                     id="furl"
                     name="furl"
-                    value="https://citrineindia.herokuapp.com/paymentResponse"
+                    value="http://localhost:8081/response"
                     v-show="false"
                   ></v-text-field>
                 </v-col>
@@ -223,7 +223,7 @@
                     readonly
                     id="curl"
                     name="curl"
-                    value="https://citrineindia.herokuapp.com/paymentResponse"
+                    value="http://localhost:8081/response"
                     v-show="false"
                   ></v-text-field>
                 </v-col>
@@ -382,6 +382,7 @@
 
 <script>
 import paymentServices from '../services/paymentServices'
+import userServices from '../services/userServices'
    
 export default {
   data: () => ({
@@ -435,9 +436,9 @@ export default {
     email: this.user.email,
     phone: this.contactInfo.phone,
     udf5: this.udf5, // particular to a payment
-    surl: "https://citrineindia.herokuapp.com/paymentResponse",
-    furl: "https://citrineindia.herokuapp.com/paymentResponse",
-    curl: "https://citrineindia.herokuapp.com/paymentResponse",
+    surl: "http://localhost:8081/response",
+    furl: "http://localhost:8081/response",
+    curl: "http://localhost:8081/response",
     }
     const obj = (await paymentServices.hash(payload)).data;
     this.hash = obj.hash
@@ -446,6 +447,18 @@ export default {
   methods:{
     navigateTo(route){
       this.$router.push(route)
+    },
+    async paylink(id){
+      if (confirm('Are you sure you want to genrate payment link?')) {
+        const res = (await userServices.createLink(id)).data
+        if (res.success) {
+          alert(`${res.msg}`)
+          this.navigateTo({name: 'home'})
+        }
+        if (!res.success) {
+          alert('Link generation failed!')
+        }
+      }
     }
   }
 }

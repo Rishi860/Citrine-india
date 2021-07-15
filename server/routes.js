@@ -12,6 +12,9 @@ module.exports = (app) => {
     UserControllers.login)
     app.get('/dashboard/previousorders/:id',
     UserControllers.previousOrders)
+    app.post('/user/paylink/update', UserControllers.paylink)
+    app.get('/admin/paylink/data/:id', UserControllers.getPayLinkData)
+    app.post('/admin/paylink/success', UserControllers.paylinkSuccess)
     // app.get('/login/:id',
     // UserControllers.getCart)
 

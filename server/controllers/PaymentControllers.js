@@ -99,7 +99,7 @@ module.exports = {
       
       const options = {
         method: 'POST',
-        uri: 'https://secure.payu.in/merchant/postservice.php?form=2',
+        uri: 'https://test.payu.in/merchant/postservice.php?form=2',
         form: {
           key: key,
           hash: vhash,
@@ -154,16 +154,21 @@ module.exports = {
       })
     }
   },
-  async amountCheck (id) {
+  async amountCheck (email, cartId) {
     try {
-      const cartDetails = await Cart.findOne({_id:id, active:true})
+      const {role} = await User.findOne({email})
+      const cartDetails = await Cart.findOne({_id:cartId})
       const doc = await ProductControllers.getCartItems(cartDetails.cart)
-      let cartTotal = 0;
+      let amount = 0;
       doc.forEach(item => {
-        subTotal = item.product.retailPrice*item.quantity; // will apply if according to wholesaler or retailer
-        cartTotal += subTotal
+        if (role === 'customer') {
+          subTotal = item.product.retailPrice*item.quantity;
+        } else {
+          subTotal = item.product.wholesalePrice*item.quantity;
+        }
+        amount += subTotal
       })
-      return cartTotal
+      return amount
     } catch (error) {
         console.log(error)
     }

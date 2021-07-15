@@ -30,7 +30,7 @@ exports.indexPaginated = async function (req, res) {
       const re = new RegExp(`${query}.*`, "i");
       re.ignoreCase = true;
       searchObject = {
-        $or: [{ name: re }, { collections: re }, { category: re }],
+        $or: [{ category: re }],
       };
     }
 

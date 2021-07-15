@@ -14,18 +14,40 @@
             <v-col cols="1" class="mt-4">
               <v-icon id="changeimagesize" color="black">mdi-phone</v-icon>
             </v-col>
-            <v-col cols="8" class="ml-n5">
-              <v-col class="black--text"><p id="changesize">+919829558616</p><p id="changesize">+919829558616</p></v-col>
+            <v-col cols="7" class="ml-n5">
+              <v-col class="black--text"><p id="changesize">+919829558616</p><p id="changesize">+919166469999</p></v-col>
             </v-col>
-            <v-col cols="1" class="mr-4 mt-4" ><v-icon id="changeimagesize">mdi-instagram</v-icon></v-col>
-            <v-col cols="1" class="mt-4"><v-icon id="changeimagesize">mdi-facebook</v-icon></v-col>
+            <v-col cols="1" class="mr-4 mt-4" >
+              <v-btn
+                icon
+                href="https://www.instagram.com/citrineindia/"
+              >
+                <v-icon id="changeimagesize">mdi-instagram</v-icon>
+              </v-btn>
+            </v-col>
+            <v-col cols="1" class="mt-4 mr-4">
+              <v-btn
+                icon
+                href="https://www.facebook.com/citrinejaipur"
+              >
+                <v-icon id="changeimagesize">mdi-facebook</v-icon>
+              </v-btn>
+            </v-col>
+            <v-col cols="1" class="mt-4">
+              <v-btn
+                icon
+                href="https://wa.me/919166469999"
+              >
+                <v-icon id="changeimagesize">mdi-whatsapp</v-icon>
+              </v-btn>
+            </v-col>
           </v-row>
           <v-row class="mt-n10">
             <v-col cols="1" class="mt-1">
               <v-icon id="changeimagesize">mdi-email</v-icon>
             </v-col>
             <v-col cols="11" class="ml-n5">
-              <v-col><p id="changesize">hello@citrineindia.com</p></v-col>
+              <v-col><p id="changesize">hello@citrineindia.in</p></v-col>
             </v-col>
           </v-row>
           <v-row class="mt-n10">
@@ -40,12 +62,14 @@
             <v-btn
               text
               id="changesize"
+              @click="navigateTo({name:'tnc'})"
             >
-              Terms & Counditions
+              Terms & Conditions
             </v-btn>
             <v-btn
               text 
               id="changesize"
+              @click="navigateTo({name: 'shipnreturn'})"
             >
               Shiping & Returns
             </v-btn>
@@ -132,8 +156,8 @@
               v-for="i in 3 "
               :key="i"
               icon
+              :href='icons[i-1].url'
               class="mr-10 mb-3 footer--btn float-right"
-              @click="navigateTo({name:`${icons[i-1].name}`})"
             >
               <v-icon color="black">{{icons[i-1].image}}</v-icon>
             </v-btn>
@@ -170,9 +194,9 @@ export default {
       {image:'mdi-map-marker' , text:'7,Desh Bhushan Nagar, Delhi Bypass Road , Jaipur-302003'},
     ],
     icons:[
-      {name : 'Facebook' , image:'mdi-facebook'},
-      {name : 'Instagram' , image:'mdi-instagram'},
-      {name : 'WhatsApp' , image:'mdi-whatsapp'},
+      {name : 'Facebook' , image:'mdi-facebook', url:'https://www.facebook.com/citrinejaipur'},
+      {name : 'Instagram' , image:'mdi-instagram', url:'https://www.instagram.com/citrineindia/'},
+      {name : 'WhatsApp' , image:'mdi-whatsapp', url: 'https://wa.me/919166469999'},
     ]
   }),
   methods:{
@@ -225,7 +249,6 @@ export default {
   display: flex;
   align-items: center;
   letter-spacing: -0.2px;
-  text-transform: capitalize;
 
   /* Prime Dark */
 
@@ -241,14 +264,14 @@ export default {
 }
 
 #changefonttogara{
-    font-family: 'Cormorant Garamond', serif !important;
-    font-style: normal !important;;
-    font-weight: 700 !important;
-    font-size: 10px !important;
-    line-height: 9px !important;
-    letter-spacing: -0.5px !important;
-      text-transform: lowercase !important;
-    color: #022331 !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-style: normal !important;;
+  font-weight: 700 !important;
+  font-size: 10px !important;
+  line-height: 9px !important;
+  letter-spacing: -0.5px !important;
+  text-transform: lowercase !important;
+  color: #022331 !important;
   
 }
 .footer--btn{

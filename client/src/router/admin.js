@@ -8,6 +8,7 @@ import AdminCatalogEdit from '../views/admin/Catalog/Edit.vue'
 import ViewUser from '../views/admin/Users/ViewUser.vue'
 import NewCollection from '../views/admin/Catalog/NewCollection.vue'
 import PrevOrderView from '../views/admin/Users/PrevOrderView'
+import PayLink from '../views/admin/Users/PayLink'
 
 export default [
   {
@@ -51,6 +52,12 @@ export default [
     path: '/admin/users/:userId/pastorder',
     name: 'adminuserpast',
     component: PrevOrderView,
+  }
+  ,
+  {
+    path: '/admin/users/:userId/paymentlinks',
+    name: 'adminuserpaylink',
+    component: PayLink,
   }
 ]
 

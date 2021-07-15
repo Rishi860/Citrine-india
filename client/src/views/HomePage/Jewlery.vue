@@ -30,7 +30,7 @@
               src="https://citrine-india-site.s3.ap-south-1.amazonaws.com/Homepage/earings.png"
               aspect-ratio="1.282"
               class="mt-4 change--cursor"
-              @click="navigateTo({name:'store', params:{item:'earings'}})"
+              @click="navigateTo({name:'store', params:{item:'earing'}})"
             >
                 <v-fade-transition>
                   <v-overlay

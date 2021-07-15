@@ -1,6 +1,11 @@
 const User = require('../models/Users')
+const Links = require('../models/Link')
+const Cart = require('../models/Cart')
 const GoogleAuth = require("../controllers/GoogleAuth");
 const TransactionControllers = require('../controllers/TransactionControllers');
+const CartControllers = require('../controllers/CartControllers');
+const PaymentControllers = require('./PaymentControllers');
+const ProductControllers = require('./ProductControllers')
 
 module.exports = {
   async register (req, res) {
@@ -94,4 +99,63 @@ module.exports = {
       })
     }
   },
+  async paylink (req, res) {
+    try {
+      const _id = req.body.id
+      console.log("needed",_id)
+      const userCart = await Cart.findOne({customer: _id, active:true});
+      await Links.create({
+        customer: _id,
+        cartId: userCart._id,
+        activated: true,
+        active: true
+      })
+      await CartControllers.setActiveFalse(userCart._id)
+      res.send({success: true, msg:'Your payment link will be sent to your email ID'})
+    } catch (error) {
+      console.log(error)
+      res.status(400).send({
+        error: 'Server error! Kindly retry after some time.',
+        success: false
+      })
+    }
+  },
+  async getPayLinkData (req, res) {
+    try {
+      const userId = req.params.id;
+      const { name, email} = await User.findOne({_id: userId})
+      let paylinkData = await Links.find({customer: userId})
+      let amount = [];
+      let userCart = paylinkData.map(async (element) => {
+        let cartData = await Cart.findOne({_id: element.cartId})
+        amount.push(await PaymentControllers.amountCheck(email, element.cartId))
+        retValue = await ProductControllers.getCartItems(cartData.cart)
+        return retValue
+      })
+      return Promise.all(userCart).then(end => {
+        let userData = {name, email, amount}
+        let payload = {paylinkData, userCart: end, userData}
+        res.send(payload)
+      })
+      
+    } catch (error) {
+      console.log(error)
+      res.status(400).send({
+        error: 'Server error! Kindly retry after some time.'
+      })
+    }
+  },
+  async paylinkSuccess(req, res) {
+    try {
+      const paylinkId = req.body.id;
+      let paylinkDoc = await Links.findOne({_id: paylinkId})
+      paylinkDoc.activated = false;
+      await paylinkDoc.save();
+    } catch (error) {
+      console.log(error)
+      res.status(400).send({
+        error: 'Server error! Kindly retry after some time.'
+      })
+    }
+  }
 }
