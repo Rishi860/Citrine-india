@@ -22,15 +22,17 @@ exports.upload = async function (req, res) {
 
 exports.indexPaginated = async function (req, res) {
   try {
+    console.log('in')
     const query = req.query.search
     const page = req.query.page
     let searchObject = {};
+    console.log(query)
 
     if (query) {
       const re = new RegExp(`${query}.*`, "i");
       re.ignoreCase = true;
       searchObject = {
-        $or: [{ category: re }],
+        $or: [{ name: re }, { collections: re }, { category: re }],
       };
     }
 
